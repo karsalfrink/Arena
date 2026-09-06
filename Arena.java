@@ -12,10 +12,17 @@ import java.util.Comparator;
 public class Arena {
 
 	//--------------------------------------------------------------------------
+	//  Enumeration
+	//--------------------------------------------------------------------------
+
+	/** Treasure award models. */
+	public enum TreasureModel { Monster, Dungeon, Assortment };
+
+	//--------------------------------------------------------------------------
 	//  Constants
 	//--------------------------------------------------------------------------
 
-	/** Number of years to run the arena. */
+		/** Number of years to run the arena. */
 	private static final int DEFAULT_NUM_YEARS = 50;
 	
 	/** Number of fights for each man in a year. */	
@@ -32,6 +39,9 @@ public class Arena {
 
 	/** Default armor type fighters wear. */
 	private static final Armor.Type DEFAULT_ARMOR = Armor.Type.Plate;
+
+	/** Baseline XP per defeated monster EHD. */
+	private static final int BASE_XP_PER_EHD = 100;
 
 	//--------------------------------------------------------------------------
 	//  Fields
@@ -58,8 +68,8 @@ public class Arena {
 	/** Fight man vs. monster? */
 	private boolean fightManVsMonster;
 
-	/** Treasure award by monster type? */
-	private boolean useMonsterTreasureType;
+	/** Treasure award model. */
+	private TreasureModel treasureModel;
 
 	/** XP awards use revised table from Sup-I? */
 	private boolean useRevisedXPAwards;
@@ -90,6 +100,9 @@ public class Arena {
 
 	/** Create win percent matrix? */
 	private boolean makeWinPercentMatrix;
+
+	/** Award magic from treasure drops? */
+	private boolean awardMagicTreasureDrops;
 
 	/** Base armor type for fighters. */
 	private Armor.Type baseArmorType;
@@ -122,6 +135,7 @@ public class Arena {
 		fightsPerYear = DEFAULT_FIGHTS_PER_YEAR;
 		fighterPopSize = DEFAULT_NUM_FIGHTERS;
 		fighterPartySize = DEFAULT_PARTY_SIZE;
+		treasureModel = TreasureModel.Dungeon;
 		baseArmorType = DEFAULT_ARMOR;
 		Character.setPctMagicPerLevel(DEFAULT_PCT_MAGIC_PER_LEVEL);
 		typicalAlignment = Alignment.Neutral;
@@ -132,11 +146,11 @@ public class Arena {
 	/**
 		Constructor (set size, sim modes).
 	*/
-	public Arena(int numFighters, boolean manVsMon, boolean monTreas) {
+	public Arena(int numFighters, boolean manVsMon, TreasureModel treasMod) {
 		this();
 		this.fighterPopSize = numFighters;
 		this.fightManVsMonster = manVsMon;
-		this.useMonsterTreasureType = monTreas;
+		this.treasureModel = treasMod;
 	}
 
 	//--------------------------------------------------------------------------
@@ -166,6 +180,7 @@ public class Arena {
 		println("  where options include:");
 		println("\t-a apply aging effects");
 		println("\t-b base type of armor (=0-3, default 3)");
+		println("\t-d award magic treasure drops");
 		println("\t-e report every encounter");
 		println("\t-f fights per year (default =" 
 			+ DEFAULT_FIGHTS_PER_YEAR + ")");
@@ -180,7 +195,7 @@ public class Arena {
 		println("\t\td detailed data\t\tk monster kills");
 		println("\t\tt total monster kills\tx xp award ratios");
 		println("\t-s start level for fighters (default =0)");  
-		println("\t-t treasure awards by monster (default by dungeon)");
+		println("\t-t treasure model (m, d, or a)");
 		println("\t-u create matrix of win percentages");
 		println("\t-v man-vs-monster (default man-vs-man)");
 		println("\t-w use fighter sweep attacks (by level vs. 1 HD)");
@@ -201,6 +216,7 @@ public class Arena {
 				switch (s.charAt(1)) {
 					case 'a': Character.setApplyAgingEffects(true); break;
 					case 'b': setBaseArmorFromInt(getParamInt(s)); break;
+					case 'd': awardMagicTreasureDrops = true; break;
 					case 'e': reportEveryEncounter = true; break;
 					case 'f': fightsPerYear = getParamInt(s); break; 
 					case 'l': reportAllXPAwards = true; break;
@@ -209,7 +225,7 @@ public class Arena {
 					case 'p': FightManager.setPlayByPlayReporting(true); break;
 					case 'r': setReportingFromParamCode(s); break;
 					case 's': startLevel = getParamInt(s); break;
-					case 't': useMonsterTreasureType = true; break;
+					case 't': setTreasureModelFromParamCode(s); break;
 					case 'u': makeWinPercentMatrix = true; break;
 					case 'v': fightManVsMonster = true; break;
 					case 'w': Character.setSweepAttacks(true); break;
@@ -278,6 +294,23 @@ public class Arena {
 				default: exitAfterArgs = true;   
 			}
 		} 
+	}
+
+	/**
+		Set the treasure model for param char code.
+	*/
+	private void setTreasureModelFromParamCode(String s) {
+		if (s.length() >= 3) {
+			switch (s.charAt(2)) {
+				case 'm': treasureModel = TreasureModel.Monster; break;
+				case 'd': treasureModel = TreasureModel.Dungeon; break;
+				case 'a': treasureModel = TreasureModel.Assortment; break;
+				default: exitAfterArgs = true;
+			}
+		}
+		else {
+			exitAfterArgs = true;   
+		}
 	}
 
 	/**
@@ -373,10 +406,10 @@ public class Arena {
 			}
 			Monster chiefMonster = monsters.get(0); // for kill tally
 			manager.fight();
-			grantFightAwards(fighters, monsters, dungeonLevel);
 			if (fighter.horsDeCombat()) {
 				addToKillTally(chiefMonster);
 			}
+			grantFightAwards(fighters, monsters, dungeonLevel);
 		}
 	}
 
@@ -409,19 +442,20 @@ public class Arena {
 	/**
 		Get number of monsters for encounter (a la Vol-3, p. 11).
 
-		In tabletop practice, we would like to assume a party size of 4,
-		and roll 1d6 * dungeonLevel / monsterEHD (round to closest, possibly 0).
-		Note E(1d6) ~ expected nominal party size of 4.
-		Extra calculations here are to scale for different party sizes.
+		Standard number is 1d6 (avg 3.5 ~ 4) if monsters match dungeon level.
+		See the D&D pre-draft (1d6), and also M&TA (average 4 EHD per level).
+		In general this is NOT scaled to party size, but we do scale down here
+			for below-average party sizes (so we can simulate 1-1 man vs. monster).
+		We also scale for varying EHD monsters on different levels.
 	*/
 	private int getMonsterNumber(
 		Monster monster, int dungeonLevel, int numFighters) 
 	{
 		int roll = Dice.roll(6);
-		final int nominalParty = 4;
-		int numMonsters = (int) Math.round((double) 
-			roll * dungeonLevel * numFighters
-				/ (monster.getEHD() * nominalParty));
+		final double avgNumMonsters = 4;
+		double partyScale = Math.min((double) numFighters / avgNumMonsters, 1.0);
+		double dangerScale = (double) dungeonLevel / monster.getEHD();
+		int numMonsters = (int) Math.round(roll * partyScale * dangerScale);		
 		return numMonsters;
 	}
 
@@ -442,10 +476,17 @@ public class Arena {
 	*/
 	private void grantVictorAwards(Party victor, Party loser, int level) {
 
-		// Compute total awards 
+		// Get monster award
 		int monsterXP = partyFallenXPValue(loser);
-		int treasureXP = treasureValue(loser, level);
 		totalMonsterXP += monsterXP;
+
+		// Get treasure award
+		Treasure treas = new Treasure();
+		if (!loser.isLive()) {
+			treas = treasureDrop(loser, level);
+			distributeMagicTreasure(victor, treas);
+		}
+		int treasureXP = treas.getValue();
 		totalTreasureXP += treasureXP;
 
 		// Divide into shares per member
@@ -471,57 +512,67 @@ public class Arena {
 		for (int i = 0; i < party.sizeFallen(); i++) {
 			Monster monster = party.getFallen(i);
 			total += useRevisedXPAwards 
-				? xpt.getXPAward(monster) : monster.getEHD() * 100;
+				? xpt.getXPAward(monster) 
+				: monster.getEHD() * BASE_XP_PER_EHD;
 		}
 		return total; 
 	}
 
 	/**
-		Value of treasure award (nominally in gold pieces).
-		Conditional on using monster treasure type.
+		Get treasure dropped by a fallen party.
 	*/
-	private int treasureValue(Party party, int level) {
-		if (useMonsterTreasureType) {
-			return treasureValueByMonster(party);
+	private Treasure treasureDrop(Party party, int level) {
+		assert party.sizeFallen() > 0;
+		
+		// Mock dungeon level by character level
+		if (level < 0) {
+			level = party.getFallen(0).getLevel();
 		}
-		else {
-			return treasureValueByDungeon(party, level);
+		
+		// If 0-level, individual coins as Pirates (Vol-2, p. 23)
+		if (level == 0) {
+			Treasure treas = new Treasure();
+			treas.set(Treasure.Category.Gold, 
+				Dice.roll(2, 6) * party.sizeFallen());
+			return treas;
 		}
+
+		// Consult general treasure model
+		switch (treasureModel) {
+			case Monster: return treasureByMonster(party);
+			case Dungeon: return treasureByDungeon(party, level);
+			case Assortment: return treasureByAssortment(party, level);
+			default: System.err.println("Unhandled treasure model");
+		}
+		return null;
 	}
 
 	/**
-		Get treasure value as per monster treasure type.
+		Get treasure as per Vol-2 monster treasure type.
 		(Recommended for wilderness encounters only.)
 	*/
-	private int treasureValueByMonster(Party party) {
-		if (party.sizeFallen() == 0) {
-			return 0;
-		}
-		else {
-			return party.sizeFallen() 
-				* party.getFallen(0).getTreasureValue();
-		}
+	private Treasure treasureByMonster(Party party) {
+		Monster boss = party.getFallen(0);
+		return boss.rollTreasureType(party.sizeFallen());
 	}
 
 	/**
-		Get treasure value as per level beneath surface.
+		Get treasure as per Vol-3 dungeon level.
 		(Officially valid for underworld only.)
 	*/
-	private int treasureValueByDungeon(Party party, int level) {
-		if (party.sizeFallen() == 0) {
-			return 0;
-		}
-		else {
-			if (level < 1) { // mock arena prize by leader level
-				level = Math.max(party.getFallen(0).getLevel(), 1);
-			}
-			return DungeonTreasureTable.getInstance()
-				.randomValueByLevel(level);
-		}
-	} 
+	private Treasure treasureByDungeon(Party party, int level) {
+		return DungeonTreasureTable.rollTreasureForLevel(level);
+	}
 
 	/**
-		Award XP and magic to one creature/character.
+		Get treasure as per Monster & Treasure Assortment system.
+	*/
+	private Treasure treasureByAssortment(Party party, int level) {
+		return AssortmentTreasureTable.rollTreasureForLevel(level);
+	}
+
+	/**
+		Award XP and possibly magic to one creature/character.
 	*/
 	private void awardXP(Monster monster, int xp) {
 
@@ -532,8 +583,52 @@ public class Arena {
 		// Check for level-up
 		if (monster.getLevel() > oldLevel) {
 			assert monster.getLevel() == oldLevel + 1;
-			monster.boostMagicItemsOneLevel();
+			if (!awardMagicTreasureDrops) {
+				monster.boostMagicItemsOneLevel();
+			}
 		}
+	}
+
+	/**
+  		Distribute magic item treasure to winning party.
+
+		For each magic item, offer it to several party members to take.
+	*/
+	private void distributeMagicTreasure(Party party, Treasure treas) {
+		if (awardMagicTreasureDrops) {
+			assert party.isLive();
+			int size = party.size();
+			int numMagic = treas.get(Treasure.Category.Magic);
+			for (int i = 0; i < numMagic; i++) {
+				ArrayList<Equipment> list = rollMagicItems();
+				for (Equipment item: list) {
+					for (int j = 0; j < size; j++) {
+						int rcvIdx = Dice.roll(size) - 1;
+						boolean taken = party.get(rcvIdx).takeEquipment(item);
+						if (taken) { break; }
+					}
+				}
+			}		
+		}	
+	}
+
+	/**
+		Roll for a magic item.
+		
+		Handles only fighter-based items.
+		Returns array in case of armor & shield sets.
+		Models limited part of magic items table in Vol-2.
+	*/
+	private ArrayList<Equipment> rollMagicItems() {
+		ArrayList<Equipment> list = new ArrayList<Equipment>();
+		int roll = Dice.rollPct();
+		if (roll <= 20) {
+			list.add(Weapon.randomMagicSword());
+		}
+		else if (roll <= 35) {
+			list.addAll(Armor.randomMagicArmor());
+		}
+		return list;
 	}
 
 	/**
@@ -573,7 +668,7 @@ public class Arena {
 			+ ", numYears " + numYears
 			+ ", fights/year " + fightsPerYear 
 			+ ", party size " + fighterPartySize
-			+ ", treasure by " + (useMonsterTreasureType ? "monster" : "dungeon")
+			+ ", treasure by " + treasureModel
 			+ "\n");
 	}
 
@@ -616,8 +711,10 @@ public class Arena {
 	*/
 	public void reportFighterStatistics() {
 		StatBin[] statBins = compileStatBins();
-		System.out.println("Level Number Age HPs Str Int Wis Dex Con Cha");
-		System.out.println("----- ------ --- --- --- --- --- --- --- ---");
+		System.out.println(
+			"Level Number Age HPs Str Int Wis Dex Con Cha W+ A+ S+");
+		System.out.println(
+			"----- ------ --- --- --- --- --- --- --- --- -- -- --");
 		int maxLevel = fighterList.getMaxLevels();
 		for (int level = 0; level <= maxLevel; level++) {
 			StatBin bin = statBins[level];
@@ -627,6 +724,9 @@ public class Arena {
 				for (Ability a: Ability.values()) {
 					System.out.print(String.format("%3.0f ", bin.getMeanAbility(a)));
 				}
+				System.out.print(String.format("%2.0f %2.0f %2.0f ",
+					bin.getMeanWeaponBonus(), bin.getMeanArmorBonus(), 
+					bin.getMeanShieldBonus()));
 				System.out.println();
 			}
 		}

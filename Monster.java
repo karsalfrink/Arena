@@ -298,6 +298,9 @@ public class Monster {
 	/** Add experience points (to override). */
 	public void addXP(int xp) { }
 
+	/** Take a new pice of equipment (to override). */
+	protected boolean takeEquipment(Equipment e) { return false; }
+
 	/** Lose a given piece of equipment (to override). */
 	protected void loseEquipment(Equipment e) { }
 	
@@ -401,7 +404,8 @@ public class Monster {
 			hasSpecial(SpecialType.Golem)
 			|| hasSpecial(SpecialType.Undead)
 			|| hasSpecial(SpecialType.Slime)
-			|| hasSpecial(SpecialType.BlankMind);
+			|| hasSpecial(SpecialType.BlankMind)
+			|| isIllusion();
 		return !nonSentient;
 	}
 
@@ -411,8 +415,16 @@ public class Monster {
 	public boolean isLivingType() {
 		boolean nonLiving =
 			hasSpecial(SpecialType.Golem)
-			|| hasSpecial(SpecialType.Undead);
+			|| hasSpecial(SpecialType.Undead)
+			|| isIllusion();
 		return !nonLiving;
+	}
+
+	/**
+		Is this monster really an illusion?
+	*/
+	public boolean isIllusion() {
+		return hasCondition(SpecialType.Illusion);	
 	}
 
 	/**
@@ -634,6 +646,7 @@ public class Monster {
 		checkSlowing(enemies);
 		if (checkAttachment()) { return true; }
 		if (checkManyEyesSalvo(enemies)) { return true; }
+		if (checkDroning(enemies)) { return true; }
 		return false;
 	}
 
@@ -645,6 +658,7 @@ public class Monster {
 		if (checkWebbing()) { return true; }
 		if (checkConfusion(friends)) { return true; }
 		if (checkSwallowed()) { return true; }
+		if (checkSlowAttacking()) { return true; }
 		return false;
 	}
 
@@ -936,6 +950,18 @@ public class Monster {
 						}
 					}
 					break;
+
+				case DeathTouch:
+					if (!isLastAttack) {
+						throwCondition(target, SpecialType.Death);
+					}
+					break;
+
+				case FearTouch:
+					if (!isLastAttack) {
+						throwCondition(target, SpecialType.Fear);
+					}
+					break;
 					
 				default:
 					// Not a special on hit (silence style check).
@@ -961,6 +987,16 @@ public class Monster {
 			if (Dice.coinFlip()) {
 				target.throwCondition(this, SpecialType.SporeCloud);
 			}  
+		}
+		
+		// Check target explodes on hit
+		// Technically this should blow up whole party,
+		// but that's not accessible here.
+		if (target.hasSpecial(SpecialType.Exploding)) {
+			int numDice = target.getSpecialParam(SpecialType.Exploding);
+			int damage = Dice.roll(numDice, 6);
+			target.throwEnergy(this, damage, EnergyType.Other, 
+				SavingThrows.Type.Wands);
 		}
 	}
 
@@ -1159,9 +1195,7 @@ public class Monster {
 	*/
 	private void addCondition(SpecialType type) {
 		conditionList.add(type);
-		if (FightManager.getPlayByPlayReporting()) {
-			System.out.println(this.race + " takes condition " + type);
-		}
+		FightManager.report(this.race + " takes condition " + type);
 	}
 
 	/**
@@ -1169,9 +1203,7 @@ public class Monster {
 	*/
 	private void removeCondition(SpecialType type) {
 		conditionList.remove(type);
-		if (FightManager.getPlayByPlayReporting()) {
-			System.out.println(this.race + " loses condition " + type);
-		}
+		FightManager.report(this.race + " loses condition " + type);
 	}
 
 	/**
@@ -1304,10 +1336,8 @@ public class Monster {
 	*/
 	private void takeEnergyDamage(EnergyType energy, int damage) {
 		takeDamage(damage);
-		if (FightManager.getPlayByPlayReporting()) {
-			System.out.println(this.race + " takes damage from " 
-				+ energy + " (" + damage + " points)");
-		}
+		FightManager.report(this.race + " takes damage from " 
+			+ energy + " (" + damage + " points)");
 	}
 
 	/**
@@ -1672,13 +1702,13 @@ public class Monster {
 	/**
 		Compute maximum number of victims in a cone area.
 
-		Following red dragon breath, cone width is one-third the length.
+		Per Vol-2, all cone attacks have fixed 3" base width.
+		(See white dragon, red dragon, fear wand, etc.)
 		We assume that number of targets is same as area.
-		Hence: Targets = 1/2 * L * (1/3 * L) = L^2/6 (round up).
-		See AreasOfEffect experiment images for confirmation.
+		Hence: Targets = 1/2 * B * L = 3/2 * L (round up).
 	*/
 	private int getMaxVictimsInCone(int length) {
-		return length * length / 6 + 1;
+		return (int) (length * 3 / 2 + 1);
 	}
 
 	/**
@@ -1767,10 +1797,8 @@ public class Monster {
 			// Add the summoned types to party
 			if (minionType != null) {
 				party.addMonsters(minionType, minionNum);
-				if (FightManager.getPlayByPlayReporting()) {
-					System.out.println(getRace() + " summons "
-						+ minionType.getNameWithNum(minionNum));
-				}			
+				FightManager.report(getRace() + " summons "
+					+ minionType.getNameWithNum(minionNum));
 			}
 		}
 	}
@@ -1792,17 +1820,30 @@ public class Monster {
 	}
 
 	/**
+		Create a Phantasmal Force under our control.
+	*/
+	public void createPhantasm(Party party) {
+		String phanDesc = "Phantasm,1,9,12,1/6"
+			+ ",-,-,1,1d6,N,X,1,0.2,D,O,-";
+		Monster phantasm = new Monster(phanDesc.split(","));
+		phantasm.addCondition(SpecialType.Illusion);
+		phantasm.master = this;
+		this.puppet = phantasm;
+		party.queueIncoming(phantasm);
+	}
+
+	/**
 		Catch a dispel magic effect.
 	*/
 	public void catchDispel(Party party) {
 
 		// For brevity, assume this works 
-		// automatically vs. conjured creatures.
-		if (hasCondition(SpecialType.Conjuration)) {
+		// automatically vs. conjurations & illusions.
+		if (isIllusion()
+			|| hasCondition(SpecialType.Conjuration))
+		{
 			party.queueOutgoing(this);	
-			if (FightManager.getPlayByPlayReporting()) {
-				System.out.println(getRace() + " is dispelled");
-			}			
+			FightManager.report(getRace() + " is dispelled");
 		}
 	}
 
@@ -1877,13 +1918,25 @@ public class Monster {
 	}
 
 	/**
+		Check if slow attacking prevents us from an action.
+		@return true if we cannot fight
+	*/
+	private boolean checkSlowAttacking() {
+		if (hasSpecial(SpecialType.SlowAttacking)) {
+	
+			// We only attack every other round
+			return Dice.coinFlip();
+		}
+		return false;			
+	}
+
+	/**
 		Attach ourselves to some creature (e.g., blood drain).
 	*/
 	private void setHost(Monster host) {
 		this.host = host;
-		if (FightManager.getPlayByPlayReporting()) {
-			System.out.println(getRace() + " is attached to " + host.getRace());
-		}
+		FightManager.report(getRace() 
+			+ " is attached to " + host.getRace());
 	}
 
 	/**
@@ -2012,14 +2065,15 @@ public class Monster {
 	}
 
 	/**
-		Generate random treasure value by treasure type,
-		for one monster, scaled by nominal number appearing.
+		Roll a random treasure by treasure type,
+		for a given number of monsters of this type,
+		scaled by average number appearing.
 		(Recommended for wilderness encounters only.)
 	*/
-	public int getTreasureValue() {
-		int avgNum = numberAppearing.avgRoll();
-		return MonsterTreasureTable.getInstance()
-			.randomValueByCode(treasureType) / avgNum;
+	public Treasure rollTreasureType(int numMonsters) {
+		Treasure treas = MonsterTreasureTable.randomTreasureByCode(treasureType);
+		treas.scaleByRatio(numMonsters, numberAppearing.avgRoll());
+		return treas;
 	}
 
 	/**
@@ -2269,9 +2323,7 @@ public class Monster {
 		{
 			Spell spell = getBestAttackSpell(enemies, area);
 			if (spell != null) {
-				if (FightManager.getPlayByPlayReporting()) {
-					System.out.println(this.race + " casts " + spell);
-				}
+				FightManager.report(this.race + " casts " + spell);
 				spell.cast(this, friends, enemies);
 				wipeSpellFromMemory(spell);
 				return true;
@@ -2303,6 +2355,7 @@ public class Monster {
 		@return true if we cast a spell.
 	*/
 	private boolean checkCastSpellInMelee(Party friends, Party enemies) {
+		assert !checkConcentration();
 		return tryCastAttackSpell(friends, enemies, false);
 	}
 
@@ -2373,6 +2426,25 @@ public class Monster {
 	}
 
 	/**
+		Check for a droning attack.
+		- Say 2-in-6 to use this instead of melee.
+	*/
+	private boolean checkDroning(Party enemy) {
+		if (hasSpecial(SpecialType.Droning)) {
+			if (Dice.roll(6) <= 2) {
+				Monster target = enemy.random();
+				if (target != null) {
+					if (Dice.roll(10) > target.getLevel()) {
+						target.addCondition(SpecialType.Sleep);
+					}
+					return true;
+				}
+			}
+		}			
+		return false;
+	}	
+
+	/**
 		Get this monster's spell memory.
 	*/
 	public SpellMemory getSpellMemory() { 
@@ -2430,6 +2502,47 @@ public class Monster {
 			spellMemory.addByName("Ice Storm");
 		}
 		
+		// Demons
+		if (race.endsWith("Demon")) {
+			spellMemory.addByName("Darkness");
+
+			// Sub-types
+			if (race.startsWith("Type II ")) {
+				spellMemory.addByName("Fear");
+			}
+			else if (race.startsWith("Type III ")) {
+				spellMemory.addByName("Fear");
+				spellMemory.addByName("Dispel Magic");
+			}
+			else if (race.startsWith("Type IV ")) {
+				spellMemory.addByName("Dispel Magic");
+			}
+			else if (race.startsWith("Type V ")) {
+				spellMemory.addByName("Charm Person");
+			}
+			else if (race.startsWith("Type VI ")) {
+				spellMemory.addByName("Fear");
+				spellMemory.addByName("Dispel Magic");
+			}
+			else if (race.startsWith("Succubus")) {
+				spellMemory.addByName("Charm Person");
+			}
+			else if (race.startsWith("Bar-lgura")) {
+				spellMemory.addByName("Dispel Magic");
+			}
+		}
+
+		// Demon Princes
+		if (race.equals("Orcus") || race.equals("Demogorgon")) {
+			spellMemory.addByName("Fear");
+			spellMemory.addByName("Darkness");
+			spellMemory.addByName("Charm Person");
+			spellMemory.addByName("Displ Magic");
+			spellMemory.addByName("Charm Monster");
+			spellMemory.addByName("Feeblemind");
+			spellMemory.addByName("Polymorph Other");
+		}
+				
 		// Cleric class equivalences
 		// - We ignore these types here (post-melee recovery only)
 		if (race.equals("Lammasu") 
@@ -2556,7 +2669,10 @@ public class Monster {
 		Lose concentration when taking damage.
 	*/
 	private void loseConcentration() {
-		puppet = null;
+		if (puppet != null) {
+			puppet = null;
+			FightManager.report(getRace() + " loses concentration");
+		}
 	}
 
 	/**
@@ -2576,11 +2692,11 @@ public class Monster {
 		if (master != null) {
 			if (master.horsDeCombat() || master.puppet != this) {
 				master = null;
-				friends.queueOutgoing(this);
-				enemies.queueIncoming(this);
-				if (FightManager.getPlayByPlayReporting()) {
-					System.out.println(getRace() + " goes out of control");
-				}			
+				if (hasCondition(SpecialType.Conjuration)) {
+					friends.queueOutgoing(this);
+					enemies.queueIncoming(this);
+					FightManager.report(getRace() + " goes out of control");
+				}
 				return true;
 			}
 		}

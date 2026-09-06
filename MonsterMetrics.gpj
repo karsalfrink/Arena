@@ -17,12 +17,13 @@ s#j0
 s#l0
 !435;u
 a0	b68	c255	e%\\011Class-Fighter.csv\011%\\011Class-Thief.csv\011%\\011Class-Wizard.csv\011%\\011ClassIndex.csv\011%\\011GPL.txt\011%\\011MenTypes.csv\011%\\011MonsterDatabase.csv\011%\\011MonsterLevelMatrix.csv\011%\\011MonsterLevelMatrixRev.csv\011%\\011Names.csv\011%\\011SavingThrows.csv\011%\\011XPTable.csv	f%\011MonsterMetrics.jar	g%\011MonsterMetrics.zip	hManifest-Version\0111.0\011Main-Class\011MonsterMetrics	iMonsterMetrics!32;a
-a%\011MonsterMetrics_doc	b	c1	d0!668;g
+a%\011MonsterMetrics_doc	b	c1	d0!688;g
 %\011BaseClassType.java
 %\011Weapon.java
 %\011SavingThrows.java
 %\011Armor.java
 %\011SpellCasting.java
+%\011Languages.java
 %\011ClassIndex.java
 %\011SpellMemory.java
 %\011FightManager.java
@@ -50,12 +51,13 @@ a%\011MonsterMetrics_doc	b	c1	d0!668;g
 %\011Character.java
 %\011MapUtil.java
 %\011Ability.java
-!668;f
+!688;f
 %\011BaseClassType.java
 %\011Weapon.java
 %\011SavingThrows.java
 %\011Armor.java
 %\011SpellCasting.java
+%\011Languages.java
 %\011ClassIndex.java
 %\011SpellMemory.java
 %\011FightManager.java
@@ -83,7 +85,7 @@ a%\011MonsterMetrics_doc	b	c1	d0!668;g
 %\011Character.java
 %\011MapUtil.java
 %\011Ability.java
-!1198;t
-jgrCheckstyle0xr	%\011BaseClassType.java	1700609058565:P	%\011Weapon.java	1700609058565:P	%\011SavingThrows.java	1700609058565:P	%\011Armor.java	1700609058565:P	%\011SpellCasting.java	1700609058565:P	%\011ClassIndex.java	1700609058565:P	%\011SpellMemory.java	1700609058565:P	%\011FightManager.java	1700609058565:P	%\011MonsterDatabase.java	1700609058565:P	%\011SpecialAbility.java	1700609058565:P	%\011ClassType.java	1700609058565:P	%\011Feat.java	1700609058565:P	%\011ClassRecord.java	1700609058565:P	%\011Spell.java	1700609058565:P	%\011SpellsDaily.java	1700609058565:P	%\011EnergyType.java	1700609058565:P	%\011CSVReader.java	1700609058565:P	%\011SpecialType.java	1700609058565:P	%\011NameGenerator.java	1700609058565:P	%\011Alignment.java	1700609058565:P	%\011Party.java	1700609058565:P	%\011SpellsIndex.java	1700609058565:P	%\011Monster.java	1700609058565:P	%\011Equipment.java	1700609058565:P	%\011SpecialUnknownList.java	1700609058565:P	%\011PersonalityTraits.java	1700609058565:P	%\011Dice.java	1700609058565:P	%\011Attack.java	1700609058565:P	%\011Character.java	1700609058565:P	%\011MonsterMetrics.java	1700609058565:P	%\011MapUtil.java	1700609058565:P	%\011Ability.java	1700609058565:P	
+!1234;t
+jgrCheckstyle0xr	%\011BaseClassType.java	1783050071187:P	%\011Weapon.java	1783050071187:P	%\011SavingThrows.java	1783050071187:P	%\011Armor.java	1783050071187:P	%\011SpellCasting.java	1783050071187:P	%\011Languages.java	1783050071187:P	%\011ClassIndex.java	1783050071187:P	%\011SpellMemory.java	1783050071187:P	%\011FightManager.java	1783050071187:P	%\011MonsterDatabase.java	1783050071187:P	%\011SpecialAbility.java	1783050071187:P	%\011ClassType.java	1783050071187:P	%\011Feat.java	1783050071187:P	%\011ClassRecord.java	1783050071187:P	%\011Spell.java	1783050071187:P	%\011SpellsDaily.java	1783050071187:P	%\011EnergyType.java	1783050071187:P	%\011CSVReader.java	1783050071187:P	%\011SpecialType.java	1783050071187:P	%\011NameGenerator.java	1783050071187:P	%\011Alignment.java	1783050071187:P	%\011Party.java	1783050071187:P	%\011SpellsIndex.java	1783050071187:P	%\011Monster.java	1783050071187:P	%\011Equipment.java	1783050071187:P	%\011SpecialUnknownList.java	1783050071187:P	%\011PersonalityTraits.java	1783050071187:P	%\011Dice.java	1783050071187:P	%\011Attack.java	1783050071187:P	%\011Character.java	1783050071187:P	%\011MonsterMetrics.java	1783050071187:P	%\011MapUtil.java	1783050071187:P	%\011Ability.java	1783050071187:P	
 !37;m
 RunSelect	APPLICATION:MonsterMetrics

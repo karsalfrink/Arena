@@ -68,7 +68,7 @@ public class Character extends Monster {
 	private Armor shieldHeld;
 
 	/** Weapon in hand. */
-	private Weapon weaponInHand;	
+	private Weapon weaponInHand;
 
 	/** Magic ring. */
 	private Equipment ringWorn;
@@ -79,6 +79,9 @@ public class Character extends Monster {
 	/** Equipment carried. */
 	private List<Equipment> equipList;
 
+	/** Languages known. */
+ 	private List<Languages.Language> languageList;
+	
 	/** Primary personality trait. */
 	private PersonalityTraits.PersonalityTrait primaryPersonality;
 	
@@ -156,6 +159,7 @@ public class Character extends Monster {
 		alignment = getAlignmentFromString(align);
 		primaryPersonality = PersonalityTraits.getInstance().getRandom(alignment);
 		secondaryPersonality = PersonalityTraits.getInstance().getRandom(null);
+		languageList = getLanguageList();
 		age = BASE_AGE;
 		sweepRate = 0;
 		updateStats();
@@ -182,6 +186,7 @@ public class Character extends Monster {
 		}
 		classList.add(new ClassRecord(this, classType1, level1));
 		classList.add(new ClassRecord(this, classType2, level2));
+		languageList = getLanguageList();
 		updateStats();
 		setPerfectHealth();
 	}
@@ -203,6 +208,9 @@ public class Character extends Monster {
 	public Equipment getEquipment(int i) { return equipList.get(i); }
 	public void addEquipment(Equipment equip) { equipList.add(equip); }
 	public void dropAllEquipment() { equipList.clear(); }
+	
+	// Access languages known
+	public List<Languages.Language> getLanguages() { return languageList; }
 
 	/**
 		Roll base random ability scores.
@@ -741,11 +749,12 @@ public class Character extends Monster {
 			if (primary.getHandsUsed() < 2) {
 				setShield(Armor.makeType(Armor.Type.Shield));
 			}
+			addEquipment(Armor.makeType(Armor.Type.Helmet));
 			addEquipment(primary);
 			addEquipment(Weapon.randomSecondary());
 			if (hasBaseClassType(BaseClassType.Wizard)) {
 				setArmor(Armor.makeType(Armor.Type.Chain));
-				setShield(null);			
+				setShield(null);
 			}
 		}
 		else if (hasBaseClassType(BaseClassType.Thief)) {
@@ -759,6 +768,48 @@ public class Character extends Monster {
 		else {
 			System.err.println("Unhandled base class type.");		
 		}
+	}
+
+	/**
+		Receive possibly magic equipment (as from treasure).
+		
+		Handle only fighter magic items at this time.
+		Returns true if equipment accepted.
+	*/
+	@Override
+	protected boolean takeEquipment(Equipment newItem) {
+		if (hasBaseClassType(BaseClassType.Fighter)) {
+			if (newItem instanceof Weapon) {
+				if (weaponInHand == null) {
+					drawBestWeapon(null);
+				}
+				if (weaponInHand == null
+					|| weaponInHand.getMagicBonus() < newItem.getMagicBonus()) {
+					drawWeapon((Weapon) newItem);
+					return true;
+				}
+			}
+			else if (newItem instanceof Armor) {
+				Armor newArmor = (Armor) newItem;
+				if (newArmor.getArmorType() == Armor.Type.Shield) {
+					if (shieldHeld == null 
+						|| shieldHeld.getMagicBonus() < newArmor.getMagicBonus()) 
+					{
+						setShield(newArmor);
+						return true;
+					}
+				}
+				else {
+					if (armorWorn == null 
+						|| armorWorn.getMagicBonus() < newArmor.getMagicBonus()) 
+					{
+						setArmor(newArmor);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -792,7 +843,7 @@ public class Character extends Monster {
 	*/
 	public void boostMagicItemsToLevel() {
 		int level = getLevel();
-		for (int i = 1; i < level; i++) {
+		for (int i = 0; i < level; i++) {
 			boostMagicItemsOneLevel();
 		}
 	}
@@ -801,7 +852,7 @@ public class Character extends Monster {
 		Check if a magic item boost is gained. 
 	*/
 	boolean getMagicBoost() {
-		return Dice.roll(100) <= pctMagicPerLevel;
+		return Dice.rollPct() <= pctMagicPerLevel;
 	}
 
 	/**
@@ -970,7 +1021,7 @@ public class Character extends Monster {
 		Get the age category of the character.
 		Caution: Works for Humans only.
 	*/
-	AgeCategory getAgeCategory() {
+	private AgeCategory getAgeCategory() {
 		if (age <= 13) { return AgeCategory.Child; }
 		else if (age <= 20) { return AgeCategory.YoungAdult; }
 		else if (age <= 40) { return AgeCategory.Mature; }
@@ -1024,27 +1075,39 @@ public class Character extends Monster {
 	}
 
 	/**
-		Generate random treasure value by men type "A",
+		Generate random treasure by men type "A",
 		scaled by level and nominal men number appearing.
 		(Recommended for wilderness encounters only.)
 	*/
-	public int getTreasureValue() {
-		final int avgNum = 165;
-		int level = Math.max(getLevel(), 1);
-		return MonsterTreasureTable.getInstance()
-			.randomValueByCode('A') * level / avgNum;
+	@Override 
+	public Treasure rollTreasureType(int numMen) {
+		Treasure treas = MonsterTreasureTable.randomTreasureByCode('A');
+		treas.scaleByRatio(getLevel() * numMen, 165);
+		return treas;
 	}
 
 	/**
 		Convert string to alignment (random if null).
 	*/
-	Alignment getAlignmentFromString(String s) {
+	private Alignment getAlignmentFromString(String s) {
 		Alignment align = Alignment.getFromString(s);
 		if (align == null) {
 			align = Alignment.randomNormal();
 		}
 		return align;	
 	}
+
+	/**
+		Set languages known.
+
+		See rule by Intelligene in OD&D Vol-1, p. 12.
+		We ignore Common & Alignment tongues here.
+	*/
+	private List<Languages.Language> getLanguageList() {
+		int intScore = getAbilityScore(Ability.Intelligence);
+		return intScore <= 10 ? new ArrayList<Languages.Language>() 
+			: Languages.getInstance().getRandom(intScore - 10);
+	}	
 
 	/**
 		Mutator to initial ability/hp boost switch.
@@ -1222,6 +1285,24 @@ public class Character extends Monster {
 		for (ClassRecord cr: classList) {
 			if (cr.getClassType().usesSpells()) {
 				s = addItem(s, cr.spellsString());
+			}
+		}
+		return s;
+	}
+
+	/**
+		String representation of spell counts.
+	*/
+	public String spellCounts() {
+		String s = "";
+		for (ClassRecord cr: classList) {
+			if (cr.getClassType().usesSpells()) {
+				if (s == "") {
+					s = addItem(s, cr.spellCounts());
+				}
+				else {
+					System.err.println("Error: Multiple classes with spells.");
+				}
 			}
 		}
 		return s;

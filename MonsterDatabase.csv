@@ -13,7 +13,7 @@ Weed Eel,1d10x10,8,0,1,100,E,1,1d3,N,A,2,1,U,"S2, M1","Swimming (3), Stealth (3)
 Large Spider,2d10,8,6,1+1,75,-,1,1d3,N,A,2,1.3,D,"S1, M1",Poison (2)
 Giant Worker Ant,2d10,3,18,2,10,-,1,1d6,N,A,2,2,D,M1,-
 Giant Frog,4d10,7,3,2,-,-,1,1d6,N,A,2,2,D,S2,"Leaping, Constriction"
-Giant Leech,2d6,8,6,2,-,-,1,1d6+1,N,A,2,2,U,"O, S2",BloodDrain (2)
+Giant Leech,2d6,8,6,2,-,-,1,1d6+1,N,A,2,2,U,"O, S2, M1","BloodDrain (2), Disease"
 Giant Eel,2d8,7,0,1+4,-,-,1,1d6+2,N,A,2,2.2,U,S2,"Swimming (12), VoltBreath (2)"
 Draft Horse,1,7,12,2+1,-,-,1,1d6,N,A,2,2.3,W,O,-
 Medium Horse,1,7,18,2+1,-,-,2,1d6,N,A,2,2.3,W,"CM, O, SS",-
@@ -109,20 +109,20 @@ Green Dragon,1d4,2,9,8,60,H,2,2d6,N,B,14,8,D,O,"Flight (24), Detection (15), Fea
 Water Naga,1,5,15,7,60,H,1,1d4,N,B,15,7,U,"SR3, M1","Poison, Spells (5)"
 Blue Dragon,1d4,2,9,9,60,H,2,2d6,N,B,15,9,D,O,"Flight (24), Detection (15), Fear (2), VoltBreath"
 Flesh Golem,1,9,9,12,-,-,1,2d6,N,B,15,12,D,S1,"MagicToHit (1), MagicImmunity"
-Mind Flayer,1d4,5,12,8+3,50,F,4,0,N,B,16,8.9,D,SR1,"MagicResistance (90), MindBlast, Constriction, BrainConsumption"
+Mind Flayer,1d4,5,12,8+3,50,F,4,0,N,B,16,8.9,D,"SR1, S3","MagicResistance (90), MindBlast, Constriction, BrainConsumption"
 Ten-Headed Hydra,1,5,12,10,25,B,10,1d6,N,B,17,10,D,O,ManyHeads
 Shambling Mound,1d3,0,6,8,25,I,2,1d6+2,N,B,18,8,W,"SR3, M1","Smothering, FireImmunity, VoltImmunity, ColdResistance, ChopResistance"
-Balrog,1d6,2,6,10,25,F,2,2d6,C,B,18,10,D,O,"Flight (15), MagicResistance (75), Immolation"
 Roper,1d3,0,3,10,90,D,1,3d6,C,B,18,10,D,SR2,"MagicResistance (80), SappingStrands, VoltImmunity, ColdResistance, FireVulnerability"
 Basilisk,1d6,4,6,6+1,40,F,1,1d6,N,B,20,6.3,D,O,"PetrifyingGaze, Petrification"
 Spirit Naga,1,5,15,9,60,H,1,1d3,C,B,20,9,D,"SR3, M1","Poison, Charm, Spells (7)"
 Red Dragon,1d4,2,9,10,60,H,2,2d6,C,B,20,10,D,O,"Flight (24), Detection (15), Fear (2), FireBreath"
 Purple Worm,1d4,6,6,15,25,D,2,2d6,N,B,22,15,D,O,"Swallowing, Poison, Fearlessness"
 Dragon Turtle,1d4,2,3,12,60,H,2,2d6,C,B,25,12,U,O,"Swimming (9), Detection (15), Fear (2), SteamBreath"
+Balrog,1d6,2,6,10,25,F,2,2d6,C,B,26,10,D,O,"Flight (15), MagicToHit (1), MagicResistance (75), Immolation"
 Masher,1d4,6,0,20,25,D,2,1d6+2,N,B,28,20,U,"S2, M1","Swimming (15), Swallowing, Poison"
 Gold Dragon,1d4,2,9,11,60,H,2,2d6,L,B,35,11,D,O,"Flight (24), Detection (15), Fear (2), FireBreath, PoisonBreath, Spells"
-Rakshasa,1d4+1,-4,12,7,20,F,2,1d6,C,B,50,7,D,"SR5, M1","MindReading, Illusion, Spells, MagicImmunity, MagicToHit, ChopResistance (3)"
-Stone Golem,1,5,6,18,-,-,1,3d6,N,B,55,18,D,S1,"MagicToHit (2), MagicImmunity, Slowing"
+Stone Golem,1,5,6,18,-,-,1,3d6,N,B,48,18,D,S1,"MagicToHit (2), MagicImmunity, Slowing"
+Rakshasa,1d4+1,-4,12,7,20,F,2,1d6,C,B,55,7,D,"SR5, M1","MindReading, Illusion, Spells, MagicImmunity, MagicToHit (1), ChopResistance (3)"
 Beholder,1,0,3,12,90,I,1,1d6,N,B,60,12,D,S1,"Flight (3), ManyEyeFunctions"
 Iron Golem,1,2,3,25,-,-,1,4d6,N,B,150,25,D,S1,"MagicToHit (3), MagicImmunity, PoisonBreath (1)"
 Leprechaun,1,8,15,1/2,10,F,1,1d3,N,F,1,0.5,W,"SR3, M1","Invisibility, Illusion, Ventriloquism, PolymorphObjects, KeenEars"
