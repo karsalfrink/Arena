@@ -133,6 +133,8 @@ def parse_summary():
             continue
         if len(cells) != len(SUMMARY_COLS):
             sys.exit("Unexpected summary row: %r" % texts)
+        if texts[0] == "Type":
+            continue  # repeated header row rendered with <td> cells
         anchor = cells[0]["anchor"]
         # Decide whether this row still belongs to the current group:
         # href-less rows always do; anchored rows do if the anchor is

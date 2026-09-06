@@ -1,20 +1,6 @@
 {
  "summary": [
   {
-   "name": "Type",
-   "number_appearing": "Number Appearing",
-   "number_in_lair": "Number In Lair",
-   "ac": "AC",
-   "move": "Move Rate",
-   "hd": "HD",
-   "lair_pct": "Lair Nearby",
-   "treasure": "Treasure Type",
-   "align": "Align",
-   "group": null,
-   "anchor": null,
-   "qualified_name": "Type"
-  },
-  {
    "name": "Androids",
    "number_appearing": "1-8",
    "number_in_lair": "3-18",
@@ -279,20 +265,6 @@
    "group": null,
    "anchor": "crabs-giant",
    "qualified_name": "Crabs, giant"
-  },
-  {
-   "name": "Type",
-   "number_appearing": "Number Appearing",
-   "number_in_lair": "Number In Lair",
-   "ac": "AC",
-   "move": "Move Rate",
-   "hd": "HD",
-   "lair_pct": "Lair Nearby",
-   "treasure": "Treasure Type",
-   "align": "Align",
-   "group": null,
-   "anchor": null,
-   "qualified_name": "Type"
   },
   {
    "name": "Crocodiles",
@@ -715,20 +687,6 @@
    "qualified_name": "Fish, giant"
   },
   {
-   "name": "Type",
-   "number_appearing": "Number Appearing",
-   "number_in_lair": "Number In Lair",
-   "ac": "AC",
-   "move": "Move Rate",
-   "hd": "HD",
-   "lair_pct": "Lair Nearby",
-   "treasure": "Treasure Type",
-   "align": "Align",
-   "group": null,
-   "anchor": null,
-   "qualified_name": "Type"
-  },
-  {
    "name": "Gargoyles",
    "number_appearing": "1-10",
    "number_in_lair": "2-20",
@@ -1149,20 +1107,6 @@
    "qualified_name": "Juggernaut"
   },
   {
-   "name": "Type",
-   "number_appearing": "Number Appearing",
-   "number_in_lair": "Number In Lair",
-   "ac": "AC",
-   "move": "Move Rate",
-   "hd": "HD",
-   "lair_pct": "Lair Nearby",
-   "treasure": "Treasure Type",
-   "align": "Align",
-   "group": null,
-   "anchor": null,
-   "qualified_name": "Type"
-  },
-  {
    "name": "Kobolds",
    "number_appearing": "2-20",
    "number_in_lair": "40-400+",
@@ -1581,20 +1525,6 @@
    "group": null,
    "anchor": "an-ochre-jelly",
    "qualified_name": "Ochre jelly"
-  },
-  {
-   "name": "Type",
-   "number_appearing": "Number Appearing",
-   "number_in_lair": "Number In Lair",
-   "ac": "AC",
-   "move": "Move Rate",
-   "hd": "HD",
-   "lair_pct": "Lair Nearby",
-   "treasure": "Treasure Type",
-   "align": "Align",
-   "group": null,
-   "anchor": null,
-   "qualified_name": "Type"
   },
   {
    "name": "Octopi, giant",
@@ -2029,20 +1959,6 @@
    "group": null,
    "anchor": "treants",
    "qualified_name": "Treants"
-  },
-  {
-   "name": "Type",
-   "number_appearing": "Number Appearing",
-   "number_in_lair": "Number In Lair",
-   "ac": "AC",
-   "move": "Move Rate",
-   "hd": "HD",
-   "lair_pct": "Lair Nearby",
-   "treasure": "Treasure Type",
-   "align": "Align",
-   "group": null,
-   "anchor": null,
-   "qualified_name": "Type"
   },
   {
    "name": "Trolls",

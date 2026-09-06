@@ -1,0 +1,640 @@
+{
+ "_comment": "Delving Deeper -> Arena monster mapping. One entry per Arena row (or per expansion group). 'dd' is the qualified name in tables.json summary; 'source' overrides where a detail table is used. Fields not given are derived from tables.json by generate.py (see mapping.md for the derivation rules). 'unmapped' lists DD abilities with no Arena code (collected into NOTES.md); 'crit' records the exceeds-by-4-or-natural-20 damage pattern; 'trigger' records the same pattern used as a non-damage trigger.",
+ "monsters": [
+  {"dd": "Androids", "name": "Android", "type": "M", "env": "D", "atk": 1, "dam": "1d6", "align": "N",
+   "specials": ["Spells (2)"],
+   "notes": ["Align 'Any' -> N. 'Mind powers equivalent to magic use of up to 4th level' on d6-2 per android (2/3 have them, mean level 2.5) -> Spells (2) as a typical individual."]},
+
+  {"dd": "Ants, giant", "name": "Giant Ant", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "unmapped": ["Secondary move 3 is burrowing (no Arena code).", "Never flee the nest while the queen lives (lair-only)."]},
+
+  {"dd": "Apes", "name": "Ape", "type": "A", "env": "W", "atk": 1, "dam": "1d6+1",
+   "specials": [],
+   "unmapped": ["Secondary move 12 is climbing (no Arena code)."]},
+
+  {"dd": "Basilisks", "name": "Basilisk", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["PetrifyingGaze", "Petrification"],
+   "notes": ["Gaze or touch petrifies (save vs petrification): same pair as master Basilisk."]},
+
+  {"dd": "Bats", "name": "Bat", "type": "A", "env": "D", "atk": 0, "dam": "0", "mv2": "Flight",
+   "specials": [],
+   "notes": ["'Mostly harmless': Atk 0 / Dam 0 as master does for Shrieker."],
+   "unmapped": ["Startled colony obscures sight, drops torches, interrupts spellcasting."]},
+
+  {"dd": "Bats, giant", "name": "Giant Bat", "type": "A", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": [],
+   "unmapped": ["Surprise on 3+ on d6 (master would write Stealth (n), not an enum name).", "Shriek makes normal-types cover ears for one turn."]},
+
+  {"dd": "Bears", "name": "Bear", "type": "A", "env": "W", "atk": 1, "dam": "1d6+2",
+   "specials": [],
+   "crit": "3-8 normally, 4-14 on exceeds-by-4 / natural 20"},
+
+  {"dd": "Beetles, giant", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "expand": {"kind": "hd_range", "from": 2, "to": 7, "name": "{HD} Hit Dice Giant Beetle"},
+   "specials": [],
+   "notes": ["HD 2-7 is a range: one row per HD value.", "No damage stated -> default 1d6 for every size."],
+   "unmapped": ["Secondary move 6 is tunnelling through soft earth."]},
+
+  {"dd": "Black pudding", "name": "Black Pudding", "type": "S", "env": "D", "atk": 1, "dam": "3d6",
+   "specials": ["WoodEating", "MetalEating", "VoltImmunity", "ColdImmunity", "ChopImmunity"],
+   "notes": ["Dissolves wood and metal armor -> WoodEating, MetalEating. Invulnerable to cold -> ColdImmunity. Lightning and slashing divide it harmlessly -> VoltImmunity, ChopImmunity (master Black Pudding uses the same set)."],
+   "unmapped": ["Splitting into smaller puddings (master writes Splitting, not an enum name).", "Susceptible to fire (no vulnerability stated beyond being harmable)."]},
+
+  {"dd": "Boars", "name": "Boar", "type": "A", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "unmapped": ["One more attack roll after being reduced to 0 hp."]},
+
+  {"dd": "Boars, giant", "name": "Giant Boar", "type": "A", "env": "W", "atk": 1, "dam": "2d6",
+   "specials": ["Fearlessness"],
+   "notes": ["'Will never retreat' -> Fearlessness."],
+   "unmapped": ["One more attack roll after being reduced to 0 hp."]},
+
+  {"dd": "Cave bears", "name": "Cave Bear", "type": "A", "env": "W", "atk": 1, "dam": "2d6-1",
+   "specials": [],
+   "crit": "1-11 normally, 3-18 on exceeds-by-4 / natural 20",
+   "unmapped": ["One more attack roll after being reduced to 0 hp."]},
+
+  {"dd": "Cavemen", "name": "Caveman", "type": "M", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "unmapped": ["-1 morale (master writes Cowardice, not an enum name)."]},
+
+  {"dd": "Centaurs", "name": "Centaur", "type": "F", "env": "W", "atk": 2, "dam": "1d6",
+   "specials": [],
+   "notes": ["Two attack rolls (weapon and hooves) -> Atk 2. Align 'L, N' -> L. Treasure A1 -> A."]},
+
+  {"dd": "Centipedes, giant", "name": "Giant Centipede", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Paralysis"],
+   "notes": ["AC 3/7 (armored head / soft body) -> primary 3. Bite paralyses with a save -> Paralysis."],
+   "unmapped": ["Moves on walls and ceilings at full speed."]},
+
+  {"dd": "Centipedes, large", "name": "Large Centipede", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Paralysis"],
+   "notes": ["Paralysis save is at +4 for large centipedes; Arena's Paralysis takes no save-modifier parameter (only Poison does), so the +4 is lost.", "No damage stated -> default 1d6 (master gives its tiny centipede Dam 0)."]},
+
+  {"dd": "Chimeras", "name": "Chimera", "type": "B", "env": "D", "atk": 3, "dam": "1d6", "mv2": "Flight",
+   "specials": ["FireBreath (3)"],
+   "notes": ["Three heads -> Atk 3. 6\" cone of fire for 3-18 -> FireBreath (3) (Arena: n dice of damage, cone length n). Same as master Chimera."]},
+
+  {"dd": "Cockatrices", "name": "Cockatrice", "type": "B", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["Petrification"],
+   "notes": ["Touch petrifies (save vs petrification) -> Petrification on hit."]},
+
+  {"dd": "Crabs, giant", "name": "Giant Crab", "type": "A", "env": "U", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "crit": "1-6 (default) normally, 1-11 on exceeds-by-4 / natural 20"},
+
+  {"dd": "Crocodiles", "name": "Crocodile", "type": "A", "env": "U", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": [],
+   "trigger": "exceeds-by-4: drags victim into the water and drowns it",
+   "unmapped": ["Hard to spot half-submerged; often attacks by surprise."]},
+
+  {"dd": "Crocodiles, giant", "name": "Giant Crocodile", "type": "A", "env": "U", "atk": 1, "dam": "2d6", "mv2": "Swimming",
+   "specials": ["Swallowing"],
+   "notes": ["Swallows man-sized victim whole on exceeds-by-4 -> Swallowing (Arena triggers it on a total attack roll of 25+, the closest analogue)."],
+   "trigger": "exceeds-by-4: swallow whole (mapped to Swallowing)",
+   "unmapped": ["Overturns boats and rafts; can be rammed by ships."]},
+
+  {"dd": "Cyborgs", "name": "Cyborg", "type": "M", "env": "D", "atk": 1, "dam": "1d6+2",
+   "specials": ["Fearlessness"],
+   "notes": ["'Need never check morale' -> Fearlessness. Align 'C, N' -> C."],
+   "unmapped": ["Never give up a pursuit while quarry in sight."]},
+
+  {"dd": "Cyclopes", "name": "Cyclops", "type": "H", "env": "W", "atk": 1, "dam": "3d6+3",
+   "specials": ["RockHurling", "HitBonus (-2)"],
+   "notes": ["Hurls rocks up to 20\" for 2-12 -> RockHurling (Arena: 2d6 rock). Poor depth perception -2 on attack rolls -> HitBonus (-2). Treasure E* -> E."]},
+
+  {"dd": "Dinosaurs, Brontosaurs", "name": "Brontosaurus", "type": "A", "env": "W", "atk": 1, "dam": "3d6",
+   "specials": []},
+
+  {"dd": "Dinosaurs, Deinonychus", "name": "Deinonychus", "type": "A", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "unmapped": ["Stalks prey and never gives up pursuit while prey in sight."]},
+
+  {"dd": "Dinosaurs, Mosasaur", "name": "Mosasaurus", "type": "A", "env": "U", "atk": 1, "dam": "3d6", "mv2": "Swimming",
+   "specials": ["Swallowing"],
+   "trigger": "exceeds-by-4 / natural 20: swallow whole (mapped to Swallowing)"},
+
+  {"dd": "Dinosaurs, Pterodactyls", "type": "A", "env": "W", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "expand": {"kind": "hd_range", "from": 2, "to": 7, "name": "{HD} Hit Dice Pterodactyl"},
+   "specials": [],
+   "notes": ["HD 2-7 is a range: one row per HD value. No damage stated -> default 1d6."]},
+
+  {"dd": "Dinosaurs, Stegosaurs", "name": "Stegosaurus", "type": "A", "env": "W", "atk": 1, "dam": "1d6+2",
+   "specials": [],
+   "notes": ["AC 2/5 (2 except from the flank) -> primary 2. Damage 3-8 normally."],
+   "unmapped": ["Tail spikes do 2-12 to flank or rear attackers."]},
+
+  {"dd": "Dinosaurs, Triceratops", "name": "Triceratops", "type": "A", "env": "W", "atk": 1, "dam": "2d6",
+   "specials": [],
+   "notes": ["AC 2/5 (2 from the front) -> primary 2."],
+   "unmapped": ["Charge does 4-24 instead of 2-12."]},
+
+  {"dd": "Dinosaurs, Tyrannosaurus Rexes", "name": "Tyrannosaurus Rex", "type": "A", "env": "W", "atk": 1, "dam": "4d6",
+   "specials": ["Swallowing"],
+   "trigger": "exceeds-by-4 / natural 20: swallow whole (mapped to Swallowing)"},
+
+  {"dd": "Djinni", "name": "Djinni", "type": "X", "env": "X", "atk": 1, "dam": "2d6-1", "mv2": "Flight",
+   "specials": ["Invisibility", "Illusion", "Whirlwind (2)"],
+   "notes": ["1-11 damage -> 2d6-1 (as master Djinni). Becomes invisible -> Invisibility; phantasm-like illusions -> Illusion; whirlwind 2\" wide -> Whirlwind (2) (parameter is width; master uses 1). Env X for extraplanar as in master."],
+   "unmapped": ["Gaseous form (master writes GasForm).", "Object creation (master writes Creation)."]},
+
+  {"dd": "Dogs", "name": "Dog", "type": "A", "env": "W", "atk": 1, "dam": "1d6", "specials": []},
+
+  {"dd": "Doppelgangers", "name": "Doppelganger", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Polymorphism", "SaveBonus (6)"],
+   "notes": ["Shape change -> Polymorphism. Saves as a 10th-level fighter -> SaveBonus (6), master's idiom for the identical OD&D text. Align 'C, N' -> C."],
+   "unmapped": ["Immune to sleep and charm."]},
+
+  {"dd": "Dragon turtles", "name": "Dragon Turtle", "type": "B", "env": "U", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": ["SteamBreath"],
+   "notes": ["Name ends in 'Dragon Turtle' so Arena adds the Dragon special itself (breath = hit points, random age category for hp). 9\"x3\" cone of scalding steam 'as a dragon's breath weapon' -> SteamBreath. No melee damage stated -> default 1d6."],
+   "unmapped": ["50% chance to capsize a ship it surfaces under."]},
+
+  {"source": "dragons", "color": "Black", "notes": ["Line of acid -> AcidBreath; invulnerable to acid -> AcidImmunity."], "unmapped": ["Swims and breathes underwater indefinitely (no rate given)."]},
+  {"source": "dragons", "color": "Blue", "notes": ["Line of lightning -> VoltBreath; invulnerable to lightning -> VoltImmunity."], "unmapped": ["Buries itself in sand for ambush."]},
+  {"source": "dragons", "color": "Golden", "notes": ["Named 'Gold Dragon' (Arena's spelling) so Monster.java's Gold Dragon spell handling applies: bare 'Spells' makes Arena add two spells per level up to the age category, which tracks DD's 'as many spells as hit dice, up to 3rd level (6th for ancient goldens)' closely enough. Saves +4 vs magic -> SaveBonus (4). Sonic breath has no SpecialType: FireBreath used as a plain-damage stand-in (see NOTES)."], "unmapped": ["Breath is sound, not fire (also damages structures).", "Cannot be subdued; polymorphs into human form."]},
+  {"source": "dragons", "color": "Green", "notes": ["Cone of chlorine -> PoisonBreath."], "unmapped": ["Immune to poison (no PoisonImmunity in SpecialType)."]},
+  {"source": "dragons", "color": "Red", "notes": ["Cone of fire -> FireBreath; invulnerable to fire -> FireImmunity."]},
+  {"source": "dragons", "color": "White", "notes": ["Cone of cold -> ColdBreath; invulnerable to cold -> ColdImmunity."], "unmapped": ["Swims and tunnels through snow and ice (no rates given)."]},
+
+  {"dd": "Dryads", "name": "Dryad", "type": "F", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": ["Charm (-2)"],
+   "notes": ["Charm with save vs spells at -2 -> Charm (-2) (parameter is the target's save modifier), identical to master. Align 'L, N' -> L."],
+   "unmapped": ["Non-violent; bound within 24\" of its tree."]},
+
+  {"dd": "Dwarfs", "name": "Dwarf", "type": "F", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": ["DodgeGiants"],
+   "notes": ["Ogres, trolls and giants do half damage to dwarfs -> DodgeGiants (Arena: -4 to hit by H-type monsters of 4+ HD), the master's code for the same OD&D rule. No save bonus in DD, so master's SaveBonus (4) is not carried over."],
+   "unmapped": ["Half damage from ogres/trolls/giants is modelled as a to-hit penalty, not a damage halving."]},
+
+  {"dd": "Efreeti", "name": "Efreeti", "type": "X", "env": "X", "atk": 1, "dam": "2d6", "mv2": "Flight",
+   "specials": ["Invisibility", "Illusion", "WallOfFire"],
+   "notes": ["Flies, invisibility, illusions, wall of fire -> Flight, Invisibility, Illusion, WallOfFire (all in master Efreeti)."],
+   "unmapped": ["'Become incendiaries' (immolation of self; no fire immunity stated).", "Object creation (master writes Creation)."]},
+
+  {"dd": "Elemental, Air", "type": "X", "env": "X", "atk": 1, "dam": "1d6+1", "mv": 36, "mv2": "Flight",
+   "expand": {"kind": "hd_list", "values": [8, 12, 16], "name": "{HD} Hit Dice Air Elemental"},
+   "specials": ["Whirlwind (3)"],
+   "notes": ["HD 8/12/16 -> three rows. Move '-/36': flight only, so MV 36 plus Flight (36) as master does. 2-7 damage -> 1d6+1. Whirlwind 3\" wide at base -> Whirlwind (3), as master. DD says nothing about needing magic weapons, so master's MagicToHit (2) is not carried over."],
+   "unmapped": ["+2 to hit vs aerial opponents.", "Whirlwind height grows with HD."]},
+
+  {"dd": "Elemental, Earth", "type": "X", "env": "X", "atk": 1, "dam": "3d6",
+   "expand": {"kind": "hd_list", "values": [8, 12, 16], "name": "{HD} Hit Dice Earth Elemental"},
+   "specials": [],
+   "notes": ["3-18 vs opponents on solid ground -> 3d6 (2-12 vs airborne not modelled)."],
+   "unmapped": ["Secondary move 6 is through earth; cannot cross water; move earth drives it back for 6-36."]},
+
+  {"dd": "Elemental, Fire", "type": "X", "env": "X", "atk": 1, "dam": "2d6",
+   "expand": {"kind": "hd_list", "values": [8, 12, 16], "name": "{HD} Hit Dice Fire Elemental"},
+   "specials": [],
+   "notes": ["Summary table says HD 11+3 but the Explanation of Monsters gives 8/12/16 for all elementals; 8/12/16 used (see NOTES). 2-12 damage -> 2d6 (2-7 vs fire creatures not modelled). No fire immunity is stated, so none added."],
+   "unmapped": ["Ignites inflammables; cannot cross water."]},
+
+  {"dd": "Elemental, Water", "type": "X", "env": "X", "atk": 1, "dam": "2d6", "mv2": "Swimming",
+   "expand": {"kind": "hd_list", "values": [8, 12, 16], "name": "{HD} Hit Dice Water Elemental"},
+   "specials": [],
+   "notes": ["2-12 in water, 1-6 on land -> 2d6 (the in-water figure, as master)."],
+   "unmapped": ["Overturns boats; must stay within 6\" of water."]},
+
+  {"dd": "Elves", "name": "Elf", "type": "F", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "notes": ["Align 'L, N' -> L."],
+   "unmapped": ["+1 damage with magic weapons.", "Move silently / near-invisibly in woods (master writes Camouflage).", "Leader-types with fighter/magic-user levels."]},
+
+  {"dd": "Fish, giant", "type": "A", "env": "U", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "expand": {"kind": "hd_range", "from": 4, "to": 9, "name": "{HD} Hit Dice Giant Fish"},
+   "specials": [],
+   "notes": ["HD 4-9 is a range: one row per HD value. Move '-/30': MV 0 plus Swimming (30), the master idiom for purely aquatic creatures."]},
+
+  {"dd": "Gargoyles", "name": "Gargoyle", "type": "B", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["MagicToHit (1)"],
+   "notes": ["'Normal weapons do them no harm' -> MagicToHit (1), as master."],
+   "unmapped": ["Indistinguishable from statues; 75% hostile."]},
+
+  {"dd": "Gelatinous cube", "name": "Gelatinous Cube", "type": "S", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Paralysis", "VoltImmunity", "ColdImmunity"],
+   "notes": ["Contact paralyses (save) then 1-6/turn -> Paralysis, Dam 1d6. Invulnerable to cold and lightning -> ColdImmunity, VoltImmunity. Type S adds Slime (non-sentient, so immune to mental attacks). Treasure '*' (absorbed items) -> '-'."],
+   "unmapped": ["Immune to fear, paralysis and polymorph (fear/paralysis partly covered by Slime being non-sentient)."]},
+
+  {"dd": "Ghouls", "name": "Ghoul", "type": "U", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Paralysis"],
+   "notes": ["Touch paralyses normal man-types 1 turn -> Paralysis. Type U adds Undead."],
+   "unmapped": ["-2 attack and morale in daylight.", "Elves immune to the paralysis.", "Slain man-types rise as ghouls (master writes Spawn)."]},
+
+  {"source": "giants", "giant": "Hill", "name": "Hill Giant", "type": "H", "env": "D", "atk": 1, "specials": [],
+   "notes": ["Stats from Table 3.10. DD does not say hill giants throw rocks, so master's RockHurling is not added (see NOTES)."]},
+  {"source": "giants", "giant": "Stone", "name": "Stone Giant", "type": "H", "env": "D", "atk": 1, "specials": ["RockHurling"],
+   "notes": ["Hurls rocks for 3-18 -> RockHurling (Arena's rock does 2d6)."]},
+  {"source": "giants", "giant": "Frost", "name": "Frost Giant", "type": "H", "env": "D", "atk": 1, "specials": ["ColdImmunity"],
+   "notes": ["Invulnerable to cold -> ColdImmunity. 3-13 -> 2d6+1 (as master)."]},
+  {"source": "giants", "giant": "Fire", "name": "Fire Giant", "type": "H", "env": "D", "atk": 1, "specials": ["FireImmunity"],
+   "notes": ["Invulnerable to fire -> FireImmunity. 4-14 -> 2d6+2 (as master)."]},
+  {"source": "giants", "giant": "Cloud", "name": "Cloud Giant", "type": "H", "env": "D", "atk": 1, "specials": ["Detection"],
+   "notes": ["Keen smell, rarely surprised -> Detection (master's code for the same OD&D text)."]},
+  {"source": "giants", "giant": "Storm", "name": "Storm Giant", "type": "H", "env": "D", "atk": 1, "specials": ["RockHurling", "VoltImmunity"],
+   "notes": ["Hurls rocks -> RockHurling. Invulnerable to lightning -> VoltImmunity. 6-21 -> 3d6+3 (as master)."],
+   "unmapped": ["Weather control (master writes WeatherControl).", "Lightning strike for 8-48 in thunderstorm conditions."]},
+
+  {"dd": "Gnolls", "name": "Gnoll", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "notes": ["Number 2-10 -> 2d5."],
+   "unmapped": ["+2 morale (master writes Bravery (2))."]},
+
+  {"dd": "Gnomes", "name": "Gnome", "type": "F", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Align 'L, N' -> L."]},
+
+  {"dd": "Goblins", "name": "Goblin", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "notes": ["Treasure '*' (1-6 gp each) -> '-'."],
+   "unmapped": ["-1 attack and morale in full daylight (master writes LightSensitivity)."]},
+
+  {"dd": "Golems, Clay", "name": "Clay Golem", "type": "B", "env": "D", "atk": 1, "dam": "2d6",
+   "specials": ["MagicToHit (1)"],
+   "notes": ["Only harmed by magic weapons -> MagicToHit (1). Name ends in Golem so Arena adds Golem. DD lists spells that do affect it, so master's MagicImmunity is not added."],
+   "unmapped": ["Hasted for three turns after one turn of combat.", "Disintegrate slows it; move earth drives it back for 6-36.", "Its wounds need a 9th-level cleric to cure."]},
+
+  {"dd": "Golems, Flesh", "name": "Flesh Golem", "type": "B", "env": "D", "atk": 1, "dam": "2d6",
+   "specials": ["MagicToHit (1)"],
+   "notes": ["Only harmed by magic weapons -> MagicToHit (1). Cold/fire slow it and lightning heals it, so no MagicImmunity."],
+   "unmapped": ["Slowed by cold and fire spells; healed by lightning."]},
+
+  {"dd": "Gorgons", "name": "Gorgon", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["PetrifyingBreath"],
+   "notes": ["6\"x2\" petrifying breath thrice per day -> PetrifyingBreath (as master). No melee damage stated -> 1d6."]},
+
+  {"dd": "Gothrogs", "name": "Gothrog", "type": "B", "env": "D", "atk": 2, "dam": "2d6", "mv2": "Flight",
+   "specials": ["MagicToHit (1)", "MagicResistance (75)", "FireImmunity", "Immolation", "Fearlessness"],
+   "notes": ["DD's balrog. Sword and whip on two targets for 2-12 each -> Atk 2, Dam 2d6. Fire and normal weapons cannot harm -> FireImmunity, MagicToHit (1). 75% spells fail -> MagicResistance (75). Whip-drag-and-immolate for 2-12 -> Immolation (master Balrog idiom). Never checks morale -> Fearlessness."],
+   "unmapped": ["+2 to hit when using a single weapon; sword alone does 3-18.", "Cannot be subdued."]},
+
+  {"dd": "Gray ooze", "name": "Gray Ooze", "type": "S", "env": "D", "atk": 1, "dam": "2d6",
+   "specials": ["MetalEating", "FireImmunity", "ColdImmunity"],
+   "notes": ["Dissolves metal armor -> MetalEating; impervious to cold and fire -> ColdImmunity, FireImmunity (identical to master)."]},
+
+  {"dd": "Green slime", "name": "Green Slime", "type": "S", "env": "D", "atk": 1, "dam": "0", "mv": 0,
+   "specials": ["FleshEating", "WoodEating", "MetalEating", "VoltImmunity", "ChopImmunity"],
+   "notes": ["Eats flesh, wood and metal -> FleshEating, WoodEating, MetalEating; impervious to lightning and blows -> VoltImmunity, ChopImmunity. Dam 0 because FleshEating carries the effect (same as master). Move 'n/a' -> 0."]},
+
+  {"dd": "Griffons", "name": "Griffon", "type": "F", "env": "W", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": []},
+
+  {"dd": "Halflings", "name": "Halfling", "type": "F", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "notes": ["Align 'L, N' -> L."],
+   "unmapped": ["+3 to hit with hurled missiles.", "Move silently and hide superbly."]},
+
+  {"dd": "Hippogriffs", "name": "Hippogriff", "type": "F", "env": "W", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": [],
+   "unmapped": ["Never checks morale when defending its nest."]},
+
+  {"dd": "Hobgoblins", "name": "Hobgoblin", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "unmapped": ["+1 morale except in daylight, where -1 to hit (master writes Bravery (1))."]},
+
+  {"source": "horses", "horse": "Destrier", "name": "Destrier", "type": "A", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Stats from Table 3.11 (MV 15 there, 12 in the summary; the detail table wins). AC 7* (4 if barded) -> 7. 'Number' n/a -> 1."]},
+  {"source": "horses", "horse": "Draft horse", "name": "Draft Horse", "type": "A", "env": "W", "atk": 0, "dam": "0", "specials": [],
+   "notes": ["'Only warhorses and destriers will attack' -> Atk 0 / Dam 0."]},
+  {"source": "horses", "horse": "Mule", "name": "Mule", "type": "A", "env": "W", "atk": 0, "dam": "0", "specials": [],
+   "notes": ["Does not attack -> Atk 0 / Dam 0."]},
+  {"source": "horses", "horse": "Riding horse", "name": "Riding Horse", "type": "A", "env": "W", "atk": 0, "dam": "0", "specials": [],
+   "notes": ["Does not attack -> Atk 0 / Dam 0."]},
+  {"source": "horses", "horse": "War horse", "name": "War Horse", "type": "A", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["AC 7* (4 if barded) -> 7."]},
+
+  {"dd": "Hydras", "type": "B", "env": "D", "dam": "1d6",
+   "expand": {"kind": "hydra", "from": 5, "to": 12},
+   "specials": ["ManyHeads"],
+   "notes": ["HD 5-12, one head per HD, one attack roll per head -> one row per HD, Atk = heads, ManyHeads (Arena's hydra idiom: max hit points, heads lost as damage accrues)."],
+   "unmapped": ["Heads attack as a fighter rather than as a monster."]},
+
+  {"dd": "Invisible stalker", "name": "Invisible Stalker", "type": "X", "env": "X", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["Invisibility"],
+   "notes": ["Move '-/12': flight only, so MV 12 plus Flight (12)."],
+   "unmapped": ["Faultless tracker (master writes Tracking)."]},
+
+  {"dd": "Juggernaut", "name": "Juggernaut", "type": "B", "env": "D", "atk": 1, "dam": "5d6",
+   "specials": ["MagicToHit (3)", "MagicImmunity", "Fearlessness", "Death", "Hold"],
+   "notes": ["Only harmed by +3 weapons -> MagicToHit (3). 'Impervious to most magical attacks' -> MagicImmunity (closest code). Never checks morale -> Fearlessness. The jewel's slaying spell and improved hold person each turn -> Death and Hold: both are SpecialType names, but Monster.java only implements them as conditions, not as monster attacks, so they are documentation only (see NOTES)."],
+   "unmapped": ["Slaying spell each turn (Death listed but inert).", "Improved hold person on 2-12 man-types at -2, or one at -6 (Hold listed but inert).", "Crushes anything in its path; cannot be subdued."]},
+
+  {"dd": "Kobolds", "name": "Kobold", "type": "H", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["Align 'C, N' -> C. Treasure '*' -> '-'."],
+   "unmapped": ["-1 morale unless defending lair at 3:1 odds."]},
+
+  {"dd": "Leeches, giant", "name": "Giant Leech", "type": "A", "env": "U", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": ["EnergyDrain (1)"],
+   "notes": ["Attaches and drains one experience level the turn after attaching and every other turn after -> EnergyDrain (1) per hit is the closest code (master uses BloodDrain because OD&D leeches drain hp, but DD's drain levels)."],
+   "unmapped": ["Attachment cadence (drain every other turn, not every hit)."]},
+
+  {"dd": "Lions", "name": "Lion", "type": "A", "env": "W", "atk": 1, "dam": "1d6+1",
+   "specials": [],
+   "crit": "2-7 normally, 2-12 on exceeds-by-4 / natural 20",
+   "unmapped": ["Stalks to attack by surprise (master writes Stealth (2))."]},
+
+  {"dd": "Lions, spotted", "name": "Spotted Lion", "type": "A", "env": "W", "atk": 1, "dam": "1d6+2",
+   "specials": [],
+   "crit": "3-8 normally, 4-14 on exceeds-by-4 / natural 20"},
+
+  {"dd": "Living statues, Iron", "name": "Iron Living Statue", "type": "B", "env": "D", "atk": 1, "dam": "4d6",
+   "specials": ["Golem", "MagicToHit (3)", "PoisonBreath (1)"],
+   "notes": ["Golem added explicitly (name does not end in Golem) for construct behaviour. Only +3 weapons harm it -> MagicToHit (3). 1\" cloud of poison gas -> PoisonBreath (1), master Iron Golem idiom. Lightning slows and fire heals it, so no MagicImmunity."],
+   "unmapped": ["Slowed by lightning; healed by fire."]},
+
+  {"dd": "Living statues, Stone", "name": "Stone Living Statue", "type": "B", "env": "D", "atk": 1, "dam": "3d6",
+   "specials": ["Golem", "MagicToHit (2)", "Slowing"],
+   "notes": ["Golem added explicitly. Slows one target per turn -> Slowing (master Stone Golem idiom). Only +2 weapons or stone-affecting magic harm it -> MagicToHit (2); not MagicImmunity because stone-affecting spells work."],
+   "unmapped": ["Slowed by cold and fire; healed by stone to flesh."]},
+
+  {"dd": "Lizards, giant", "name": "Giant Lizard", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "trigger": "natural 20: bite clamps on and does automatic damage each turn",
+   "unmapped": ["Superb camouflage (master writes Camouflage)."]},
+
+  {"dd": "Lizards, large", "name": "Large Lizard", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": [],
+   "unmapped": ["Superb camouflage."]},
+
+  {"dd": "Lizardmen", "name": "Lizardman", "type": "H", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["Align 'C, N' -> C."]},
+
+  {"dd": "Lycanthropes, Werebears", "name": "Werebear", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["SilverToHit"],
+   "notes": ["Only silvered or magic weapons harm -> SilverToHit. Align 'L, N' -> L."],
+   "unmapped": ["Lycanthropy infection (master writes Lycanthropy).", "Retaliate at +4 if young or females attacked."]},
+  {"dd": "Lycanthropes, Wereboars", "name": "Wereboar", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["SilverToHit"], "notes": ["Align 'C, N' -> C."], "unmapped": ["Lycanthropy infection."]},
+  {"dd": "Lycanthropes, Weretigers", "name": "Weretiger", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["SilverToHit"], "notes": ["Align 'C, N' -> C."], "unmapped": ["Lycanthropy infection."]},
+  {"dd": "Lycanthropes, Werewolves", "name": "Werewolf", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["SilverToHit"], "notes": ["Align 'C, N' -> C."], "unmapped": ["Lycanthropy infection."]},
+
+  {"dd": "Manticoras", "name": "Manticora", "type": "B", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["TailSpikes"],
+   "notes": ["DD spelling kept. Volley of 6 tail spikes within 18\" -> TailSpikes (Arena: six 1d6 spike attacks), as master Manticore."]},
+
+  {"dd": "Mastadons", "name": "Mastodon", "type": "A", "env": "W", "atk": 1, "dam": "2d6+2",
+   "specials": [],
+   "notes": ["Summary spells it 'Mastadons'; the description heading is 'Mastodons'."]},
+
+  {"dd": "Medusae", "name": "Medusa", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["PetrifyingGaze", "Poison"],
+   "notes": ["Gaze petrifies -> PetrifyingGaze; hair of deadly venomous snakes -> Poison (as master)."]},
+
+  {"dd": "Men, Bandits", "name": "Bandit", "type": "M", "env": "D", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Align 'C, N' -> C. Treasure A1 -> A."]},
+  {"dd": "Men, Berserkers", "name": "Berserker", "type": "M", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": ["HitBonus (2)", "Fearlessness"],
+   "notes": ["+2 to hit vs man-types -> HitBonus (2); never checks morale -> Fearlessness (as master)."],
+   "unmapped": ["The +2 applies only against man-types."]},
+  {"dd": "Men, Brigands", "name": "Brigand", "type": "M", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "unmapped": ["+1 morale (master writes Bravery (1))."]},
+  {"dd": "Men, Buccaneers", "name": "Buccaneer", "type": "M", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Align 'C, N' -> C. Treasure A3 -> A."]},
+  {"dd": "Men, Dervishes", "name": "Dervish", "type": "M", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": ["HitBonus (2)", "Fearlessness"],
+   "notes": ["+2 to hit vs man-types and never checks morale -> HitBonus (2), Fearlessness. Treasure A2 -> A."],
+   "unmapped": ["The +2 applies only against man-types."]},
+  {"dd": "Men, Mercenaries", "name": "Mercenary", "type": "M", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Treasure A3 -> A."]},
+  {"dd": "Men, Nomads", "name": "Nomad", "type": "M", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Align 'C, N' -> C. Treasure A2 -> A."], "unmapped": ["Always mounted."]},
+  {"dd": "Men, Pirates", "name": "Pirate", "type": "M", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Treasure A3 -> A."], "unmapped": ["+1 morale."]},
+  {"dd": "Men, Zealots", "name": "Zealot", "type": "M", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": ["HitBonus (2)", "Fearlessness"],
+   "notes": ["As Dervish, chaotic. Treasure A2 -> A."],
+   "unmapped": ["The +2 applies only against man-types."]},
+
+  {"dd": "Mermen", "name": "Merman", "type": "M", "env": "U", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["Treasure A3 -> A."],
+   "unmapped": ["+2 to hit and no morale checks vs man-types in the sea; -2 to hit and morale on land (master writes LandWeakness).", "Grapple ships (master writes Grappling)."]},
+
+  {"dd": "Minotaurs", "name": "Minotaur", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Fearlessness"],
+   "notes": ["Never checks morale -> Fearlessness (as master). Align 'C, N' -> C."],
+   "unmapped": ["Never gives up a chase."]},
+
+  {"dd": "Mummies", "name": "Mummy", "type": "U", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["MagicToHit (1)", "ChopResistance", "FireVulnerability", "Rotting"],
+   "notes": ["Invulnerable to normal weapons -> MagicToHit (1); magic weapons half damage -> ChopResistance (parameter 0 halves all weapon damage); vulnerable to fire -> FireVulnerability; necrosis slows healing tenfold -> Rotting. Identical to master Mummy."]},
+
+  {"dd": "Nixies", "name": "Nixie", "type": "F", "env": "U", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": ["CharmPerTen"],
+   "notes": ["Any 10 nixies jointly cast charm person -> CharmPerTen (as master)."],
+   "unmapped": ["Water breathing on the charmed victim; grappling ships with 40+."]},
+
+  {"dd": "Ochre jelly", "name": "Ochre Jelly", "type": "S", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["WoodEating", "VoltImmunity", "ChopImmunity"],
+   "notes": ["Dissolves wood -> WoodEating; lightning and weapons divide it harmlessly -> VoltImmunity, ChopImmunity (as master)."],
+   "unmapped": ["Splitting into two jellies (master writes Splitting)."]},
+
+  {"dd": "Octopi, giant", "name": "Giant Octopus", "type": "A", "env": "U", "atk": 4, "dam": "1d6", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["1-6 attack rolls per turn -> Atk 4 (expected value 3.5; Arena has no random attack rate). Move '-/9' -> MV 0 plus Swimming (9). Treasure A3 -> A."],
+   "unmapped": ["Grapple and capsize small vessels."]},
+
+  {"dd": "Ogres", "name": "Ogre", "type": "H", "env": "D", "atk": 1, "dam": "1d6+2", "specials": [],
+   "notes": ["3-8 -> 1d6+2. Treasure C* -> C."]},
+
+  {"dd": "Orcs", "name": "Orc", "type": "H", "env": "D", "atk": 1, "dam": "1d6", "specials": [],
+   "unmapped": ["-1 attack and morale in full daylight (master writes LightSensitivity).", "No morale checks defending lair at 3:1 odds."]},
+
+  {"dd": "Pegasi", "name": "Pegasus", "type": "F", "env": "W", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": [], "notes": ["Align 'L, N' -> L."]},
+
+  {"dd": "Pixies", "name": "Pixie", "type": "F", "env": "W", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["Invisibility", "Sleep"],
+   "notes": ["Permanently invisible -> Invisibility. Any 10 pixies jointly cast sleep once per day -> Sleep: a SpecialType name, but Monster.java only implements it as a condition, so documentation only (see NOTES)."],
+   "unmapped": ["Joint sleep spell once per day (Sleep listed but inert).", "Always attack by surprise unless magically detected."]},
+
+  {"dd": "Purple worms", "name": "Purple Worm", "type": "B", "env": "D", "atk": 1, "dam": "2d6",
+   "specials": ["Swallowing", "Poison", "Fearlessness"],
+   "notes": ["Swallows whole on exceeds-by-4 / 20 -> Swallowing; venomous tail stinger -> Poison; never checks morale -> Fearlessness (identical to master)."],
+   "trigger": "exceeds-by-4 / natural 20: swallow whole (mapped to Swallowing)",
+   "unmapped": ["Secondary move 9 is burrowing."]},
+
+  {"dd": "Rats, giant", "name": "Giant Rat", "type": "A", "env": "D", "atk": 1, "dam": "1d3", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["1-3 -> 1d3 (as master)."],
+   "unmapped": ["Disease on a hit, save vs poison at +4 (master writes Disease, not an enum name).", "-2 morale; flee from fire."]},
+
+  {"dd": "Robots", "name": "Robot", "type": "B", "env": "D", "atk": 1, "dam": "1d6+2",
+   "specials": ["Fearlessness", "Disintegration"],
+   "notes": ["3-8 -> 1d6+2. Never checks morale -> Fearlessness. Disintegration ray thrice per day (save vs wands) -> Disintegration: a SpecialType name, but only implemented as a condition in Monster.java, so documentation only (see NOTES). Align 'C, N' -> C."],
+   "unmapped": ["Disintegration ray, 6\" range, 3/day (listed but inert).", "Many robots fly instead of having the ray.", "Cannot be subdued."]},
+
+  {"source": "rocs", "roc": "Young", "name": "Young Roc", "type": "F", "env": "W", "atk": 1, "specials": [],
+   "notes": ["Stats from Table 3.12; Number/Lair/Treasure/Align from the summary. Move 6/48 -> MV 6, Flight (48)."],
+   "unmapped": ["Always spots hidden (not invisible) man-types, so master's Detection (which is about invisibility) is not used."]},
+  {"source": "rocs", "roc": "Adult", "name": "Adult Roc", "type": "F", "env": "W", "atk": 1, "specials": []},
+  {"source": "rocs", "roc": "Ancient", "name": "Ancient Roc", "type": "F", "env": "W", "atk": 1, "specials": ["Fear (2)"],
+   "notes": ["'The largest rocs' force normal-types (under 3 HD) to check morale when attacked -> Fear (2) (Arena: enemies of HD 2 or less must save or flee)."]},
+
+  {"dd": "Sabre toothed tigers", "name": "Sabre-Toothed Tiger", "type": "A", "env": "W", "atk": 1, "dam": "1d8+1",
+   "specials": [],
+   "crit": "2-9 normally, 4-14 on exceeds-by-4 / natural 20",
+   "notes": ["2-9 -> 1d8+1."]},
+
+  {"dd": "Salamanders", "name": "Salamander", "type": "B", "env": "D", "atk": 1, "dam": "2d6",
+   "specials": ["Constriction", "FireImmunity", "MagicToHit (1)"],
+   "notes": ["AC 3/5 (serpent body / upper body) -> primary 3. Weapon 1-6 plus 1-6 burning to non-fire creatures -> Dam 2d6. Constricts with burning tail on exceeds-by-4 for 2-12 (+1-6) -> Constriction (Arena: attaches on any hit and does half the attack routine per round). Invulnerable to fire and normal weapons -> FireImmunity, MagicToHit (1). Number 2-5 -> 1d4+1."],
+   "trigger": "exceeds-by-4: constrict for 2-12 plus 1-6 (mapped to Constriction)"},
+
+  {"dd": "Scorpions, giant", "name": "Giant Scorpion", "type": "A", "env": "D", "atk": 1, "dam": "1d6+2",
+   "specials": ["Poison"],
+   "notes": ["Pincer 3-8 -> 1d6+2. Stinger (fatal poison, save) only on exceeds-by-4 / 20 -> Poison; Arena's Poison fires on every hit, so this over-states the sting."],
+   "trigger": "exceeds-by-4 / natural 20: stinger, save vs poison or die (mapped to Poison)"},
+
+  {"dd": "Sea monsters, Leviathan", "name": "Leviathan", "type": "A", "env": "U", "atk": 1, "dam": "4d6", "mv2": "Swimming",
+   "specials": ["Swallowing"],
+   "notes": ["Swallows a ship whole for 4-24 to all aboard -> Dam 4d6, Swallowing. Move '-/18' -> MV 0, Swimming (18)."],
+   "unmapped": ["Capsizes 1-3 ships per turn."]},
+  {"dd": "Sea monsters, Kraken", "name": "Kraken", "type": "A", "env": "U", "atk": 4, "dam": "3d6", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["1-6 attack rolls of 3-18 -> Atk 4 (expected 3.5), Dam 3d6. Treasure G* -> G."],
+   "unmapped": ["Capsizes any ship in 1-2 turns.", "Confined to a null dimension unless summoned."]},
+  {"dd": "Sea monsters, Sea serpents", "name": "Sea Serpent", "type": "A", "env": "U", "atk": 1, "dam": "2d6", "mv2": "Swimming",
+   "specials": ["Swallowing"],
+   "notes": ["2-12 and swallows whole 'as per purple worms' -> Dam 2d6, Swallowing."],
+   "unmapped": ["Encircles and destroys longboats in 1-6 turns."]},
+
+  {"dd": "Shadows", "name": "Shadow", "type": "B", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["SilverToHit", "StrengthDrain"],
+   "notes": ["Move '-/9' (incorporeal) -> MV 9 plus Flight (9). Silvered or magic weapons only -> SilverToHit. Drains 1-4 strength per hit -> StrengthDrain (Arena drains 1 point per hit). Not undead in DD, so Type B as master."],
+   "unmapped": ["Magic weapons do double damage.", "Victims reduced to nil strength rise as shadows (master writes Spawn)."]},
+
+  {"dd": "Skeletons", "name": "Skeleton", "type": "U", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Fearlessness"],
+   "notes": ["Never checks morale -> Fearlessness (as master). Type U adds Undead."],
+   "unmapped": ["Unaffected by normal missiles."]},
+
+  {"dd": "Snakes, giant", "name": "Giant Viper", "type": "A", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": ["Poison"],
+   "notes": ["DD's single 'Snakes, giant' row covers two sorts; split into Giant Viper (deadly venomous -> Poison) and Giant Constrictor Snake, like master's Giant Poisonous Snake / Giant Constrictor Snake."]},
+  {"dd": "Snakes, giant", "name": "Giant Constrictor Snake", "type": "A", "env": "D", "atk": 1, "dam": "2d6", "mv2": "Swimming",
+   "specials": ["Constriction"],
+   "notes": ["Bite is only 1-2 but the real attack is crushing for 2-12 per turn -> Dam 2d6 with Constriction (Arena applies half the attack routine per round to the constricted host)."],
+   "trigger": "surprise or exceeds-by-4: encircle and crush for 2-12 per turn (mapped to Constriction)",
+   "unmapped": ["Bite damage 1-2 when not constricting.", "Encircles and destroys small boats."]},
+
+  {"dd": "Snakes, large", "name": "Large Snake", "type": "A", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": ["Poison"],
+   "notes": ["50% are venomous -> Poison included (Arena has no 'half of them' idiom); strike it if you prefer the harmless half."]},
+
+  {"dd": "Spectres", "name": "Spectre", "type": "U", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["MagicToHit (1)", "EnergyDrain (2)"],
+   "notes": ["Move '-/15' -> MV 15, Flight (15). Impervious to normal weapons -> MagicToHit (1). Drains two levels -> EnergyDrain (2)."],
+   "unmapped": ["Passes through walls.", "Slain victims rise as spectre thralls (master writes Spawn)."]},
+
+  {"dd": "Spiders, giant", "name": "Giant Spider", "type": "A", "env": "D", "atk": 1, "dam": "1d6", "mv2": "WebMove",
+   "specials": ["Poison", "Webs"],
+   "notes": ["Move 3/12 -> MV 3, WebMove (12) as master. Deadly venomous -> Poison. Webs equal to a web spell -> Webs: a SpecialType name but only implemented as a condition, so documentation only (see NOTES). Align C per summary."],
+   "unmapped": ["Web-spell webs around the lair (Webs listed but inert).", "Ambush from hiding."]},
+
+  {"dd": "Spiders, large", "name": "Large Spider", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Poison (2)"],
+   "notes": ["Venomous with save at +2 -> Poison (2) (parameter is the target's save bonus, as master Large Spider)."],
+   "unmapped": ["Secondary move 15 is scurrying over walls and ceilings."]},
+
+  {"dd": "Squid, giant", "name": "Giant Squid", "type": "A", "env": "U", "atk": 4, "dam": "1d6", "mv2": "Swimming",
+   "specials": [],
+   "notes": ["AC 7/3 -> primary 7. 1-6 attack rolls -> Atk 4. Move '-/12' -> MV 0, Swimming (12). Treasure A3 -> A."],
+   "unmapped": ["Ink cloud and triple-speed retreat (master writes InkCloud, Jet).", "Grapple and capsize vessels."]},
+
+  {"dd": "Thulls", "name": "Thull", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Regeneration (1)", "Paralysis"],
+   "notes": ["Regenerates 1 hp per turn -> Regeneration (1). Scratch paralyses normal man-types -> Paralysis."],
+   "unmapped": ["Elves immune to the paralysis."]},
+
+  {"dd": "Tigers", "name": "Tiger", "type": "A", "env": "W", "atk": 1, "dam": "1d6+1",
+   "specials": [],
+   "crit": "2-7 normally, 2-12 on exceeds-by-4 / natural 20",
+   "unmapped": ["Stalks to attack by surprise."]},
+
+  {"dd": "Titanotheres", "name": "Titanothere", "type": "A", "env": "W", "atk": 1, "dam": "3d6", "specials": []},
+
+  {"dd": "Titan", "name": "Titan", "type": "H", "env": "D", "atk": 1, "dam": "3d6+3",
+   "specials": ["Spells"],
+   "notes": ["Any two magic-user or cleric spells of each level per day -> bare Spells; Monster.java gives a monster named exactly 'Titan' two spells per level (d3+3 levels). Align 'Any' -> N. Treasure A1* -> A. DD gives no magic resistance, so master's MagicResistance (60) is not carried over."]},
+
+  {"dd": "Toads, giant", "name": "Giant Toad", "type": "A", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Swimming",
+   "specials": ["Poison"],
+   "notes": ["50% venomous -> Poison included (strike if preferred). Swallows only halflings and smaller, so Swallowing is not used against a human party."],
+   "trigger": "exceeds-by-4: swallow halfling-sized or smaller (not mapped)",
+   "unmapped": ["Hop 18\" every other turn (master writes Leaping)."]},
+
+  {"dd": "Treants", "name": "Treant", "type": "F", "env": "W", "atk": 1, "dam": "2d6",
+   "specials": ["MagicToHit (1)", "ChopResistance", "FireVulnerability", "SummonTrees"],
+   "notes": ["Invulnerable to normal weapons -> MagicToHit (1); half damage from magic weapons other than axes -> ChopResistance; vulnerable to fire -> FireVulnerability; awakens trees that fight as treants -> SummonTrees (Arena summons two 'Animated Tree' rows, added below). Align 'L, N' -> L."],
+   "unmapped": ["Axes do full damage."]},
+  {"dd": "Treants", "name": "Animated Tree", "type": "F", "env": "W", "atk": 1, "dam": "2d6", "number": "1", "lair": "-", "treas": "-",
+   "specials": ["MagicToHit (1)", "ChopResistance", "FireVulnerability"],
+   "notes": ["Support row for SummonTrees (Monster.java looks up 'Animated Tree' by name). 'An awakened tree fights exactly as another treant without the ability to awaken others.'"]},
+
+  {"dd": "Trolls", "name": "Troll", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Regeneration (3)"],
+   "notes": ["Regenerates 3 hp per turn -> Regeneration (3) (as master; DD delays it three turns after injury). Tooth and claw only -> 1d6."]},
+
+  {"dd": "Unicorns", "name": "Unicorn", "type": "F", "env": "W", "atk": 1, "dam": "1d6",
+   "specials": ["SaveBonus (6)", "Detection (24)"],
+   "notes": ["Saves as a 12th-level magic-user -> SaveBonus (6) (master idiom for the same text). Senses enemies within 24\" -> Detection (24), as master."],
+   "unmapped": ["Dimension door 36\" once per day (master writes DimensionDoor (36)).", "Horn as a lance when charging."]},
+
+  {"dd": "Vampires", "name": "Vampire", "type": "U", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["MagicToHit (1)", "Regeneration (3)", "EnergyDrain (2)", "Charm (-2)", "SummonVermin", "Polymorphism"],
+   "notes": ["Impervious to normal weapons -> MagicToHit (1); regenerates 3/turn -> Regeneration (3); drains two levels -> EnergyDrain (2); charm gaze at -2 -> Charm (-2); calls bats/rats/wolves -> SummonVermin (Arena summons 3d6 'Wolf'); gaseous form / giant bat -> Polymorphism. Move 12/18 -> MV 12, Flight (18) (bat form)."],
+   "unmapped": ["Forced into gaseous form at 0 hp rather than slain (master writes Undying).", "Slain victims rise as vampires or ghouls (master writes Spawn).", "Level drain only after the victim is charmed."]},
+
+  {"dd": "Weasels, giant", "name": "Giant Weasel", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["BloodDrain (4)"],
+   "notes": ["Holds on after exceeds-by-4 and gorges, draining 1-4 strength per turn -> BloodDrain (4) (Arena: attach and drain 1d4 per round), the closest mechanical fit even though DD drains strength rather than hp."],
+   "trigger": "exceeds-by-4: bite and hold, draining 1-4 strength per turn (mapped to BloodDrain (4))"},
+
+  {"dd": "Wight apes", "name": "Wight Ape", "type": "A", "env": "D", "atk": 1, "dam": "2d6-1",
+   "specials": [],
+   "notes": ["1-11 -> 2d6-1. DD's white ape."]},
+
+  {"dd": "Wights", "name": "Wight", "type": "U", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["SilverToHit", "EnergyDrain (1)"],
+   "notes": ["Silvered or magic weapons only -> SilverToHit; drains one level -> EnergyDrain (1)."],
+   "unmapped": ["Magic weapons do double damage.", "-2 attack and morale in daylight.", "Slain man-types rise as wights (master writes Spawn)."]},
+
+  {"dd": "Wolves", "name": "Wolf", "type": "A", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "notes": ["Named 'Wolf' so SummonVermin (vampire) can find it."]},
+
+  {"dd": "Wolves, giant", "name": "Giant Wolf", "type": "A", "env": "W", "atk": 1, "dam": "1d6", "specials": [],
+   "unmapped": ["Wargs can be ridden by goblins."]},
+
+  {"dd": "Woolly mammoths", "name": "Woolly Mammoth", "type": "A", "env": "W", "atk": 1, "dam": "3d6",
+   "specials": ["ColdImmunity"],
+   "notes": ["Invulnerable to cold -> ColdImmunity."]},
+
+  {"dd": "Woolly rhinoceroses", "name": "Woolly Rhinoceros", "type": "A", "env": "W", "atk": 1, "dam": "2d6+2",
+   "specials": ["ColdImmunity"],
+   "notes": ["4-14 -> 2d6+2. Invulnerable to cold -> ColdImmunity."]},
+
+  {"dd": "Wraiths", "name": "Wraith", "type": "U", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
+   "specials": ["SilverToHit", "ChopResistance (1)", "EnergyDrain (1)", "Fear (2)"],
+   "notes": ["Move '-/12' -> MV 12, Flight (12). Silvered or magic only -> SilverToHit; silver does half damage -> ChopResistance (1) (halves damage from weapons below magic level 1, i.e. the silvered ones). Drains one level -> EnergyDrain (1). Normal man-types must check morale if attacked -> Fear (2) (Combat chapter, Morale)."],
+   "unmapped": ["-2 attack and morale in daylight.", "Evil allies get +1 morale.", "Slain man-types rise as wraiths (master writes Spawn)."]},
+
+  {"dd": "Wyverns", "name": "Wyvern", "type": "B", "env": "D", "atk": 1, "dam": "1d6+2", "mv2": "Flight",
+   "specials": ["Poison"],
+   "notes": ["Bite and claw 3-8 -> 1d6+2. Stinger (deadly venom) on exceeds-by-4 / 20 -> Poison (as master; Arena's Poison fires on every hit). Align 'C, N' -> C."],
+   "trigger": "exceeds-by-4 / natural 20: tail stinger, save vs poison (mapped to Poison)"},
+
+  {"dd": "Yellow mold", "name": "Yellow Mold", "type": "S", "env": "D", "atk": 1, "dam": "1d6", "mv": 0,
+   "specials": ["SporeCloud", "WoodEating", "VoltImmunity", "ColdImmunity", "ChopImmunity"],
+   "notes": ["50% toxic spore cloud when disturbed (save vs poison or die) -> SporeCloud; dissolves wood -> WoodEating; impervious to everything but fire -> VoltImmunity, ColdImmunity, ChopImmunity (identical to master). Move 'n/a' -> 0."]},
+
+  {"dd": "Zombies", "name": "Zombie", "type": "U", "env": "D", "atk": 1, "dam": "1d6",
+   "specials": ["Fearlessness"],
+   "notes": ["Never checks morale -> Fearlessness (as master)."],
+   "unmapped": ["Unaffected by normal missiles."]}
+ ]
+}
