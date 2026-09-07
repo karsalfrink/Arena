@@ -4,8 +4,9 @@
     python3 tools/delving-deeper/pdf/build.py
 
 Reads MonsterDatabase-DelvingDeeper.csv, MonsterLevelMatrix.csv and
-EHDToTable.csv from the repository root and families.json from this
-directory, writes build/statblocks.json and build/matrices.json, and
+EHDToTable.csv from the repository root, mapping.json (through
+generate.py) from the parent directory for the Delving Deeper names, and
+families.json and dragon-ehd.tsv (from dragon-ehd.sh) from this directory; writes build/statblocks.json and build/matrices.json, and
 compiles statblocks.typ and matrices.typ with Typst into
 DD-MonsterStatBlocks.pdf and DD-MonsterMatrices.pdf next to this script.
 
@@ -294,11 +295,62 @@ def statblocks(rows, version, names):
 
 # --------------------------------------------------------- matrices
 
+DRAGON_TSV = HERE / "dragon-ehd.tsv"
+ARENA_AGES = ["Very Young", "Young", "Sub-Adult", "Adult", "Old", "Very Old"]
+DRAGON_COLOURS = ["White", "Black", "Green", "Blue", "Red", "Gold"]
+DD_COLOUR = {"Gold": "Golden"}
+
+
+def read_dragon_ehds():
+    """dragon-ehd.tsv (from dragon-ehd.sh): Arena name -> HD-only EHD."""
+    if not DRAGON_TSV.exists():
+        return None
+    out = {}
+    with open(DRAGON_TSV, newline="") as f:
+        reader = csv.reader(f, delimiter="\t")
+        next(reader)
+        for name, ehd in reader:
+            out[name] = int(ehd)
+    return out
+
+
+def dragon_placement(bands):
+    """One table entry per run of DD ages that share a band, placed by the
+    median HD-only EHD over the six colours; plus the age x colour grid for
+    the notes. Returns (placements, grid) or (None, None) without the tsv."""
+    ehds = read_dragon_ehds()
+    if ehds is None:
+        return None, None
+    grid = []
+    by_age_level = []
+    for i, age in enumerate(DD_AGES):
+        vals = [ehds[f"{ARENA_AGES[i]} {c} Dragon"] for c in DRAGON_COLOURS]
+        srt = sorted(vals)
+        median = (srt[len(srt) // 2 - 1] + srt[len(srt) // 2]) // 2
+        level = band_of(median, bands)
+        grid.append({"age": age, "ehds": [str(v) for v in vals], "level": level})
+        by_age_level.append((age.lower(), level, min(vals), max(vals)))
+    placements = []
+    for age, level, lo, hi in by_age_level:
+        if placements and placements[-1]["level"] == level:
+            placements[-1]["ages"].append(age)
+            placements[-1]["lo"] = min(placements[-1]["lo"], lo)
+            placements[-1]["hi"] = max(placements[-1]["hi"], hi)
+        else:
+            placements.append({"ages": [age], "level": level, "lo": lo, "hi": hi})
+    for pl in placements:
+        ages = pl["ages"]
+        pl["name"] = "Dragons, " + (ages[0] if len(ages) == 1
+                                    else ", ".join(ages[:-1]) + " or " + ages[-1])
+    return placements, grid
+
+
 def matrices(rows, version, names):
     matrix = read_matrix()
     bands, band_labels = read_ehd_bands()
     with open(HERE / "families.json") as f:
         rules = [(re.compile(r["pattern"]), r) for r in json.load(f)["rules"]]
+    placements, dragon_grid = dragon_placement(bands)
 
     tables = OrderedDict((t, OrderedDict()) for t in range(1, matrix["levels"] + 1))
     excluded = {"ehd0": [], "env": 0}
@@ -306,38 +358,42 @@ def matrices(rows, version, names):
         if r["Env"] != "D":
             excluded["env"] += 1
             continue
-        ehd = int(r["EHD"])
         name = r["Monster"]
+        if names[name]["member"] is not None:  # a dragon: placed by age below
+            continue
+        ehd = int(r["EHD"])
         level = band_of(ehd, bands)
+        if level < 1:
+            if ehd == 0:
+                excluded["ehd0"].append(names[name]["label"])
+            continue
+        dd = names[name]["label"]
         family, member = None, None
         for rx, rule in rules:
-            m = rx.match(name)
+            m = rx.match(dd)
             if m:
-                if rule.get("drop"):
-                    level = -1
-                family = rule["family"]
-                member = m.expand(rule.get("member", ""))
-                member = member[:1].upper() + member[1:]
-                level = rule.get("level", level)
+                family, member = rule["family"], m.expand(rule.get("member", ""))
                 break
         if family is None:
             key = family_key(name)
             if key:
                 base, n, kind = key
-                family, member = base, (n, kind)
-        if level < 1:
-            if ehd == 0:
-                excluded["ehd0"].append(name)
-            continue
-        label = family or names[name]["label"]
+                family, member = dd, (n, kind)
+        label = family or dd
         tables[level].setdefault(label, []).append((member, ehd, name))
+
+    if placements is None:  # no dragon-ehd.tsv: fall back to the OED entry
+        tables[matrix["levels"]]["Dragons (any)"] = [(None, 11, "Dragon")]
+        print("warning: dragon-ehd.tsv missing, run dragon-ehd.sh", file=sys.stderr)
+    else:
+        for pl in placements:
+            tables[pl["level"]][pl["name"]] = [(None, pl["lo"], "Dragon"), (None, pl["hi"], "Dragon")]
 
     out_tables = []
     for level, entries in tables.items():
         items = []
         for label, members in entries.items():
             ehds = sorted(set(e for _, e, _ in members))
-            ehds = [ehds[0], ehds[-1]] if len(ehds) > 1 else ehds
             ms = [m for m, _, _ in members if m]
             if ms and isinstance(ms[0], tuple):
                 kind = ms[0][1]
@@ -348,14 +404,18 @@ def matrices(rows, version, names):
                 text = f"{label} ({'/'.join(seen)})"
             else:
                 text = label
-            items.append({"name": text, "ehd": EN_DASH.join(str(e) for e in ehds), "n": len(members)})
-        items.sort(key=lambda i: i["name"])
+            items.append({"name": text,
+                          "ehd": f"{ehds[0]}{EN_DASH}{ehds[-1]}" if len(ehds) > 1 else str(ehds[0]),
+                          "n": len(members)})
+        items.sort(key=lambda i: i["name"].lower())
         out_tables.append({"level": level, "ehd": band_labels[level],
                            "die": len(items), "entries": items})
 
     return {
         "version": version, "csv": CSV.name, "repo": REPO_URL, "pr": PR_URL,
         "matrix": matrix, "tables": out_tables, "excluded": excluded,
+        "dragons": {"colours": [DD_COLOUR.get(c, c) for c in DRAGON_COLOURS],
+                    "grid": dragon_grid, "tsv": DRAGON_TSV.name} if dragon_grid else None,
     }
 
 

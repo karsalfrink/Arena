@@ -8,9 +8,9 @@
 #front-note(d)[
   The Monster Level Matrix is Dan's (Arena's `MonsterLevelMatrix.csv`). The
   Monster Level Tables are rebuilt from the Delving Deeper EHDs with Arena's
-  banding (`EHDToTable.csv`): only dungeon monsters (Env D) with an EHD of
-  1 or more are listed, and monster families are collapsed into one entry as
-  described under _Notes_.
+  banding (`EHDToTable.csv`), with families collapsed and dragons placed by
+  age as described under _Notes_. Monsters carry the names of Delving
+  Deeper's Table 3.1.
 ]
 
 == Monster Level Matrix
@@ -52,7 +52,6 @@
   columns: (1fr, 1fr), column-gutter: 8mm, row-gutter: 2mm,
   ..d.tables.map(level-table),
 )
-#text(size: 8pt)[Roll the die shown, or a larger die and roll again on a result above the table.]
 
 == Number Appearing
 
@@ -85,12 +84,36 @@ which may be very dangerous.
 == Notes
 
 #let ex = d.excluded
-- *Not in the tables:* #ex.ehd0.join(", ") (EHD 0, no attack) and the
-  #ex.env monsters whose environment is wilderness, water or another plane.
-- *Families* (provisional, see `families.json`): giant beetles, hydras and
-  the like are one entry per table with the range of sizes that fall in
-  that band; giants, lycanthropes, golems and living statues are one entry
-  each with the members in parentheses.
-- *Dragons* (provisional): one entry, _Dragon (any)_, at level 6, as in
-  the OED tables, because the Arena EHDs for Very Young and Very Old
-  dragons are not reliable (see the stat-block document).
+- *Which monsters are listed.* As in Arena, only monsters of the dungeon
+  environment with an EHD of 1 or more: not #ex.ehd0.join("; ") (EHD 0,
+  they do not attack) and not the #ex.env monsters of the wilderness, the
+  water or other planes (among them the men other than bandits, the
+  dinosaurs, the elementals and the sea monsters).
+- *Families.* Where Delving Deeper gives one monster a range of hit dice
+  (giant beetles, hydras), each table lists the sizes whose EHD falls in
+  its band. Giants, lycanthropes, golems and living statues are one entry
+  per table with the kinds in parentheses; the two giant snakes are
+  Delving Deeper's single entry. The rules are in `families.json`.
+- *Dice.* Roll the die shown, or a larger die and roll again on a result
+  above the table. Level 5 is short because the Delving Deeper EHDs
+  cluster in the 3–4 and 11+ bands.
+- *Dragons.* Arena gives a dragon hit points of HD × age category (its
+  OD&D idiom, where a dragon's HD are fixed), so the EHDs in the database
+  make hatchlings far too weak and old dragons far too strong. For the
+  tables the dragons were therefore measured again with ordinary hit dice
+  (`dragon-ehd.sh`, output #raw(d.dragons.tsv); golden dragons lose their
+  spells in that run) and each age is placed by the median of its six
+  colours. The values, with the resulting level, so that a colour can be
+  moved up or down:
+
+#let g = d.dragons
+#align(center)[
+  #table(
+    columns: 8, align: (left,) + (center,) * 7, stroke: none,
+    inset: (x: 6pt, y: 2pt),
+    table.header([*Age*], ..g.colours.map(c => [*#c*]), [*Level*],
+      table.hline(stroke: 0.4pt)),
+    ..for r in g.grid { (r.age, ..r.ehds, str(r.level)) },
+    table.hline(stroke: 0.6pt),
+  )
+]
