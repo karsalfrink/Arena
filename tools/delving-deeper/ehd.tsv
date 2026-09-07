@@ -1,0 +1,217 @@
+Monster	EHD	EHD_exact
+Android	4	3.98
+Giant Ant	1	1.48
+Ape	3	2.75
+Basilisk	18	17.96
+Bat	0	0.02
+Giant Bat	2	2.39
+Bear	4	3.98
+Two Hit Dice Giant Beetle	2	1.62
+Three Hit Dice Giant Beetle	2	2.19
+Four Hit Dice Giant Beetle	3	2.72
+Five Hit Dice Giant Beetle	3	3.32
+Six Hit Dice Giant Beetle	4	3.98
+Seven Hit Dice Giant Beetle	4	4.34
+Black Pudding	12	11.97
+Boar	1	1.12
+Giant Boar	5	5.36
+Cave Bear	5	5.08
+Caveman	1	1.27
+Centaur	3	3.09
+Giant Centipede	5	4.67
+Large Centipede	2	1.52
+Chimera	11	11.11
+Cockatrice	6	6.04
+Giant Crab	2	2.07
+Crocodile	2	1.8
+Giant Crocodile	7	7.01
+Cyborg	3	2.72
+Cyclops	20	20.25
+Brontosaurus	23	22.65
+Deinonychus	3	2.64
+Mosasaurus	16	16.35
+Two Hit Dice Pterodactyl	1	1.38
+Three Hit Dice Pterodactyl	2	1.82
+Four Hit Dice Pterodactyl	2	2.4
+Five Hit Dice Pterodactyl	3	2.92
+Six Hit Dice Pterodactyl	4	3.54
+Seven Hit Dice Pterodactyl	4	3.77
+Stegosaurus	6	5.68
+Triceratops	14	13.8
+Tyrannosaurus Rex	23	23.4
+Djinni	6	6.07
+Dog	1	0.9
+Doppelganger	3	2.64
+Dragon Turtle	19	19.03
+Very Young Black Dragon	1	1.12
+Young Black Dragon	3	3.08
+Sub-Adult Black Dragon	7	7.17
+Adult Black Dragon	14	13.75
+Old Black Dragon	28	27.72
+Very Old Black Dragon	43	42.57
+Very Young Blue Dragon	1	1.14
+Young Blue Dragon	4	3.85
+Sub-Adult Blue Dragon	11	10.88
+Adult Blue Dragon	20	19.74
+Old Blue Dragon	38	37.94
+Very Old Blue Dragon	57	57.29
+Very Young Gold Dragon	4	3.55
+Young Gold Dragon	6	6.47
+Sub-Adult Gold Dragon	18	17.5
+Adult Gold Dragon	38	37.88
+Old Gold Dragon	77	76.79
+Very Old Gold Dragon	111	111.24
+Very Young Green Dragon	1	1.17
+Young Green Dragon	4	3.96
+Sub-Adult Green Dragon	9	8.53
+Adult Green Dragon	16	16.05
+Old Green Dragon	31	31.18
+Very Old Green Dragon	52	51.59
+Very Young Red Dragon	1	1.12
+Young Red Dragon	5	4.63
+Sub-Adult Red Dragon	12	11.73
+Adult Red Dragon	24	23.99
+Old Red Dragon	41	40.9
+Very Old Red Dragon	72	71.55
+Very Young White Dragon	1	1.17
+Young White Dragon	2	2.28
+Sub-Adult White Dragon	6	5.68
+Adult White Dragon	12	11.92
+Old White Dragon	23	23.16
+Very Old White Dragon	41	40.67
+Dryad	5	5.1
+Dwarf	1	1.08
+Efreeti	11	10.76
+Eight Hit Dice Air Elemental	7	7.06
+Twelve Hit Dice Air Elemental	11	11.3
+Sixteen Hit Dice Air Elemental	15	14.61
+Eight Hit Dice Earth Elemental	11	11.25
+Twelve Hit Dice Earth Elemental	18	17.61
+Sixteen Hit Dice Earth Elemental	26	25.69
+Eight Hit Dice Fire Elemental	9	8.79
+Twelve Hit Dice Fire Elemental	14	14.26
+Sixteen Hit Dice Fire Elemental	19	18.59
+Eight Hit Dice Water Elemental	10	10.15
+Twelve Hit Dice Water Elemental	13	13.11
+Sixteen Hit Dice Water Elemental	19	18.78
+Elf	1	0.91
+Four Hit Dice Giant Fish	2	2.36
+Five Hit Dice Giant Fish	3	3.16
+Six Hit Dice Giant Fish	4	3.66
+Seven Hit Dice Giant Fish	4	3.85
+Eight Hit Dice Giant Fish	4	4.49
+Nine Hit Dice Giant Fish	5	5.08
+Gargoyle	3	3.09
+Gelatinous Cube	5	5.14
+Ghoul	3	3.08
+Hill Giant	8	7.84
+Stone Giant	9	8.84
+Frost Giant	10	9.63
+Fire Giant	11	11.49
+Cloud Giant	14	14.08
+Storm Giant	19	19.13
+Gnoll	1	1.43
+Gnome	1	1.03
+Goblin	1	0.86
+Clay Golem	19	19.27
+Flesh Golem	12	11.76
+Gorgon	11	10.66
+Gothrog	25	25.31
+Gray Ooze	4	3.78
+Green Slime	5	4.57
+Griffon	4	4.21
+Halfling	1	0.94
+Hippogriff	2	2.07
+Hobgoblin	1	1.1
+Destrier	2	1.73
+Draft Horse	0	0.02
+Mule	0	0.02
+Riding Horse	0	0.02
+War Horse	1	1.47
+Five-Headed Hydra	6	5.91
+Six-Headed Hydra	8	8.29
+Seven-Headed Hydra	10	9.88
+Eight-Headed Hydra	11	11.42
+Nine-Headed Hydra	14	14.42
+Ten-Headed Hydra	17	16.64
+Eleven-Headed Hydra	20	20.39
+Twelve-Headed Hydra	23	22.95
+Invisible Stalker	7	7.4
+Juggernaut	218	218.42
+Kobold	1	0.83
+Giant Leech	1	1.42
+Lion	3	3.41
+Spotted Lion	5	5.17
+Iron Living Statue	120	119.76
+Stone Living Statue	42	42.05
+Giant Lizard	2	2.07
+Large Lizard	1	0.8
+Lizardman	1	1.45
+Werebear	4	4.32
+Wereboar	3	2.64
+Weretiger	3	3.33
+Werewolf	2	2.5
+Manticora	5	5.48
+Mastodon	10	9.79
+Medusa	11	10.76
+Bandit	1	0.86
+Berserker	1	1.11
+Brigand	1	0.91
+Buccaneer	1	0.84
+Dervish	1	1.06
+Mercenary	1	1.07
+Nomad	1	0.86
+Pirate	1	0.88
+Zealot	1	1.07
+Merman	1	1.06
+Minotaur	4	3.66
+Mummy	6	6.03
+Nixie	1	0.97
+Ochre Jelly	4	3.99
+Giant Octopus	4	4.11
+Ogre	3	2.9
+Orc	1	0.9
+Pegasus	2	1.52
+Pixie	1	1.15
+Purple Worm	18	18.26
+Giant Rat	1	0.63
+Robot	5	5.28
+Young Roc	4	3.54
+Adult Roc	9	9.25
+Ancient Roc	22	22.48
+Sabre-Toothed Tiger	5	4.9
+Salamander	10	9.83
+Giant Scorpion	6	6.5
+Leviathan	42	41.7
+Kraken	60	59.96
+Sea Serpent	15	15.26
+Shadow	2	1.93
+Skeleton	1	0.83
+Giant Viper	7	7.01
+Giant Constrictor Snake	6	6.31
+Large Snake	1	1.45
+Spectre	7	7.47
+Giant Spider	6	5.53
+Large Spider	1	1.37
+Giant Squid	6	5.82
+Thull	4	4.25
+Tiger	4	3.54
+Titanothere	11	10.56
+Titan	38	38.08
+Giant Toad	3	3.17
+Treant	33	33.24
+Animated Tree	14	14.42
+Troll	5	5.48
+Unicorn	3	3.03
+Vampire	24	23.81
+Giant Weasel	2	1.61
+Wight Ape	4	3.77
+Wight	3	2.67
+Wolf	1	0.89
+Giant Wolf	2	1.62
+Woolly Mammoth	12	11.97
+Woolly Rhinoceros	9	8.8
+Wraith	4	4.43
+Wyvern	8	7.84
+Yellow Mold	5	4.72
+Zombie	1	0.94
