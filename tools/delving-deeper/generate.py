@@ -309,15 +309,24 @@ def entry_label(entry):
 # ---------------------------------------------------------------------------
 
 
+TYPE_ORDER = "ABFHMSUX"   # section order of MonsterDatabase.csv
+
+
+def sort_key(r):
+    """Master-file order: by Type section, then EHD, then hit dice."""
+    ehd = int(r["EHD"]) if r["EHD"] != "?" else 10 ** 6
+    return (TYPE_ORDER.index(r["Type"]), ehd, float(r["HDD"]), r["Monster"])
+
+
 def write_csv(groups):
+    rows = sorted((r for _, rs in groups for r in rs), key=sort_key)
     with open(CSV_OUT, "w", encoding="utf-8", newline="") as fh:
         # CRLF to match MonsterDatabase.csv
         w = csv.DictWriter(fh, fieldnames=COLUMNS, lineterminator="\r\n",
                            quoting=csv.QUOTE_MINIMAL)
         w.writeheader()
-        for _, rows in groups:
-            for r in rows:
-                w.writerow(r)
+        for r in rows:
+            w.writerow(r)
     print("wrote %s (%d rows)" % (CSV_OUT, sum(len(r) for _, r in groups)))
 
 
@@ -391,6 +400,8 @@ Columns: `Monster,Number,AC,MV,HD,Lair%,Treas,Atk,Dam,Align,Type,EHD,HDD,Env,Sou
   Names Arena only implements as *conditions* (Sleep, Webs, Death, Hold,
   Disintegration) are listed where DD clearly describes the ability, but are
   inert; see NOTES.md.
+* **Row order.** As the master file: by Type section (A, B, F, H, M, S,
+  U, X), then EHD, then hit dice. mapping.md keeps DD's table order.
 * **Names.** Natural singular, Arena style. DD spellings kept where DD's
   monster is its own thing (Manticora, Gothrog, Thull, Wight Ape,
   Sabre-Toothed Tiger); "Golden Dragon" becomes "Gold Dragon" so

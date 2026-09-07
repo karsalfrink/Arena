@@ -68,6 +68,8 @@ Columns: `Monster,Number,AC,MV,HD,Lair%,Treas,Atk,Dam,Align,Type,EHD,HDD,Env,Sou
   Names Arena only implements as *conditions* (Sleep, Webs, Death, Hold,
   Disintegration) are listed where DD clearly describes the ability, but are
   inert; see NOTES.md.
+* **Row order.** As the master file: by Type section (A, B, F, H, M, S,
+  U, X), then EHD, then hit dice. mapping.md keeps DD's table order.
 * **Names.** Natural singular, Arena style. DD spellings kept where DD's
   monster is its own thing (Manticora, Gothrog, Thull, Wight Ape,
   Sabre-Toothed Tiger); "Golden Dragon" becomes "Gold Dragon" so
