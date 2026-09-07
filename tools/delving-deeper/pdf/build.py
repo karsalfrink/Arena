@@ -132,6 +132,49 @@ def git_version():
         return {"commit": "unknown", "date": "unknown"}
 
 
+# ------------------------------------------------------- DD names
+
+DD_AGES = ["Hatchling", "Young", "Adult", "Mature", "Old", "Ancient"]
+
+# Arena rows that share one DD entry and need telling apart.
+DD_LABEL_OVERRIDE = {
+    "Giant Constrictor Snake": "Snakes, giant (constrictor)",
+    "Giant Viper": "Snakes, giant (viper)",
+    "Animated Tree": "Treants (animated tree)",
+}
+
+
+def dd_names():
+    """Arena monster name -> {'label': DD Table 3.1 name, 'member': age for
+    dragons, 'order': position in mapping.json}. Reuses generate.py from the
+    parent directory, which expands mapping.json into the Arena rows."""
+    import os
+    cwd = os.getcwd()
+    os.chdir(HERE.parent)
+    sys.path.insert(0, str(HERE.parent))
+    try:
+        import generate
+    finally:
+        os.chdir(cwd)
+    names = {}
+    for order, entry in enumerate(generate.MAPPING):
+        label = generate.entry_label(entry)
+        for i, row in enumerate(generate.rows_for(entry)):
+            arena = row["Monster"]
+            names[arena] = {
+                "label": DD_LABEL_OVERRIDE.get(arena, label),
+                "member": DD_AGES[i] if entry.get("source") == "dragons" else None,
+                "order": order,
+            }
+    return names
+
+
+def dd_sort_key(label, order):
+    """DD Table 3.1 order: alphabetical by the part before the comma, then
+    the order of mapping.json (which follows the DD tables) within it."""
+    return (label.split(",")[0].lower(), order)
+
+
 # ------------------------------------------------- HD-range families
 
 def family_key(name):
@@ -162,9 +205,11 @@ def hd_display(hd):
 
 # ------------------------------------------------------ stat blocks
 
-def plain_entry(r):
+def plain_entry(r, names):
+    n = names[r["Monster"]]
     return {
-        "name": r["Monster"], "number": r["Number"], "ac": r["AC"], "mv": r["MV"],
+        "name": n["label"], "arena": r["Monster"], "order": n["order"],
+        "member": n["member"], "number": r["Number"], "ac": r["AC"], "mv": r["MV"],
         "hd": hd_display(r["HD"]), "ehd": r["EHD"], "atk": r["Atk"],
         "dam": r["Dam"], "align": r["Align"],
         "special": "" if r["Special"] == "-" else r["Special"],
@@ -172,14 +217,15 @@ def plain_entry(r):
     }
 
 
-def statblocks(rows, version):
-    """One entry per monster, alphabetical within each type; rows of an
-    HD-range family whose other columns agree are merged into one entry."""
+def statblocks(rows, version, names):
+    """One entry per DD monster, in DD Table 3.1 order within each type;
+    rows of an HD-range family whose other columns agree are merged into one
+    entry, and dragons are grouped by colour with one sub-row per age."""
     sections = OrderedDict((t, []) for t in TYPES)
     groups = OrderedDict()
     for r in rows:
         key = family_key(r["Monster"])
-        entry = plain_entry(r)
+        entry = plain_entry(r, names)
         if key is None:
             sections[r["Type"]].append(entry)
             continue
@@ -199,13 +245,15 @@ def statblocks(rows, version):
             and (same("Atk") or (kind == "heads" and all(r["Atk"] == str(n) for n, r in members)))
         idx = sections[t].index(g)
         if not mergeable:
-            sections[t][idx:idx + 1] = [plain_entry(r) for _, r in members]
+            sections[t][idx:idx + 1] = [plain_entry(r, names) for _, r in members]
             continue
         ns = [n for n, _ in members]
         ehds = [int(r["EHD"]) for _, r in members]
         unit = " heads" if kind == "heads" else ""
+        n = names[first["Monster"]]
         entry = {
-            "name": base if kind == "hd" else f"{base} ({fmt_range(ns, unit)})",
+            "name": n["label"] if kind == "hd" else f"{n['label']} ({fmt_range(ns, unit)})",
+            "arena": base, "order": n["order"], "member": None,
             "number": first["Number"], "ac": first["AC"], "mv": first["MV"],
             "hd": fmt_range(ns),
             "ehd": f"{min(ehds)}{EN_DASH}{max(ehds)}" if min(ehds) != max(ehds) else str(ehds[0]),
@@ -218,8 +266,22 @@ def statblocks(rows, version):
         }
         sections[t][idx] = entry
 
-    for entries in sections.values():  # alphabetical within a type
-        entries.sort(key=lambda e: e["name"].lower())
+    # Group dragons by colour: one heading entry with a sub-row per age.
+    for t, entries in sections.items():
+        grouped = OrderedDict()
+        out = []
+        for e in entries:
+            if e["member"] is None:
+                out.append(e)
+                continue
+            g = grouped.get(e["name"])
+            if g is None:
+                g = grouped[e["name"]] = {"group": e["name"], "order": e["order"], "rows": []}
+                out.append(g)
+            e["name"] = e["member"]
+            g["rows"].append(e)
+        out.sort(key=lambda e: dd_sort_key(e.get("group") or e["name"], e["order"]))
+        sections[t] = out
 
     return {
         "version": version,
@@ -232,7 +294,7 @@ def statblocks(rows, version):
 
 # --------------------------------------------------------- matrices
 
-def matrices(rows, version):
+def matrices(rows, version, names):
     matrix = read_matrix()
     bands, band_labels = read_ehd_bands()
     with open(HERE / "families.json") as f:
@@ -267,7 +329,7 @@ def matrices(rows, version):
             if ehd == 0:
                 excluded["ehd0"].append(name)
             continue
-        label = family or name
+        label = family or names[name]["label"]
         tables[level].setdefault(label, []).append((member, ehd, name))
 
     out_tables = []
@@ -302,11 +364,15 @@ def matrices(rows, version):
 def main():
     rows = read_rows()
     version = git_version()
+    names = dd_names()
+    missing = [r["Monster"] for r in rows if r["Monster"] not in names]
+    if missing:
+        sys.exit(f"no DD name for: {', '.join(missing)}")
     BUILD.mkdir(exist_ok=True)
     (BUILD / "statblocks.json").write_text(
-        json.dumps(statblocks(rows, version), indent=1, ensure_ascii=False))
+        json.dumps(statblocks(rows, version, names), indent=1, ensure_ascii=False))
     (BUILD / "matrices.json").write_text(
-        json.dumps(matrices(rows, version), indent=1, ensure_ascii=False))
+        json.dumps(matrices(rows, version, names), indent=1, ensure_ascii=False))
     for stem, pdf in (("statblocks", "DD-MonsterStatBlocks.pdf"),
                       ("matrices", "DD-MonsterMatrices.pdf")):
         subprocess.run(["typst", "compile", "--root", str(HERE),
