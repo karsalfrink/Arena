@@ -1,0 +1,10 @@
+{
+  "_comment": "Rules for collapsing rows of MonsterDatabase-DelvingDeeper.csv into one entry of the Monster Level Tables. PROVISIONAL: to be settled in step 2. Rows named 'N Hit Dice X' and 'N-Headed Hydra' are collapsed automatically by build.py. Each rule: a regex on the monster name; 'family' is the entry label, 'member' the text listed in parentheses (regex backreferences allowed); 'level' pins the family to one table regardless of EHD; 'drop' removes matching rows from the tables.",
+  "rules": [
+    {"pattern": "^(Very Young|Young|Sub-Adult|Adult|Old|Very Old) (\\w+) Dragon$", "family": "Dragon", "member": "any", "level": 6},
+    {"pattern": "^(\\w+) Giant$", "family": "Giant", "member": "\\1"},
+    {"pattern": "^Were(\\w+)$", "family": "Lycanthrope", "member": "\\1"},
+    {"pattern": "^(\\w+) Golem$", "family": "Golem", "member": "\\1"},
+    {"pattern": "^(\\w+) Living Statue$", "family": "Living Statue", "member": "\\1"}
+  ]
+}
