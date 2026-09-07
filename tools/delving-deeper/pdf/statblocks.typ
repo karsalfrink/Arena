@@ -24,7 +24,7 @@
 #set text(size: 8.5pt)
 
 #let row(e, indent: 0mm) = (
-  [#h(indent)#e.name #if e.note != "" [\ #text(size: 7pt)[#e.note]]],
+  [#h(indent)#e.name #if e.note != "" [\ #h(indent + 3mm)#text(size: 7pt)[#e.note]]],
   e.number, e.ac, e.mv, e.hd,
   if e.dragon [#e.ehd\*] else { e.ehd },
   e.atk, e.dam, e.align, e.special,
