@@ -22,6 +22,18 @@ with open("tables.json", encoding="utf-8") as fh:
 with open("mapping.json", encoding="utf-8") as fh:
     MAPPING = json.load(fh)["monsters"]
 
+# Computed EHD values (from run-metrics.sh), if present: name -> EHD.
+EHD_FILE = "ehd.tsv"
+EHD = {}
+try:
+    with open(EHD_FILE, encoding="utf-8") as fh:
+        next(fh)
+        for line in fh:
+            name, ehd, _ = line.rstrip("\n").split("\t")
+            EHD[name] = ehd
+except FileNotFoundError:
+    pass
+
 SUMMARY = {r["qualified_name"]: r for r in TABLES["summary"]}
 GIANTS = {r["type"]: r for r in TABLES["giants"]}
 HORSES = {r["type"]: r for r in TABLES["horses"]}
@@ -43,7 +55,12 @@ DRAGON_BREATH = {"Black": "AcidBreath", "Blue": "VoltBreath",
 DRAGON_EXTRA = {"Black": ["AcidImmunity"], "Blue": ["VoltImmunity"],
                 "Golden": ["SaveBonus (4)", "Spells"], "Green": [],
                 "Red": ["FireImmunity"], "White": ["ColdImmunity"]}
-DRAGON_FEAR_FROM_AGE = 4   # Arena age index (1-6): Adult/Old/Very Old
+# Dragons group introduction: sense hidden/invisible within 6"; from
+# adulthood (DD Adult = Arena age 3) never check morale; old and ancient
+# (Arena ages 5-6) make normal-types check morale to approach or stand.
+DRAGON_DETECTION = "Detection (6)"
+DRAGON_FEARLESS_FROM_AGE = 3
+DRAGON_FEAR_FROM_AGE = 5
 
 # ---------------------------------------------------------------------------
 # Conversion helpers (the rules documented in mapping.md)
@@ -143,7 +160,7 @@ def base_row(name, number, ac, mv, hd, lair, treas, atk, dam, align,
     return {
         "Monster": name, "Number": number, "AC": str(ac), "MV": str(mv),
         "HD": hd, "Lair%": lair, "Treas": treas, "Atk": str(atk), "Dam": dam,
-        "Align": align, "Type": typ, "EHD": "?", "HDD": hd_decimal(hd),
+        "Align": align, "Type": typ, "EHD": EHD.get(name, "?"), "HDD": hd_decimal(hd),
         "Env": env, "Source": "DD", "Special": format_specials(specials),
     }
 
@@ -215,7 +232,9 @@ def rows_from_dragons(entry):
         arena_age = idx + 1
         name = "%s %s Dragon" % (ARENA_AGES[idx], DRAGON_NAME[color])
         walk, fly = split_move(det["move"])
-        specials = ["Flight (%s)" % fly]
+        specials = ["Flight (%s)" % fly, DRAGON_DETECTION]
+        if arena_age >= DRAGON_FEARLESS_FROM_AGE:
+            specials.append("Fearlessness")
         if arena_age >= DRAGON_FEAR_FROM_AGE:
             specials.append("Fear (2)")
         specials.append(DRAGON_BREATH[color])
@@ -352,7 +371,8 @@ Columns: `Monster,Number,AC,MV,HD,Lair%,Treas,Atk,Dam,Align,Type,EHD,HDD,Env,Sou
   pegasus, roc, treant), H humanoid (kobold to giant), M men,
   S slime/mold/ooze (auto-adds Slime), U undead (auto-adds Undead),
   X extraplanar (elementals, djinni, efreeti, invisible stalker).
-* **EHD** `?` (Arena computes it). **HDD** HD as a decimal, +0.3 per bonus
+* **EHD** computed by Arena's MonsterMetrics (`run-metrics.sh` writes
+  `ehd.tsv`, which generate.py copies into the column; `?` if absent). **HDD** HD as a decimal, +0.3 per bonus
   hit point (`3+1` -> 3.3, `1-1` -> 0.7, `1/2` -> 0.5), as in the master file.
   **Env** D dungeon, W wilderness, U underwater, X extraplanar (as master).
   **Source** `DD`.
@@ -378,10 +398,13 @@ Columns: `Monster,Number,AC,MV,HD,Lair%,Treas,Atk,Dam,Align,Type,EHD,HDD,Env,Sou
 * **Dragons.** DD ages Hatchling / Young / Adult / Mature / Old / Ancient map
   in order onto Arena's Very Young / Young / Sub-Adult / Adult / Old /
   Very Old. Each age is a row with that age's AC, MV, HD and melee damage.
-  Specials: `Flight (n)`, breath type, immunity, `Fear (2)` from DD Mature
-  up ("greater dragons" force normal-types to check morale; Combat,
-  *Morale*), Gold adds `SaveBonus (4)` and `Spells`. Hatchlings have no
-  treasure (*Dragon Treasure*).
+  Specials from the Dragons group introduction: `Flight (n)`,
+  `Detection (6)` ("sense hidden and invisible creatures within 6\""),
+  `Fearlessness` from DD Adult up ("from adulthood they ... need never
+  check morale"), `Fear (2)` from DD Old up ("old and ancient dragons
+  require normal-types to throw a positive morale check"), breath type and
+  immunity per colour; Gold adds `SaveBonus (4)` and `Spells`. Hatchlings
+  have no treasure (*Dragon Treasure*).
 
 ## Master-file vocabulary deliberately not used
 
@@ -438,7 +461,8 @@ def write_mapping(groups):
                 merged = "Flight (%s by age)" % "/".join(f[8:-1] for f in flights)
                 seen = [merged if s == flights[0] else s for s in seen if s not in flights[1:]]
             if entry.get("source") == "dragons":
-                seen = [s + " from Adult up" if s == "Fear (2)" else s for s in seen]
+                seen = [s + " from Old up" if s == "Fear (2)" else
+                        s + " from Sub-Adult up" if s == "Fearlessness" else s for s in seen]
             special = ", ".join(seen) if seen else "-"
         notes = " ".join(entry.get("notes", []))
         if entry.get("crit"):
@@ -501,6 +525,9 @@ Generated by `generate.py --notes` from `mapping.json`. Companion to
   DD monsters mapped to them are somewhat stronger than written.
 * **Multiple attack rolls vs normal-types** (DD Combat, *Melee*: one roll
   per HD against sub-heroic foes) is not modelled, as in the master file.
+  Dragons are "always heroic/superheroic, regardless of hit dice".
+* **Impervious to normal missiles** (adult dragons, skeletons, zombies)
+  has no code; Arena's fighters melee anyway.
 
 ## Master-file specials deliberately not carried over
 
@@ -508,17 +535,43 @@ MonsterDatabase.csv gives the OD&D analogue an ability that the DD text does
 not mention. Since this file records DD, they are left out; add them back
 in mapping.json if you would rather stay close to the master values.
 
-* Dragons: `Detection (15)` (DD says nothing about seeing invisible);
-  `Fear (2)` is kept only from DD Mature up. Gold Dragon: `PoisonBreath`
-  (DD goldens breathe sound; `FireBreath` stands in, see mapping.md).
-* Hill, Frost, Fire and Cloud Giants: `RockHurling` (DD only says stone
-  giants, storm giants and cyclopes hurl rocks). Arguably an oversight in DD.
-* Elementals: `MagicToHit (2)`.
+* Dragons: `Detection (15)` becomes `Detection (6)` (DD range); `Fear (2)`
+  only from DD Old up. Gold Dragon: `PoisonBreath` (DD goldens breathe
+  sound; `FireBreath` stands in, see mapping.md).
+* Elementals: `MagicToHit (2)` becomes `MagicToHit (1)` (DD: "affected by
+  magical weapons only", no plus stated).
 * Dwarf: `SaveBonus (4)`. Titan: `MagicResistance (60)`. Shadow: `BlankMind`.
-* Flesh/Clay Golems, Living Statues: `MagicImmunity` (DD lists spells that
-  affect them).
 * Bears, Lions, Tigers, Owl-bear-likes: `Rending` and second attacks (DD
   animals use one attack roll with the crit-damage pattern instead).
+
+Rules found in the group introductions (Dragons, Elementals, Giants,
+Golems, Living Statues) *are* applied: all giants hurl rocks and never
+check morale against man-types; elementals need magic weapons; golems and
+living statues are "largely invulnerable to harmful magic"; dragons sense
+invisible creatures.
+
+## EHD findings (see ehd-comparison.md)
+
+`run-metrics.sh` computes every row's EHD with MonsterMetrics;
+`compare-ehd.py` sets them against the master file's analogues recomputed
+with the same build. Where DD and OD&D give the same stats the EHDs
+agree (Orc, Ghoul, Wight, Wraith, Hill Giant, Giant Spider, hydras). The
+systematic differences all trace to rules, not to the file:
+
+* **Dragons.** The HD x age hit-point idiom above inverts DD's curve:
+  hatchlings come out at EHD 1 (master 4-12) and ancients at 41-111
+  (master 18-57). Only the middle ages are comparable. Fixing this needs
+  a change in Arena, not in the CSV.
+* **One attack roll.** DD gives most beasts a single attack where OED
+  gives two or more, so bears, lions, trolls, minotaurs, werebears,
+  griffons, mastodons, manticoras and squid land 1-6 EHD lower. For the
+  animals part of that gap is the unmodelled crit-damage pattern.
+* **Elementals** come out about a third lower (DD air elementals do 2-7,
+  and any magic weapon hits rather than +2).
+* **Higher than OED:** Giant Centipede 5 vs 1 (DD's is a 3+1 HD, 10 ft
+  monster), Yellow Mold 5 vs 2 (3 HD vs 1), Treant 33 vs 26 (weapon
+  immunity and half damage), Giant Viper 7 vs 5, Juggernaut 223.
+* **Horses** that do not attack score 0.
 
 ## Crit-damage pattern ("exceeds the number required to hit by 4 or more, or is a 20")
 
@@ -573,6 +626,12 @@ def main(argv):
     if dupes:
         print("WARNING: duplicate Arena names: %s" % dupes)
     if "--csv" in flags:
+        if EHD:
+            missing = [r["Monster"] for _, rows in groups for r in rows if r["Monster"] not in EHD]
+            if missing:
+                print("WARNING: no EHD in %s for: %s" % (EHD_FILE, missing))
+        else:
+            print("NOTE: %s not found; EHD column left as '?'" % EHD_FILE)
         write_csv(groups)
     if "--mapping" in flags:
         write_mapping(groups)

@@ -1,8 +1,10 @@
 [
  {
   "heading": "Androids",
+  "level": 5,
   "anchor": "androids",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are artificial men. They often have superior qualities such as health, grace, comeliness, or education, but are otherwise indistinguishable save for the color of their blood. Some individuals possess mind powers equivalent to magic use of up to the 4th experience level (throw a six-sided die and subtract 2 for each android-a result less than 1 indicating no tangible mind powers); otherwise, they function as do ordinary men."
   ],
@@ -10,8 +12,10 @@
  },
  {
   "heading": "Ants, Giant",
+  "level": 5,
   "anchor": "ants-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 2-3ft long. They are industrious tunnelers and gatherers that occur in great colonies. Outside the lair only the soldier types will be encountered. Within the lair two-thirds of any ants encountered are 1 hit die workers that will not attack unless provoked. The remainder are soldiers that will attack anything that obstructs the business of the colony. A nest always has a 10 hit dice queen ant who is immobile and non-aggressive. Giant ants will never flee from their nest unless the queen is slain."
   ],
@@ -19,8 +23,10 @@
  },
  {
   "heading": "Apes",
+  "level": 5,
   "anchor": "apes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are generally non-aggressive but are extremely strong. They will climb trees for refuge but if provoked they can strike for 2-7 hit points of damage."
   ],
@@ -28,8 +34,10 @@
  },
  {
   "heading": "Basilisks",
+  "level": 5,
   "anchor": "basilisks",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are large, slow, eight-legged reptiles whose gaze or touch will petrify any living creature that fails to save versus petrification. If it is tricked into seeing its own reflection in a mirror, a basilisk will likewise be petrified."
   ],
@@ -37,8 +45,10 @@
  },
  {
   "heading": "Bats",
+  "level": 5,
   "anchor": "bats",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "roost underground in great numbers during the day. They are mostly harmless to man-types but if a colony is startled and takes to the wing in a confined space they will create confusion. A flapping cloud of bats will obscure sight and possibly extinguish torches, cause equipment to be dropped, or cause spell casting to be interrupted."
   ],
@@ -46,8 +56,10 @@
  },
  {
   "heading": "Bats, Giant",
+  "level": 5,
   "anchor": "bats-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are black as night and so silent on the wing that they will surprise their prey with a throw of 3 or more on a six-sided die. If their prey resists they will shriek, causing normal-types to cover their ears for one turn rather than fight."
   ],
@@ -55,8 +67,10 @@
  },
  {
   "heading": "Bears",
+  "level": 5,
   "anchor": "bears",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are omnivorous but favor meat. They have rather poor eyesight but an excellent sense of smell and can scent food from miles away. They can be aggressive hunters and are very powerful. They cause 3-8 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 4-14 hit points of damage."
   ],
@@ -64,8 +78,10 @@
  },
  {
   "heading": "Beetles, Giant",
+  "level": 5,
   "anchor": "beetles-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are of various sorts but are invariably hungry and can eat virtually any organic matter. They occur underground and in forests and can tunnel through soft earth. They do not hear or see well and rely on their sensitivity to vibrations and smell."
   ],
@@ -73,8 +89,10 @@
  },
  {
   "heading": "A Black Pudding",
+  "level": 5,
   "anchor": "a-black-pudding",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is an amorphous black blob which moves about a dungeon scavenging the leavings of other inhabitants. Due to its coloration and shapelessness it is very difficult to spot in dim light or shadows. It is susceptible to fire but invulnerable to cold. Lightning and slashing attacks will divide it into smaller parts without causing harm. Contact with a black pudding will dissolve wood and metal armor in one turn. Flesh is likewise dissolved suffering 3-18 hit points of damage per turn. Stone, however, is impervious. It can move along walls, floors, and ceilings without difficulty and can squeeze through tiny openings including cracks in stonework and under doors."
   ],
@@ -82,8 +100,10 @@
  },
  {
   "heading": "Boars",
+  "level": 5,
   "anchor": "boars",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are wild pigs that occur in forests and on plains. They are frequently hunted for sport but are extremely tough; they always make one more attack roll after being reduced to 0 or fewer hit points. Every other boar encountered will be a sounder and if these young are attacked the adults will always attack and will absolutely not flee."
   ],
@@ -91,8 +111,10 @@
  },
  {
   "heading": "Boars, Giant",
+  "level": 5,
   "anchor": "boars-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are similar to regular boars but for their great size and aggressive demeanor. They will attack anyone who enters their territory causing 2-12 hit points of damage. They will never retreat and will always make one more attack roll after being reduced to 0 or fewer hit points."
   ],
@@ -100,8 +122,10 @@
  },
  {
   "heading": "Cave Bears",
+  "level": 5,
   "anchor": "cave-bears",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are enormous carnivorous bears that are always hungry. They have rather poor eyesight but an excellent sense of smell and can scent food from miles away. They are aggressive hunters and are extremely powerful. They cause 1-11 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 3-18 hit points of damage. Cave bears will always make one more attack roll after being reduced to 0 or fewer hit points."
   ],
@@ -109,8 +133,10 @@
  },
  {
   "heading": "Cavemen",
+  "level": 5,
   "anchor": "cavemen",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are large but primitive Neanderthal types who are otherwise similar to men. They fight with crude axes, hammers, and clubs, but suffer a -1 adjustment to morale checks and have little treasure. Leader-types are always fighters but never possess magic items."
   ],
@@ -118,8 +144,10 @@
  },
  {
   "heading": "Centaurs",
+  "level": 5,
   "anchor": "centaurs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are horse-men having the body of a horse and the torso of a human. They have normal human intelligence and dwell in secluded glens and valleys in deep forests. Centaurs equip themselves with spears (25%), swords (25%), or clubs (50%) and shields with half carrying short bows in addition. Moreover, a centaur warrior can has two attack rolls each turn, once each with his weaponry and hooves. A centaur lair is much as a small human village having two mares and two foals for every warrior stallion present. Mares have one attack roll each turn only under duress and foals are non-combative."
   ],
@@ -127,8 +155,10 @@
  },
  {
   "heading": "Centipedes, Giant and Large",
+  "level": 5,
   "anchor": "centipedes-giant-and-large",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are found almost anywhere and are aggressive hunters. Large specimens are up to 1ft long, while the giant types are up to 10ft long and have a hard, armored head but a relatively soft body. Both sorts move along walls and ceilings at normal speed. The bite of either causes paralysis although a saving throw is allowed and is at +4 in the case of large centipedes."
   ],
@@ -136,8 +166,10 @@
  },
  {
   "heading": "Chimeras",
+  "level": 5,
   "anchor": "chimeras",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are fearsome three-headed monsters with great bat-like wings, the forequarters of a lion, the hindquarters of a goat, and the heads of goat, lion, and dragon. A chimera can use its breath weapon or engage in combat. The dragon head breathes a 6\" long 2\" wide cone of fire that deals 3-18 hit points of damage, although a successful saving throw versus breath weapons will reduce this by half. In combat a chimera has three attack rolls each turn against heroic enemies; the goat head butting or goring, the lion head biting or rending with its paws, and the dragon head biting."
   ],
@@ -145,8 +177,10 @@
  },
  {
   "heading": "Cockatrices",
+  "level": 5,
   "anchor": "cockatrices",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are reptilian-fowl with bat-like wings. The merest touch of its tail feathers will petrify any living thing (other than a cockatrice) that fails to save versus petrification."
   ],
@@ -154,8 +188,10 @@
  },
  {
   "heading": "Crabs, Giant",
+  "level": 5,
   "anchor": "crabs-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "occur underwater, in coastal estuaries, and in swamps. They have hard, armored shells and if an attack roll exceeds the number required to hit by 4 or more, or is a 20 in any case, they cause 1-11 hit points damage."
   ],
@@ -163,8 +199,10 @@
  },
  {
   "heading": "Crocodiles",
+  "level": 5,
   "anchor": "crocodiles",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are voracious reptiles found in rivers and swamps of warm regions. They are difficult to spot when floating half-submerged in water and will often attack by surprise. If an attack roll exceeds the number required to hit by 4 or more a crocodile will drag its victim back into the water where it will roll over and over until the victim is drowned. Crocodiles are lazy and will not pursue more than one turn out of water."
   ],
@@ -172,8 +210,10 @@
  },
  {
   "heading": "Crocodiles, Giant",
+  "level": 5,
   "anchor": "crocodiles-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are thrice the size of their ordinary cousins but otherwise similar. An attack causes 2-12 hit points of damage and any attack roll that exceeds the number required to hit by 4 or more swallows a man-sized victim whole. They are difficult to spot as they float half-submerged in water and they can overturn boats and rafts. A giant crocodile can be rammed by larger ships, possibly slaying the monster but also capsizing the boat (check separately for each)."
   ],
@@ -181,8 +221,10 @@
  },
  {
   "heading": "Cyborgs",
+  "level": 5,
   "anchor": "cyborgs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "were once men but are now mostly machines; inhumane and evil. They can occur in large numbers and aim to sweep across a population assimilating all man-types into cyborgs. They are cruelly strong and deal 3-8 hit points of damage on a hit, need never check morale, and will never give up a pursuit so long as the quarry is in sight."
   ],
@@ -190,17 +232,32 @@
  },
  {
   "heading": "Cyclopes",
+  "level": 5,
   "anchor": "cyclopes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 20ft tall giants with but one large eye which is the cause of poor depth perception and a -2 adjustment on all attack rolls. They dwell in forlorn, out of the way ruins, islands, or undersea caves where they seldom encounter others. They are skilled smiths and should a player offer a useful gift and get a positive reaction the cyclopes may offer magical armor in return. A cyclops does battle with a huge club and deals 6-21 hit points of damage and can hurl rocks up to 20\" for 2-12 damage. They especially prize gold and their treasure hoard will always contain an additional 2,000-5,000 gp."
   ],
   "text": "are 20ft tall giants with but one large eye which is the cause of poor depth perception and a -2 adjustment on all attack rolls. They dwell in forlorn, out of the way ruins, islands, or undersea caves where they seldom encounter others. They are skilled smiths and should a player offer a useful gift and get a positive reaction the cyclopes may offer magical armor in return. A cyclops does battle with a huge club and deals 6-21 hit points of damage and can hurl rocks up to 20\" for 2-12 damage. They especially prize gold and their treasure hoard will always contain an additional 2,000-5,000 gp."
  },
  {
+  "heading": "Dinosaurs",
+  "level": 3,
+  "anchor": "dinosaurs",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "Dinosaurs are great, prehistoric lizards and can be fearsome enemies. The largest predators are few but can swallow man-sized victims whole while the smaller types occur in hunting packs. Herbivores of all sizes appear in herds. None of them covets treasure."
+  ],
+  "text": "Dinosaurs are great, prehistoric lizards and can be fearsome enemies. The largest predators are few but can swallow man-sized victims whole while the smaller types occur in hunting packs. Herbivores of all sizes appear in herds. None of them covets treasure."
+ },
+ {
   "heading": "Dinosaurs, Brontosaurs",
+  "level": 5,
   "anchor": "dinosaurs-brontosaurs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are among the largest creatures walking on land. They are up to 80ft long, 20ft tall at the shoulder, and can weigh over 30 tons. They spend their time grazing the vegetation of the great plains and swamplands. Fortunately, they are peaceful herbivores and unlikely to attack unless provoked. The chief danger they present is from crushing, barging, or stampeding ahead of predators or fire. Hits deal 3-18 hit points of damage due to their immense mass."
   ],
@@ -208,8 +265,10 @@
  },
  {
   "heading": "Dinosaurs, Deinonychus",
+  "level": 5,
   "anchor": "dinosaurs-deinonychus",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "include any of the relatively small pack hunting carnivores up to 5ft high and 10ft long. They are quick and cunning and inclined to stalk prey, only attacking at the optimal moment. They will not give up a pursuit while their prey remains in sight."
   ],
@@ -217,8 +276,10 @@
  },
  {
   "heading": "Dinosaurs, Mosasaurs",
+  "level": 5,
   "anchor": "dinosaurs-mosasaurs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are huge reptilian swimmers up to 40ft in length. These marine lizards have paddle-like limbs, finned tails, and huge jaws bristling with curved teeth. They are found in any deep waters but must surface to breathe air. A hit causes 3-18 hit points of damage but if ever an attack roll exceeds the number required to hit by 4 or more, or is a 20 in any case, a mosasaur will swallow a man-sized target whole."
   ],
@@ -226,8 +287,10 @@
  },
  {
   "heading": "Dinosaurs, Pterodactyls",
+  "level": 5,
   "anchor": "dinosaurs-pterodactyls",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are any man-sized and larger reptilian fliers that rule the prehistoric skies. They occur in coastal and swampy regions where they nest in colonies that cling to cliff faces, cave walls, and escarpments, and are always hungry. The most common forms are approximately man-sized with wingspans of 10-25ft but the largest sorts are up to 20ft tall with wingspans of up to 40ft."
   ],
@@ -235,8 +298,10 @@
  },
  {
   "heading": "Dinosaurs, Stegosaurs",
+  "level": 5,
   "anchor": "dinosaurs-stegosaurs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are large herbivores up to 30ft long and 10ft high and up to 3 tons in weight. These have very tiny brains and a distinctive array of shield-like plates along the ridge of the spine, granting AC 2 versus attacks other than from the flank. They have a fist of 2ft long spikes on the tail which will strike for 2-12 hit points of damage to the flank or rear; otherwise, damage is 3-8 hit points."
   ],
@@ -244,8 +309,10 @@
  },
  {
   "heading": "Dinosaurs, Triceratops",
+  "level": 5,
   "anchor": "dinosaurs-triceratops",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are huge, aggressive herbivores that will run down any threat to the herd. They are up to 30ft long and 10ft high and can weigh up to 10 tons. A triceratops has a huge skull with a distinctive bony frill and three great horns granting AC 2 from the front. Should it charge an enemy it will deal 4-24 hit points of damage; otherwise, damage is 2-12 hit points."
   ],
@@ -253,8 +320,10 @@
  },
  {
   "heading": "Dinosaurs, Tyrannosaurus Rexes",
+  "level": 5,
   "anchor": "dinosaurs-tyrannosaurus-rexes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are huge carnivorous lizards and truly fearsome predators. They are up to 20ft tall and 40ft long and can weigh up to 7 tons. The jaws contain scores of dagger-like fangs and any hit causes 4-24 hit points of damage. On any attack roll that exceeds the number required to hit by 4 or more, or is a 20 in any case, it will swallow a man-sized target whole."
   ],
@@ -262,8 +331,10 @@
  },
  {
   "heading": "A Djinni",
+  "level": 5,
   "anchor": "a-djinni",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a creature of air appearing as a supremely confident, bare-chested warrior. They can fly as easily as walk, even burdened with thrice what an ordinary man could bear. A djinni can become invisible, assume gaseous form, or magically create any desired object at will. Soft materials including food, drink, and garments are permanent. Harder materials have a shorter existence; djinn gold lasts only a day, steel only an hour. A djinni can also create magical illusions on a whim and these are equal to the phantasm spell except that a djinni has no need to concentrate to maintain the illusion.",
    "A djinni can also transform into a torrid whirlwind 3\" high and 2\" wide which will sweep away all normal-types. The whirlwind takes one turn to form and another to dissipate. A djinni deals 1-11 hit points of damage in combat due to his formidable size and strength."
@@ -272,8 +343,10 @@
  },
  {
   "heading": "Dogs",
+  "level": 5,
   "anchor": "dogs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are keen nosed pack animals that inhabit plains and prairies. They can be trained only if separated from the pack as pups but will then have +2 loyalty."
   ],
@@ -281,8 +354,10 @@
  },
  {
   "heading": "Doppelgangers",
+  "level": 5,
   "anchor": "doppelgangers",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are humanoid creatures that can change their physical form to identically resemble any man-like creature they have observed. Once a likeness is achieved they can do away with the victim and then act in his role for a time to gain the utmost advantage before attacking again. Doppelgangers are immune to sleep and charm spells and make saving throws as a 10th level fighter."
   ],
@@ -290,8 +365,10 @@
  },
  {
   "heading": "Dragon Turtles",
+  "level": 5,
   "anchor": "dragon-turtles",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 30ft diameter turtles with long, sinuous necks and dragon heads. They are found only in large bodies of water and lair in deep, underwater grottos.",
    "A dragon turtle has a 9\"x3\" conical breath weapon of scalding steam which functions as does a dragon's breath weapon. It can surface beneath even a large ship, having a 50% chance of capsizing the vessel."
@@ -299,9 +376,45 @@
   "text": "are 30ft diameter turtles with long, sinuous necks and dragon heads. They are found only in large bodies of water and lair in deep, underwater grottos. A dragon turtle has a 9\"x3\" conical breath weapon of scalding steam which functions as does a dragon's breath weapon. It can surface beneath even a large ship, having a 50% chance of capsizing the vessel."
  },
  {
+  "heading": "Dragons",
+  "level": 3,
+  "anchor": "dragons",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "Dragons are the great flying wyrms of legend and are always heroic/superheroic, regardless of hit dice. They are of six types: white, black, green, blue, red, and golden and have the following characteristics:"
+  ],
+  "text": "Dragons are the great flying wyrms of legend and are always heroic/superheroic, regardless of hit dice. They are of six types: white, black, green, blue, red, and golden and have the following characteristics:"
+ },
+ {
+  "heading": "Table 3.2 Dragons by Type",
+  "level": 4,
+  "anchor": null,
+  "is_monster": false,
+  "is_group": false,
+  "paragraphs": [
+   "White dragons are the least intelligent sort and have the usual 20% chance of knowing the common tongue and no possibility of magic use. Golden dragons are the most intelligent sort and they always know the common tongue and always have the use of magic spells. The other dragons have various chances of speaking the common tongue and only 10% chance of being magic-using.",
+   "All dragons have six life stages: hatchling, young, adult, mature, old, and ancient. The size of a dragon's breath weapon is determined according to its life stage, as is the possibility of a dragon being asleep if encountered in its lair. Note that even a wakeful dragon may appear to be sleeping."
+  ],
+  "text": "White dragons are the least intelligent sort and have the usual 20% chance of knowing the common tongue and no possibility of magic use. Golden dragons are the most intelligent sort and they always know the common tongue and always have the use of magic spells. The other dragons have various chances of speaking the common tongue and only 10% chance of being magic-using. All dragons have six life stages: hatchling, young, adult, mature, old, and ancient. The size of a dragon's breath weapon is determined according to its life stage, as is the possibility of a dragon being asleep if encountered in its lair. Note that even a wakeful dragon may appear to be sleeping."
+ },
+ {
+  "heading": "Table 3.3 Dragons by Age Category",
+  "level": 4,
+  "anchor": null,
+  "is_monster": false,
+  "is_group": false,
+  "paragraphs": [
+   "All dragons can sense hidden and invisible creatures within 6\". From adulthood they are impervious to normal missiles and need never check morale. Old and ancient dragons require normal-types to throw a positive morale check to approach nearer than 15\" or to hold their ground if the dragon attacks."
+  ],
+  "text": "All dragons can sense hidden and invisible creatures within 6\". From adulthood they are impervious to normal missiles and need never check morale. Old and ancient dragons require normal-types to throw a positive morale check to approach nearer than 15\" or to hold their ground if the dragon attacks."
+ },
+ {
   "heading": "Sleeping Dragons",
+  "level": 5,
   "anchor": "sleeping-dragons",
   "is_monster": false,
+  "is_group": false,
   "paragraphs": [
    "Should a dragon be sleeping the characters may, if great caution is employed, approach without waking it. If this is successfully accomplished a single turn of surprise attacks is allowed at +2 to hit. These will wake the dragon immediately and thereafter regular combat will ensue."
   ],
@@ -309,8 +422,10 @@
  },
  {
   "heading": "Dragon Breath Weapon",
+  "level": 5,
   "anchor": "dragon-breath-weapon",
   "is_monster": false,
+  "is_group": false,
   "paragraphs": [
    "A dragon can use its dreaded breath weapon only thrice per day and will do so to its maximum advantage. Those unfortunates that are targeted suffer damage equal to the dragon's current hit points or half this number with a successful saving throw versus breath weapons."
   ],
@@ -318,8 +433,10 @@
  },
  {
   "heading": "Dragon Magic",
+  "level": 5,
   "anchor": "dragon-magic",
   "is_monster": false,
+  "is_group": false,
   "paragraphs": [
    "Should a dragon be magic-using it will know as many spells as it has hit dice. It will have access to 1st level spells as a hatchling, 2nd level spells as a young dragon, and 3rd level spells thereafter. Golden dragons only continue in this manner, attaining 6th level spells as ancient dragons."
   ],
@@ -327,8 +444,10 @@
  },
  {
   "heading": "If Multiple Dragons",
+  "level": 5,
   "anchor": "if-multiple-dragons",
   "is_monster": false,
+  "is_group": false,
   "paragraphs": [
    "are encountered they will be related individuals of the same type. A pair of dragons could be siblings, mother and daughter, or a mated pair as appropriate for their age category. Hatchlings and young dragons will be the offspring of adults present. If these are attacked, the adults will immediately use their breath weapons against the offender. If either adult of a mated pair is attacked, its mate will retaliate at +4 to hit the following turn or for the remainder of the combat if its mate is slain."
   ],
@@ -336,8 +455,10 @@
  },
  {
   "heading": "Subduing Dragons",
+  "level": 5,
   "anchor": "subduing-dragons",
   "is_monster": false,
+  "is_group": false,
   "paragraphs": [
    "With the exception of the golden type, dragons can be subdued as usual. A subdued dragon will serve so long as its master remains in a commanding position but will otherwise attempt to escape or slay him. A subdued dragon can be sold into servitude on the open market for 500-1,000 gp per hit point it has-although the player may have difficulty finding an appropriate buyer."
   ],
@@ -345,8 +466,10 @@
  },
  {
   "heading": "Dragon Treasure",
+  "level": 5,
   "anchor": "dragon-treasure",
   "is_monster": false,
+  "is_group": false,
   "paragraphs": [
    "Hatchlings have not yet acquired any treasure. Older dragons have a hoard worth 1/2 a type H treasure for each age category beyond hatchling."
   ],
@@ -354,8 +477,10 @@
  },
  {
   "heading": "Dragons, Black",
+  "level": 5,
   "anchor": "dragons-black",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "dwell in swamps, marshes, and jungles. They are patient hunters and can fly, swim, and breath underwater indefinitely. While a black dragon lurks underwater the pool will gradually stagnate and become foul. Its breath weapon is a searing jet of acid which affects all targets in a line. They are themselves invulnerable to acid."
   ],
@@ -363,8 +488,10 @@
  },
  {
   "heading": "Dragons, Blue",
+  "level": 5,
   "anchor": "dragons-blue",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are found in arid regions soaring on the hot desert airs. They are shrewd hunters and love best to drop unseen from the azure skies but can also bury themselves in sand dunes for ambush. A blue dragon's breath weapon is a cracking bolt of lightning which will affect all targets in a line. They are themselves invulnerable to lightning."
   ],
@@ -372,8 +499,10 @@
  },
  {
   "heading": "Dragons, Golden",
+  "level": 5,
   "anchor": "dragons-golden",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "can be found in any habitat. Despite being the only lawful dragons they will not serve any player and cannot be subdued in combat. They are very intelligent and always magic-using and will employ spells cleverly in combat. Moreover, they are highly magic resistant and make all saving throws versus magical attacks at +4. A gold dragon's breath weapon is a sonic blast that will also damage structures. They sometimes polymorph into human form to move freely among men."
   ],
@@ -381,8 +510,10 @@
  },
  {
   "heading": "Dragons, Green",
+  "level": 5,
   "anchor": "dragons-green",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are found in daunting woods and impenetrable forests. They are voracious hunters of food and treasure and keen gatherers of intelligence. They will attack weak targets immediately but stalk more formidable prey. A green dragon's breath weapon is a withering cone of chlorine gas. They are immune to poison."
   ],
@@ -390,8 +521,10 @@
  },
  {
   "heading": "Dragons, Red",
+  "level": 5,
   "anchor": "dragons-red",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "dwell in mountain caves from where they terrorize the surrounds. They are voracious predators and their greed is legendary. They will usually attack on sight but prefer not to destroy treasure with their fearsome fiery breath weapon if possible. They are themselves invulnerable to fire."
   ],
@@ -399,8 +532,10 @@
  },
  {
   "heading": "Dragons, White",
+  "level": 5,
   "anchor": "dragons-white",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "dwell in polar regions and are cunning predators that can fly, swim, and tunnel through snow and ice. They will not slip on ice and their breath weapon is a blistering cone of cold. They are themselves invulnerable to cold."
   ],
@@ -408,8 +543,10 @@
  },
  {
   "heading": "Dryads",
+  "level": 5,
   "anchor": "dryads",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are shy and reclusive creatures who have exhaustive knowledge of their forest homes. Each is bound to an individual tree and can go no farther than 24\" from it. A dryad is non-violent but can employ a powerful charm causing a saving throw versus spells at -2. Those who fail will never leave the forest."
   ],
@@ -417,8 +554,10 @@
  },
  {
   "heading": "Dwarfs",
+  "level": 5,
   "anchor": "dwarfs_1",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "dwell underground and see equally well by day or by night. They are redoubtable fighters and ogres, trolls, and giants score only half damage against them. Away from the lair a troop of dwarfs is always accompanied by one 1st-6th level fighter for every 40 dwarfs. In their stronghold lair there will instead be one 3rd-6th level fighter for every 40 dwarfs. A leveled fighter has a 10% chance per level of being equipped with magic armor, a magic shield, and a magic axe or hammer (check separately for each). A dwarf stronghold is 50% likely to be additionally defended by domesticated animals such as 1-6 bears or 1-8 giant weasels (check separately for each)."
   ],
@@ -426,17 +565,33 @@
  },
  {
   "heading": "An Efreeti",
+  "level": 5,
   "anchor": "an-efreeti",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a creature of fire and an irreconcilable enemy of the djinn. They are immensely strong-being able to bear what eight men can carry-and deal 2-12 hit points of damage in combat. Efreet can also fly, become invisible, and magically create any desired object at will. Soft materials including food, drink, and garments are permanent. Harder materials have a shorter existence; efreet gold lasts only a day, steel but one hour. An efreeti can also create magical illusions on a whim and these are equal to the phantasm spell except that an efreeti has no need to concentrate to maintain the illusion. Additionally they can cause a wall of fire to spring up and can themselves become incendiaries. If bound into service an efreeti will grudgingly serve for a year and a day but no longer."
   ],
   "text": "is a creature of fire and an irreconcilable enemy of the djinn. They are immensely strong-being able to bear what eight men can carry-and deal 2-12 hit points of damage in combat. Efreet can also fly, become invisible, and magically create any desired object at will. Soft materials including food, drink, and garments are permanent. Harder materials have a shorter existence; efreet gold lasts only a day, steel but one hour. An efreeti can also create magical illusions on a whim and these are equal to the phantasm spell except that an efreeti has no need to concentrate to maintain the illusion. Additionally they can cause a wall of fire to spring up and can themselves become incendiaries. If bound into service an efreeti will grudgingly serve for a year and a day but no longer."
  },
  {
+  "heading": "Elementals",
+  "level": 3,
+  "anchor": "elementals",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "An elemental is an essential force of nature and is one of four types: earth, air, fire, and water. Each can appear in three sizes: 8, 12, or 16 hit dice. Elementals of any sort are affected by magical weapons only.",
+   "All elementals, no matter the hit dice or type, must be controlled by the summoner. If the summoner's concentration is broken for any reason the elemental will cease whatever it is doing, move at its best speed, and attempt to kill him. Anyone between the elemental and its summoner will be attacked and everyone else will be ignored. Once control has been relinquished there is no way to regain it. The elemental will attack until it or its target is destroyed and immediately return to its home dimension."
+  ],
+  "text": "An elemental is an essential force of nature and is one of four types: earth, air, fire, and water. Each can appear in three sizes: 8, 12, or 16 hit dice. Elementals of any sort are affected by magical weapons only. All elementals, no matter the hit dice or type, must be controlled by the summoner. If the summoner's concentration is broken for any reason the elemental will cease whatever it is doing, move at its best speed, and attempt to kill him. Anyone between the elemental and its summoner will be attacked and everyone else will be ignored. Once control has been relinquished there is no way to regain it. The elemental will attack until it or its target is destroyed and immediately return to its home dimension."
+ },
+ {
   "heading": "Elementals, Air",
+  "level": 5,
   "anchor": "elementals-air",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "The only means of motility possessed by an air elemental is flight but they have absolute control over their movement, hovering or changing speed at will. These monsters cause 2-7 hit points of damage and attack at +2 to hit versus aerial opponents. They can spin into a fearsome whirlwind 3\" wide at the base, 6\" wide at the apex, and 1\" of height for each hit die possessed (e.g., 8\" tall for an 8 HD air elemental). The whirlwind takes a turn to form and another to dissipate and will sweep away all normal-types."
   ],
@@ -444,8 +599,10 @@
  },
  {
   "heading": "Elementals, Earth",
+  "level": 5,
   "anchor": "elementals-earth",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "These creatures of earth and stone will strike with their mighty fists for 3-18 hit points of damage to opponents standing on solid ground and causing structural damage to constructions such as castle walls. Against opponents not standing on solid ground an earth elemental inflicts 2-12 hit points of damage. Earth elementals move at 6\" over or through earth but cannot cross water. A move earth spell will drive an earth elemental back 12\" and cause 6-36 points of damage."
   ],
@@ -453,8 +610,10 @@
  },
  {
   "heading": "Elementals, Fire",
+  "level": 5,
   "anchor": "elementals-fire",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "Fire elementals move 12\" per turn but cannot cross water. The touch of these monsters causes inflammable materials to ignite. In combat a fire elemental usually causes 2-12 hit points of damage. Against other fire-based creatures (red dragons, salamanders, fire giants, and so on) they cause only 2-7 hit points of damage. Fire elementals can only be summoned from a large source of heat such as a bonfire, a furnace, or molten lava."
   ],
@@ -462,8 +621,10 @@
  },
  {
   "heading": "Elementals, Water",
+  "level": 5,
   "anchor": "elementals-water",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "Water elementals are very dangerous in their environment, causing 2-12 hit points of damage in the water but only 1-6 hit points of damage on dry land. They can overturn boats and small vessels and prevent large vessels from moving. Water elementals can only be summoned from a large body of water such as a stream, pond, or lake. Once formed, a water elemental must remain within 6\" of a large body of water. Its movement rate is 18\" in water but 6\" out of water."
   ],
@@ -471,8 +632,10 @@
  },
  {
   "heading": "Elves",
+  "level": 5,
   "anchor": "elves_1",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are reclusive woodland folk. They can move silently and almost invisibly through woods in their gray-green cloaks and are equipped with swords and spears or swords and bows (50% chance of either). For every 40 elves encountered there will be a leader-type with 2-4 fighter levels and 2-6 magic-user levels. For every 80 elves encountered there will be an additional 4th/6th level fighter/magic-user. Leader-types may possess magic items as per men. All elves add +1 hit point of damage when employing magic weapons and those with bows can move and fire without penalty."
   ],
@@ -480,8 +643,10 @@
  },
  {
   "heading": "Fish, Giant",
+  "level": 5,
   "anchor": "fish-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are of various sorts including barracuda, gar, and pike. They are aggressive hunters and always hungry. They occur in wild schools and as domesticated guardians around merman and nixie lairs."
   ],
@@ -489,8 +654,10 @@
  },
  {
   "heading": "Gargoyles",
+  "level": 5,
   "anchor": "gargoyles",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "appear much as the sculptural depictions in gothic architecture. They can remain perfectly still indefinitely and are indistinguishable from ordinary statues when so perched. They are notoriously hostile, however, and will attack without provocation 75% of the time. They are fond of ambush and normal weapons do them no harm."
   ],
@@ -498,8 +665,10 @@
  },
  {
   "heading": "A Gelatinous Cube",
+  "level": 5,
   "anchor": "a-gelatinous-cube",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a cube-shaped, transparent scavenger that shapes itself to fit dungeon corridors up to 10ft by 10ft wide and moves about sweeping them clean. It picks up and absorbs everything from rocks and carrion to living things and treasure, which it is unable to digest. Thus, these scavengers carry a miscellany of durable items (coins, gems, daggers, helms, and so on) suspended in their transparent innards. Contact with a gelatinous cube causes paralysis unless a successful saving throw is made, and thereafter causes 1-6 hit points of damage per turn as the flesh is digested. They are invulnerable to cold and lightning, and immune to fear, paralysis, and polymorph."
   ],
@@ -507,17 +676,32 @@
  },
  {
   "heading": "Ghouls",
+  "level": 5,
   "anchor": "ghouls",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are eaters of living and carrion flesh. Their attack rolls and morale checks are penalized by -2 in daylight but the touch of these undead creatures causes paralysis for 1 turn in normal man-types (except elves, who are immune). A man-type slain by a ghoul will arise again the following night as a ghoul."
   ],
   "text": "are eaters of living and carrion flesh. Their attack rolls and morale checks are penalized by -2 in daylight but the touch of these undead creatures causes paralysis for 1 turn in normal man-types (except elves, who are immune). A man-type slain by a ghoul will arise again the following night as a ghoul."
  },
  {
+  "heading": "Giants",
+  "level": 3,
+  "anchor": "giants",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "Giants are enormous, ugly humanoids who can hurl great rocks 20\" for 2-12 hit points of damage and need never check morale against man-types. Unless noted otherwise, giants also cause 2-12 hit points of damage in melee combat. A wandering giant carries a great shoulder sack that contains his possessions including rocks, prisoners, other miscellany, and 1,000-6,000 gp worth of coins. Giant lairs are 50% likely to be guarded by a 5-10 headed hydra (with a throw of 1-4 on a six-sided die), or 2-20 wolves (with a throw of 5), or 1-6 bears (with a throw of 6). Giants are of various sorts including:"
+  ],
+  "text": "Giants are enormous, ugly humanoids who can hurl great rocks 20\" for 2-12 hit points of damage and need never check morale against man-types. Unless noted otherwise, giants also cause 2-12 hit points of damage in melee combat. A wandering giant carries a great shoulder sack that contains his possessions including rocks, prisoners, other miscellany, and 1,000-6,000 gp worth of coins. Giant lairs are 50% likely to be guarded by a 5-10 headed hydra (with a throw of 1-4 on a six-sided die), or 2-20 wolves (with a throw of 5), or 1-6 bears (with a throw of 6). Giants are of various sorts including:"
+ },
+ {
   "heading": "Giants, Cloud",
+  "level": 5,
   "anchor": "giants-cloud",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 18ft tall and inhabit unbelievable castles among the clouds. They cause 3-18 hit points of damage in melee combat and their sense of smell is so amazingly keen that they are rarely surprised."
   ],
@@ -525,8 +709,10 @@
  },
  {
   "heading": "Giants, Fire",
+  "level": 5,
   "anchor": "giants-fire",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 12ft tall and of stocky build. They cause 4-14 hit points of damage in melee combat and lair in castles and caverns wherever there is lava, fire, or great heat. They are themselves invulnerable to fire."
   ],
@@ -534,8 +720,10 @@
  },
  {
   "heading": "Giants, Frost",
+  "level": 5,
   "anchor": "giants-frost",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 16ft tall and cause 3-13 hit points of damage in melee combat. They favor huge horned helmets and lair in frigid castles and caverns. They are themselves invulnerable to cold."
   ],
@@ -543,8 +731,10 @@
  },
  {
   "heading": "Giants, Hill",
+  "level": 5,
   "anchor": "giants-hill",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are the most base sort. They are 12ft tall and lair in rudimentary caves. They frequently associate with ogres, orcs, and other wicked creatures."
   ],
@@ -552,8 +742,10 @@
  },
  {
   "heading": "Giants, Stone",
+  "level": 5,
   "anchor": "giants-stone",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 14ft tall and inhabit isolated mountain cavern systems. They hurl rocks for 3-18 hit points of damage."
   ],
@@ -561,8 +753,10 @@
  },
  {
   "heading": "Giants, Storm",
+  "level": 5,
   "anchor": "giants-storm",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 20ft tall and cause 6-21 hit points of damage in melee combat. They inhabit formidable castles situated in out of the way places including islands, mountains, and cloud tops. They are able to control weather to create stormy conditions-which they will do when angry or expecting battle. As well as hurling rocks a storm giant can call down a lightning strike for 8-48 hit points of damage in thunderstorm conditions. They are themselves invulnerable to lightning."
   ],
@@ -570,8 +764,10 @@
  },
  {
   "heading": "Gnolls",
+  "level": 5,
   "anchor": "gnolls",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "fight with +2 morale. The lair will contain a chieftain and 1-6 bodyguards who fight as 4 and 3 hit dice monsters, respectively."
   ],
@@ -579,8 +775,10 @@
  },
  {
   "heading": "Gnomes",
+  "level": 5,
   "anchor": "gnomes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are found in Arctic climes. They are smaller and more reclusive than their cousins, the dwarfs, but have longer beards and bigger noses."
   ],
@@ -588,17 +786,32 @@
  },
  {
   "heading": "Goblins",
+  "level": 5,
   "anchor": "goblins",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are small, malicious humanoids who operate underground or at night, adjusting attack and morale checks by -1 in full daylight. Each fighting goblin carries coins worth 1-6 gp with him, even outside the lair. The lair will be a cave complex containing as many non-combatants as combatants, as well as a goblin king and 4-24 bodyguards who fight as 2 and 1+1 hit dice monsters, respectively. The lair is 50% likely to contain an additional 3-12 giant wolves and 3-18 ogres (check separately for each)."
   ],
   "text": "are small, malicious humanoids who operate underground or at night, adjusting attack and morale checks by -1 in full daylight. Each fighting goblin carries coins worth 1-6 gp with him, even outside the lair. The lair will be a cave complex containing as many non-combatants as combatants, as well as a goblin king and 4-24 bodyguards who fight as 2 and 1+1 hit dice monsters, respectively. The lair is 50% likely to contain an additional 3-12 giant wolves and 3-18 ogres (check separately for each)."
  },
  {
+  "heading": "Golems",
+  "level": 3,
+  "anchor": "golems",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "Golems are powerful automatons created by high level magic-users and clerics that exist only to obey the commands of their creators, following instructions to the letter. They are ponderous and dull-witted but incredibly strong. In combat they strike for 2-12 hit points of damage and can batter through wooden structures including doors. They are largely invulnerable to harmful magic, but there is a 1% chance per turn of combat that a golem will go berserk. Should this occur the creator cannot regain control and the golem will continue to attack whatever creature harms it or is nearest until it is destroyed."
+  ],
+  "text": "Golems are powerful automatons created by high level magic-users and clerics that exist only to obey the commands of their creators, following instructions to the letter. They are ponderous and dull-witted but incredibly strong. In combat they strike for 2-12 hit points of damage and can batter through wooden structures including doors. They are largely invulnerable to harmful magic, but there is a 1% chance per turn of combat that a golem will go berserk. Should this occur the creator cannot regain control and the golem will continue to attack whatever creature harms it or is nearest until it is destroyed."
+ },
+ {
   "heading": "Golems, Clay",
+  "level": 5,
   "anchor": "golems-clay",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are created by high level clerics from blood and pliable clay. A disintegrate spell will slow a clay golem and cause 2-12 hit points of damage and a move earth spell will drive a clay golem back 12\" and cause 6-36 hit points of damage; otherwise, they can only be harmed by magical weapons. After one turn of combat a clay golem comes under the influence of a haste spell for the next three turns. Injuries caused by a clay golem cannot be cured by a cleric lower than 9th level."
   ],
@@ -606,8 +819,10 @@
  },
  {
   "heading": "Golems, Flesh",
+  "level": 5,
   "anchor": "golems-flesh",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are powerful automatons created by high level magic-users from stitched together body parts, but they are not undead. Cold and fire based spells will slow a flesh golem and lightning will heal it; otherwise, they can only be harmed by magical weapons."
   ],
@@ -615,8 +830,10 @@
  },
  {
   "heading": "Gorgons",
+  "level": 5,
   "anchor": "gorgons",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are aggressive, bull-like creatures covered in iron scales with a rightly feared breath weapon that turns targets to stone. The breath weapon extends to a 6\" long by 2\" wide cone and is usable thrice per day."
   ],
@@ -624,8 +841,10 @@
  },
  {
   "heading": "Gothrogs",
+  "level": 5,
   "anchor": "gothrogs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are giant, fiery fiends of dreadful power and intelligence. They see in darkness as men see in daylight and combust inflammable materials by merely passing nearby. Fire and normal weapons cannot harm them and it is 75% likely that magic spells will not affect them.",
    "Gothrogs carry great, flaming, magic swords and fiery whips and can attack with either or both each turn. Should a gothrog employ both weapons it can target two opponents, causing 2-12 hit points of damage to each. If it employs only one weapon it does so at +2 to hit. The flaming sword causes 3-18 hit points of damage. The whip causes only 1-6 hit points of damage, but entangles the target so the gothrog can drag him unto itself, where upon it will immolate and cause an additional 2-12 hit points of damage to everybody within 1\".",
@@ -635,8 +854,10 @@
  },
  {
   "heading": "Gray Ooze",
+  "level": 5,
   "anchor": "gray-ooze",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a creeping dungeon scavenger which is difficult to spot in dim light as it appears much like wet stonework. It can move along walls, floors, and ceilings equally and can squeeze through tiny openings including cracks in stonework and under doors. It dissolves metal armor in one turn and causes 2-12 hit points of damage per turn to flesh but has no effect on wood or stone. It is impervious to cold and fire but subject to lightning and normal weaponry (but note its effect on metal)."
   ],
@@ -644,8 +865,10 @@
  },
  {
   "heading": "Green Slime",
+  "level": 5,
   "anchor": "green-slime",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a pernicious dungeon hazard that clings to walls, floors, and ceilings. It begins to eat through flesh, wood, and metal (but not stone) after one turn of contact, transmuting these into green slime. It cannot be physically scraped off so anything it comes into contact with must be discarded immediately. It is impervious to lightning and physical blows but is harmed by cold and fire. A remove disease spell will slay it instantly."
   ],
@@ -653,8 +876,10 @@
  },
  {
   "heading": "Griffons",
+  "level": 5,
   "anchor": "griffons",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are majestic creatures with the forequarters of an eagle and the hindquarters of a lion. They are fleet and fiercely territorial and will attack without provocation should anything approach the aerie lair. Griffons make loyal steeds if they can be trained but crave horse flesh above other foods and will attack any horse or pegasi within 36\"."
   ],
@@ -662,8 +887,10 @@
  },
  {
   "heading": "Halflings",
+  "level": 5,
   "anchor": "halflings_1",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are small, peaceful folk interested chiefly in home comforts. When the need arises they are able to move silently and almost invisibly and to hide quite superbly. For every 30 halflings encountered there will be a leader with 1-4 fighter levels. All halflings are deadly accurate with hurled missiles adjusting attack rolls by +3."
   ],
@@ -671,8 +898,10 @@
  },
  {
   "heading": "Hippogriffs",
+  "level": 5,
   "anchor": "hippogriffs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are admirable beasts with the forequarters of an eagle and the hindquarters of a horse. They are omnivorous hunters and highly sought as mounts for their great speed-despite their intolerance of pegasi. They need never check morale when defending their nest."
   ],
@@ -680,8 +909,10 @@
  },
  {
   "heading": "Hobgoblins",
+  "level": 5,
   "anchor": "hobgoblins",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are the largest and most fearless goblins. They are armored, well organized, and have +1 to morale checks except in full daylight where they must instead adjust attack rolls by -1. Wandering bands are always led by a sergeant who fights as a 2 hit dice monster.",
    "The lair will be a village, ruin, or cave complex containing half as many non-combatants as combatants as well as a hobgoblin king and 2-12 bodyguards who fight as 3 and 2 hit dice monsters, respectively. The lair is 50% likely to contain an additional 3-12 giant wolves, 3-18 ogres, and 2-12 trolls (check separately for each)."
@@ -690,17 +921,32 @@
  },
  {
   "heading": "Horses",
+  "level": 5,
   "anchor": "horses",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are domesticated riding animals and beasts of burden. Riding horses, draft horses, and mules will flee fire and may be panicked by strange smells. Only warhorses and destriers will attack in combat, having a single attack roll even versus normal-types."
   ],
   "text": "are domesticated riding animals and beasts of burden. Riding horses, draft horses, and mules will flee fire and may be panicked by strange smells. Only warhorses and destriers will attack in combat, having a single attack roll even versus normal-types."
  },
  {
+  "heading": "Table 3.11 Horses",
+  "level": 4,
+  "anchor": null,
+  "is_monster": false,
+  "is_group": false,
+  "paragraphs": [
+   "Only mules are agile enough to enter the labyrinthine passages of a dungeon."
+  ],
+  "text": "Only mules are agile enough to enter the labyrinthine passages of a dungeon."
+ },
+ {
   "heading": "Hydras",
+  "level": 5,
   "anchor": "hydras",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are large reptilian monsters with one head per hit die. Each serpentine head can be destroyed by sustaining 6 hit points of damage. The entirety of the beast is slain only when all of its individual heads are dispatched. Circumstances allowing, each head can select an individual target and make an attack roll each turn. However, it attacks as a fighter rather than as a monster."
   ],
@@ -708,8 +954,10 @@
  },
  {
   "heading": "An Invisible Stalker",
+  "level": 5,
   "anchor": "an-invisible-stalker",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a creature from the null-dimensions which can be conjured to the material world by powerful magic. It is indistinguishable from air without the benefit of a detect invisibility or a true seeing spell. It is a faultless tracker and, if encountered in the material world, an invisible stalker will be single-mindedly preoccupied with whatever mission it is carrying out."
   ],
@@ -717,8 +965,10 @@
  },
  {
   "heading": "A Juggernaut",
+  "level": 5,
   "anchor": "a-juggernaut",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is an incredibly massive creature of solid ore, though whether it is self-willed or magically motivated is unknown. These behemoths have only ever been sighted individually and can take any form; a great armored knight, a mammoth, and a rhinoceros have all been reported. A juggernaut is so massive that it is impelled upon huge stone rollers with anything falling in its path being crushed utterly beneath it.",
    "Regardless of its form a juggernaut always has a massive dark jewel affixed to it; between the eyes, in the chest, or atop a helm, staff, or sword, and so on. The jewel glows with an eerie light and can cast out a slaying spell each turn or an improved hold person spell which will affect 2-12 man-types who save at -2 or a single man-type who saves at -6. Unfortunates so held will soon be crushed beneath the juggernaut. If the jewel is somehow removed from a juggernaut it has no magical properties but is worth 20,000-120,000 gp.",
@@ -728,8 +978,10 @@
  },
  {
   "heading": "Kobolds",
+  "level": 5,
   "anchor": "kobolds",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are small, cowardly, reptilian humanoids who dwell in quags and wetlands. They are able swimmers and prefer to attack in great numbers from ambush. Each fighting kobold carries coins worth 1-6 gp with him, even outside the lair. Their lair will be a marshy cave complex containing as many non-combatants as combatants as well as a kobold king and 5-30 bodyguards who fight as 1+1 and 1 hit dice monsters, respectively. The lair is 50% likely to contain an additional 3-24 crocodiles and 2-12 giant lizards (check separately for each). Their morale checks are adjusted by -1 unless they are defending their lair and they outnumber their enemies by 3 to 1 or more."
   ],
@@ -737,8 +989,10 @@
  },
  {
   "heading": "Leeches, Giant",
+  "level": 5,
   "anchor": "leeches-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are loathsome swamp parasites that will attach to victims on a successful attack and drain one experience level in the turn after attachment and another every other turn thereafter until either the victim or the leech is slain."
   ],
@@ -746,8 +1000,10 @@
  },
  {
   "heading": "Lions",
+  "level": 5,
   "anchor": "lions",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are the great cats of the plains. They occur in hot to tropical climates and are territorial hunters who will stalk prey patiently in order to attack by surprise. They can leap 30ft forward but dislike climbing and swimming. They cause 2-7 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 2-12 hit points of damage."
   ],
@@ -755,17 +1011,32 @@
  },
  {
   "heading": "Lions, Spotted",
+  "level": 5,
   "anchor": "lions-spotted",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are similar to regular lions except that they are larger and occur in caves and mountainous regions. They cause 3-8 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 4-14 hit points of damage."
   ],
   "text": "are similar to regular lions except that they are larger and occur in caves and mountainous regions. They cause 3-8 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 4-14 hit points of damage."
  },
  {
+  "heading": "Living Statues",
+  "level": 3,
+  "anchor": "living-statues",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "Living statues are large, powerful humanoid automatons. Standing silently they are indistinguishable from ordinary statues of great size. Living statues are extremely heavy and move ponderously but with purpose. They can batter through wooden structures, including doors, and are largely invulnerable to harmful magic."
+  ],
+  "text": "Living statues are large, powerful humanoid automatons. Standing silently they are indistinguishable from ordinary statues of great size. Living statues are extremely heavy and move ponderously but with purpose. They can batter through wooden structures, including doors, and are largely invulnerable to harmful magic."
+ },
+ {
   "heading": "Living Statues, Iron",
+  "level": 5,
   "anchor": "living-statues-iron",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are cast from solid metal. In combat they can exhale a 1\" radius cloud of poisonous gas or else strike for 4-24 hit points of damage. Lightning attacks will slow them and fire will heal them; otherwise, they can only be harmed by magical weapons of +3 or better quality."
   ],
@@ -773,8 +1044,10 @@
  },
  {
   "heading": "Living Statues, Stone",
+  "level": 5,
   "anchor": "living-statues-stone",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are hewn from solid rock. In combat they can slow one target per turn or else strike for 3-18 hit points of damage. Cold and fire will slow them and stone to flesh will heal them; otherwise, they can only be harmed by magic which specifically affects stone or magical weapons of +2 or better quality."
   ],
@@ -782,8 +1055,10 @@
  },
  {
   "heading": "Lizards, Giant and Large",
+  "level": 5,
   "anchor": "lizards-giant-and-large",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are found in desert and jungle climes. Large lizards can be up to 6ft in length and giant lizards up to 15ft. Both types have superb camouflage markings and can hold an absolutely still position indefinitely. If a giant lizard should throw an attack roll of 20, its bite will clamp onto its prey and not let go, automatically causing damage each turn thereafter until either it or its prey is slain."
   ],
@@ -791,8 +1066,10 @@
  },
  {
   "heading": "Lizardmen",
+  "level": 5,
   "anchor": "lizardmen",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are reptilian humanoids with crocodile-like jaws and tails and a rudimentary intelligence. They employ primitive spears and clubs and will capture as many humans as possible-returning with them to their lair for a tribal feast.",
    "The lair will be a wet or marshy cave complex containing half as many non-combatants as combatants as well as an equal number of kobolds and 2-16 prisoners. There will be a lizardman chieftain and 1-6 bodyguards who fight as 4 and 3 hit dice monsters, respectively. There is also a 33% chance that the lair will contain 2-12 giant lizards, 3-24 crocodiles, or a dragon (check for each separately). If a dragon is present it will be an adult, mature, or old specimen of the black or green type."
@@ -801,8 +1078,10 @@
  },
  {
   "heading": "Lycanthropes",
+  "level": 5,
   "anchor": "lycanthropes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are also known as werebeasts and are of various sorts. All are man-types afflicted with lycanthropy and cannot be harmed by normal weaponry unless it is silvered. Any man-type seriously wounded by a lycanthrope will become one of the same type at the next full moon unless he receives a remove disease spell before this occurs.",
    "Outside the lair werebeasts run in packs of 1-10 adults. If more than 8 are encountered in the lair one-third will be adults with the remainder being non-combative young. A lair will also contain animals of the appropriate type (1-6 bears for werebears, 1-12 boars for wereboars, 1-6 tigers for weretigers, or 1-10 wolves for werewolves). If the young are attacked adult females will retaliate at +4 to hit for the remainder of the combat. If females are attacked the adult males will retaliate at +4 to hit thereafter. If all adults are slain the young are automatically subdued."
@@ -811,8 +1090,10 @@
  },
  {
   "heading": "Manticoras",
+  "level": 5,
   "anchor": "manticoras",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are great lion-like beasts with dragon-wings, man-like faces, and powerful tails that culminate in 24 iron spikes which can be flung in a volley of 6 at any target within 18\". These are carnivorous and favor human flesh."
   ],
@@ -820,8 +1101,10 @@
  },
  {
   "heading": "Mastodons",
+  "level": 5,
   "anchor": "mastodons",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are proto-elephants encountered on open plains in any climate. They occur in herds and are generally non-aggressive unless threatened or in the mating season. At these times the males will attack anyone who might dare to approach the herd. They cause 4-14 hit points of damage due to their prodigious size."
   ],
@@ -829,17 +1112,34 @@
  },
  {
   "heading": "Medusae",
+  "level": 5,
   "anchor": "medusae",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "have the lower body of a great serpent and the upper body of a woman, except that their hair is a tangle of deadly venomous snakes. So abhorrent is a medusa's appearance that anyone who meets its gaze will be turned to stone unless he makes a successful saving throw versus petrification. Any medusa who sees her own refection will likewise be turned to stone."
   ],
   "text": "have the lower body of a great serpent and the upper body of a woman, except that their hair is a tangle of deadly venomous snakes. So abhorrent is a medusa's appearance that anyone who meets its gaze will be turned to stone unless he makes a successful saving throw versus petrification. Any medusa who sees her own refection will likewise be turned to stone."
  },
  {
+  "heading": "Men",
+  "level": 3,
+  "anchor": "men",
+  "is_monster": false,
+  "is_group": true,
+  "paragraphs": [
+   "Men are of various sorts and lair in villages, caves, hide-outs, encampments, and so on. Brigand and buccaneer lairs will have 2-12 prisoners who will always be persons of some importance. Bandit and pirate lairs will have 3-30 prisoners of any sort. A nomad encampment is always guarded by an additional 20-40 nomads on foot.",
+   "Each individual man will have 2-12 sp on his person (in addition to whatever treasure may be found in the lair) except that pirates and buccaneers have 2-12 gp each instead. For every 25, 50, and 100 men encountered there will be an additional leader who is a 3rd-4th, 5th-6th, or 7th-8th level fighter, respectively. If at least 200 men are encountered it is 50% likely they are also accompanied by a 5th-8th level magic-user and a 3rd-6th level cleric (check separately for each). If 300 men are encountered there absolutely will be an additional 9th-12th level magic-user and an additional 7th-10th level cleric.",
+   "Leader-types have a chance of possessing magical items appropriate to their class. Fighters have a 10% chance per experience level of possessing a magic sword and are half as likely to possess a magic shield or magic armor. Clerics are 2% likely per experience level to possess a magic mace, flail, hammer, or staff and are 5% likely to possess a magic shield or magic armor. Magic-users are 5% likely per experience level to possess a magic wand and are equally likely to possess a magic ring or a miscellaneous magic item. Check separately for each item in all cases."
+  ],
+  "text": "Men are of various sorts and lair in villages, caves, hide-outs, encampments, and so on. Brigand and buccaneer lairs will have 2-12 prisoners who will always be persons of some importance. Bandit and pirate lairs will have 3-30 prisoners of any sort. A nomad encampment is always guarded by an additional 20-40 nomads on foot. Each individual man will have 2-12 sp on his person (in addition to whatever treasure may be found in the lair) except that pirates and buccaneers have 2-12 gp each instead. For every 25, 50, and 100 men encountered there will be an additional leader who is a 3rd-4th, 5th-6th, or 7th-8th level fighter, respectively. If at least 200 men are encountered it is 50% likely they are also accompanied by a 5th-8th level magic-user and a 3rd-6th level cleric (check separately for each). If 300 men are encountered there absolutely will be an additional 9th-12th level magic-user and an additional 7th-10th level cleric. Leader-types have a chance of possessing magical items appropriate to their class. Fighters have a 10% chance per experience level of possessing a magic sword and are half as likely to possess a magic shield or magic armor. Clerics are 2% likely per experience level to possess a magic mace, flail, hammer, or staff and are 5% likely to possess a magic shield or magic armor. Magic-users are 5% likely per experience level to possess a magic wand and are equally likely to possess a magic ring or a miscellaneous magic item. Check separately for each item in all cases."
+ },
+ {
   "heading": "Men, Bandits",
+  "level": 5,
   "anchor": "men-bandits",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are desperate and surly scavengers equipped simply with clubs, daggers, or axes, and shields."
   ],
@@ -847,8 +1147,10 @@
  },
  {
   "heading": "Men, Berserkers",
+  "level": 5,
   "anchor": "men-berserkers",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are warriors maddened with battle lust. They attack at +2 to hit versus man-types and need never check morale. They carry two-handed weapons but wear no armor. Their leader-types are exclusively fighters."
   ],
@@ -856,8 +1158,10 @@
  },
  {
   "heading": "Men, Brigands",
+  "level": 5,
   "anchor": "men-brigands",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are well-organized robbers and highway men. They wear leather armor, carry shields, are armed with swords, axes, maces, short bows, or spears and have a +1 adjustment to morale checks."
   ],
@@ -865,8 +1169,10 @@
  },
  {
   "heading": "Men, Buccaneers",
+  "level": 5,
   "anchor": "men-buccaneers",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are picaroons and castaways who ply the shores for easy pickings from skiffs and pickets. They are unarmored and quick and carry swords or clubs and daggers as a main gauche."
   ],
@@ -874,8 +1180,10 @@
  },
  {
   "heading": "Men, Dervishes",
+  "level": 5,
   "anchor": "men-dervishes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are religious fanatics of the lawful sort. They attack at +2 to hit versus man-types and need never check morale due to their fanaticism. They carry clerical weaponry and shields and their leader-types are exclusively clerics."
   ],
@@ -883,8 +1191,10 @@
  },
  {
   "heading": "Men, Mercenaries",
+  "level": 5,
   "anchor": "men-mercenaries",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are professional sell-swords and soldiers of fortune. They are well organized but untrustworthy military men possibly open to offers of employment. They typically have leather armor, helmets, and shields and are armed with swords, spears, pole arms, or crossbows. With a throw of 5-6 on a six-sided die one-third of their force will also be mounted."
   ],
@@ -892,8 +1202,10 @@
  },
  {
   "heading": "Men, Nomads",
+  "level": 5,
   "anchor": "men-nomads",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are desert or steppe raiders who are always mounted. They carry short bows, spears, and shields."
   ],
@@ -901,8 +1213,10 @@
  },
  {
   "heading": "Men, Pirates",
+  "level": 5,
   "anchor": "men-pirates",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are ruthless sea dogs and cut throats who pillage waterways and coastal regions from their sloops and galleys. They are unarmored and quick and arm themselves with curved swords or clubs and daggers as a main-gauche. They have a +1 adjustment to morale checks."
   ],
@@ -910,8 +1224,10 @@
  },
  {
   "heading": "Men, Zealots",
+  "level": 5,
   "anchor": "men-zealots",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are religious fanatics of the chaotic sort. They attack at +2 to hit versus man-types and need never check morale due to their fanaticism. They carry clerical weaponry and shields and their leader-types are exclusively anti-clerics."
   ],
@@ -919,8 +1235,10 @@
  },
  {
   "heading": "Mermen",
+  "level": 5,
   "anchor": "mermen",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are aquatic warriors. Against man-types in the sea they attack at +2 and need never check morale. They can remain underwater indefinitely and are only subject to missile fire if they rise to the surface, which they must do to grapple or board ships. On land or aboard ships they suffer a -2 penalty to attack rolls and morale checks. Their scaly skin is equal to leather armor and they fight with spears and daggers. Meremen have leader-types as do men although these are exclusively fighters."
   ],
@@ -928,8 +1246,10 @@
  },
  {
   "heading": "Minotaurs",
+  "level": 5,
   "anchor": "minotaurs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are great bull-headed humanoids half again as large as a man. They are carnivorous man-eaters and will always attack. They need never check morale and will never give up a chase so long as the prey is in sight."
   ],
@@ -937,8 +1257,10 @@
  },
  {
   "heading": "Mummies",
+  "level": 5,
   "anchor": "mummies",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are invulnerable to normal weaponry and even magical weaponry causes them only half damage. They are vulnerable to fire, however, even the ordinary sort. A hit from a mummy will cause a terrible necrosis such that wounds take 10 times as long to heal. The first and second applications of a remove disease spell will reduce this to 5 times and 2 times, respectively, and only a third application will lift the affliction entirely."
   ],
@@ -946,8 +1268,10 @@
  },
  {
   "heading": "Nixies",
+  "level": 5,
   "anchor": "nixies",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are small and comely fresh water sprites who are not evil but will compel intruders to serve their needs. Any 10 nixies can jointly enchant a target with a charm person and a water breathing spell. A character who fails to save versus spells will immediately proceed to the underwater lair and remain there in servitude. After a period of one year he will return to the surface unharmed. A dispel magic can prematurely break the enchantment but always has a 25% chance of failure.",
    "Nixies arm themselves with daggers and javelins. Their lair will be an underwater enclave containing 2-16 charmed prisoners of various sorts, and protected by 20-120 giant fish such as gar or pike. These will obey nixies but can be held at bay by any fire that will burn underwater. Any group of 40 or more nixies can attempt to grapple a surface ship."
@@ -956,8 +1280,10 @@
  },
  {
   "heading": "An Ochre Jelly",
+  "level": 5,
   "anchor": "an-ochre-jelly",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a monstrous amoeba that lives as a dungeon scavenger. It is susceptible to cold and fire but lightning and weaponry will merely divide it into two smaller parts without causing it harm. An ochre jelly will dissolve a wooden shield or door in a single turn. Flesh contacted suffers 1-6 hit points of damage per turn but stone and metal are impervious. It can move along a wall, floor, or ceiling equally and can squeeze through tiny openings including cracks in stonework and under doors."
   ],
@@ -965,8 +1291,10 @@
  },
  {
   "heading": "Octopi, Giant",
+  "level": 5,
   "anchor": "octopi-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are intelligent and lair in shipwrecks and caves preying on passing swimmers and ships. They can grapple and capsize smaller vessels or else make 1-6 attack rolls each turn versus heroic/superheroic enemies with their stinging tentacles. They have no bones and can squeeze through very small gaps."
   ],
@@ -974,8 +1302,10 @@
  },
  {
   "heading": "Ogres",
+  "level": 5,
   "anchor": "ogres",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are thick-necked, ugly brutes half again as large as a man and possess great strength but limited wit. They cause 3-8 hit points of damage in combat due to their size and strength. They are so suspicious of their fellows that little treasure is left unguarded. Instead, each ogre carries 100-600 gp with him even outside of the lair."
   ],
@@ -983,8 +1313,10 @@
  },
  {
   "heading": "Orcs",
+  "level": 5,
   "anchor": "orcs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are fecund humanoids occurring in warlike tribes. They dislike bright light and adjust attack and morale checks by -1 from in full daylight. Hostilities among orc tribes are just as common as with neighbors of other sorts and they will attack foreign orcs unless restrained by a strong leader. They need not check morale while they are defending their lair and they outnumber their enemies by at least 3 to 1.",
    "An orc lair will be either a guarded cave complex or a village protected by a stockade and possibly an encircling ditch or moat. The lair will contain half as many non-combatants as combatants as well as an orc chieftain and 3-18 bodyguards who fight as 3 and 2 hit dice monsters, respectively.",
@@ -994,8 +1326,10 @@
  },
  {
   "heading": "Pegasi",
+  "level": 5,
   "anchor": "pegasi",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are shy, wild, and noble winged horses. If captured they are difficult to tame and will not tolerate hippogriffs or griffins. They will never serve chaotic characters."
   ],
@@ -1003,8 +1337,10 @@
  },
  {
   "heading": "Pixies",
+  "level": 5,
   "anchor": "pixies",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are small air sprites who are permanently invisible unless they desire to be seen. They are not evil but dislike intrusion and any 10 pixies can jointly cause a sleep spell once per day which they use to dissuade potential offenders. They arm themselves with daggers and short bows and always attack by surprise unless they are detected by magical means. Note that fighters of 8th level and above will sense pixies within 3\" even without seeing them."
   ],
@@ -1012,8 +1348,10 @@
  },
  {
   "heading": "Purple Worms",
+  "level": 5,
   "anchor": "purple-worms",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are voracious burrowers up to 6ft in diameter and 60ft in length that occur almost everywhere. They always attack and need never check morale. A purple worm causes 2-12 hit points of damage and has a deadly venomous stringer in the tail but the huge maw is the main weapon; if a bite attack roll exceeds the number required to hit by 4 or more, or is a 20 in any case, a man-sized or smaller target will be swallowed whole. Swallowed targets will be unconscious within 3 turns, slain within 6 turns, and the body unrecoverable after 12 turns. The interior gullet is AC 9 but can be attacked only by dagger or knife; at least 12 hit points of damage must be caused to cut a way out."
   ],
@@ -1021,8 +1359,10 @@
  },
  {
   "heading": "Rats, Giant",
+  "level": 5,
   "anchor": "rats-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "occur in plague proportions underground, squeezing through tiny gaps and tunnels in the earth and stone work. They cause only 1-3 hit points of damage but any hit can transmit a debilitating disease to man-types who fail to save versus poison at +4 on the die (a single saving throw being required per encounter). Unless commanded to fight by a vampire or lycanthrope they have -2 morale and will flee from fire."
   ],
@@ -1030,8 +1370,10 @@
  },
  {
   "heading": "Robots",
+  "level": 5,
   "anchor": "robots",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are complex metal automatons with unfathomable electronic brains. They are self motivating and semi-intelligent and can be negotiated with to some extent. They are usually set on a \"program\" from which they will never waiver. Robots are cruelly strong and will strike for 3-8 hit points of damage. Many can fly by one means or another and the remainder are equipped with a disintegration ray which can be fired up to 6\" thrice per day. A successful saving throw versus wands is required to avoid the beam. Robots cannot be subdued and need never check morale."
   ],
@@ -1039,17 +1381,32 @@
  },
  {
   "heading": "Rocs",
+  "level": 5,
   "anchor": "rocs",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are gargantuan raptors that prey on cattle, horses, and even elephants. Their eyesight is peerless and they always spot hidden (but not invisible) man-types, even from high altitude. The largest rocs are so fearsome that normal man-types must check morale if attacked. Rocs lair in remote, mountainous aeries that are difficult to approach except on the wing. Those found in the lair will be of mixed life stages and there is a 50% chance that there will also be 1-6 unhatched eggs or fledglings."
   ],
   "text": "are gargantuan raptors that prey on cattle, horses, and even elephants. Their eyesight is peerless and they always spot hidden (but not invisible) man-types, even from high altitude. The largest rocs are so fearsome that normal man-types must check morale if attacked. Rocs lair in remote, mountainous aeries that are difficult to approach except on the wing. Those found in the lair will be of mixed life stages and there is a 50% chance that there will also be 1-6 unhatched eggs or fledglings."
  },
  {
+  "heading": "Table 3.12 Rocs",
+  "level": 4,
+  "anchor": null,
+  "is_monster": false,
+  "is_group": false,
+  "paragraphs": [
+   "Eggs and fledglings can be trained to serve as mounts if they can be captured. If the nest contains these, the mature rocs will attack anyone who approaches and never check morale; otherwise, the mature rocs will tolerate lawful characters and possibly even help them. Chaotic sorts can expect only a hostile reaction."
+  ],
+  "text": "Eggs and fledglings can be trained to serve as mounts if they can be captured. If the nest contains these, the mature rocs will attack anyone who approaches and never check morale; otherwise, the mature rocs will tolerate lawful characters and possibly even help them. Chaotic sorts can expect only a hostile reaction."
+ },
+ {
   "heading": "Sabre Toothed Tigers",
+  "level": 5,
   "anchor": "sabre-toothed-tigers",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are the great cats of the Pliocene epoch, capable of hunting down dinosaurs. They are half as large again as ordinary tigers and every bit as canny and agile. They cause 2-9 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 4-14 hit points of damage."
   ],
@@ -1057,8 +1414,10 @@
  },
  {
   "heading": "Salamanders",
+  "level": 5,
   "anchor": "salamanders",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are fire-types possessing high intelligence, the upper body of a man, and the hind section of a great serpent. They employ spears and pole arms and can be found in lava fields and environs of intense heat. Their touch causes inflammables to combust and 1-6 hit points of damage to non-fire creatures. In melee combat the upper body is AC 5 while the serpent section is AC 3. Opponents who are not fire-types suffer an additional 1-6 hit points of damage with each hit. However, if an attack roll exceeds the number required to hit by 4 or more, a salamander instead constricts with its burning tail for 2-12 hit points of damage (plus 1-6 additional damage to non-fire creatures). They are themselves invulnerable to fire and normal weaponry."
   ],
@@ -1066,8 +1425,10 @@
  },
  {
   "heading": "Scorpions, Giant",
+  "level": 5,
   "anchor": "scorpions-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are extremely aggressive hunters of horse-sized proportions. They sense things mainly through vibration in the earth and will always attack anything that approaches. An attack roll that exceeds the number required to hit by 4 or more, or is a 20 in any case, indicates a hit by the venomous stinger, which is fatal unless a saving throw versus poison is successful; otherwise, it is assumed to be a pincer attack that deals 3-8 hit points of damage."
   ],
@@ -1075,8 +1436,10 @@
  },
  {
   "heading": "Sea Monsters",
+  "level": 5,
   "anchor": "sea-monsters",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "include the largest sea serpents, the whale-like leviathan (which has reportedly been mistaken for an island), and the many-tentacled kraken (which is confined to a null dimension unless it is called forth by an evil high priest to devour shipping and seaports). These exist principally as deadly perils to be avoided.",
    "If the players insist on rousing sea monsters to combat, sea serpents will cause 2-12 hit points of damage and swallow man-sized or smaller targets whole as per purple worms and can encircle longboats and smaller ships within their coils and destroy them in 1-6 turns. The kraken can capsize any ship in 1-2 turns or else deliver 1-6 attack rolls versus heroic/ superheroic enemies, each dealing 3-18 hit points of damage. The leviathan can capsize 1-3 ships in near proximity in a single turn or swallow a single ship whole in its vast maw-destroying the vessel and delivering 4-24 hit points of damage to everyone aboard as it swallows them."
@@ -1085,8 +1448,10 @@
  },
  {
   "heading": "Shadows",
+  "level": 5,
   "anchor": "shadows",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are bleak incorporeal spirits that hunger for the life energy of living things and drain 1-4 points of strength on a hit. They are impervious to normal weaponry unless it is silvered, but magical weapons will do them double damage. Any man-type reduced to nil strength by a shadow is slain and will arise on the following night as a shadow. Strength lost is otherwise recovered at 1 point per hour."
   ],
@@ -1094,8 +1459,10 @@
  },
  {
   "heading": "Skeletons",
+  "level": 5,
   "anchor": "skeletons",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are mindless undead brought forth by a magic-user or anti-cleric to serve some wicked purpose. These can carry shields or wear armor, or both, which would improve AC to 7 or 6, respectively. They are unaffected by normal missiles, require no sustenance, and need never check morale."
   ],
@@ -1103,8 +1470,10 @@
  },
  {
   "heading": "Snakes, Giant and Large",
+  "level": 5,
   "anchor": "snakes-giant-and-large",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are encountered almost anywhere. Large snakes are up to 10ft long but are generally non-aggressive unless hunting or provoked; they are 50% likely to be venomous. Giant snakes are more aggressive and are of two sorts: vipers and constrictors. Vipers slither silently and are deadly venomous. Constrictors are non-venomous and their bite bite deals only 1-2 hit points of damage. However, if attacking by surprise or an attack roll exceeds the number required to hit by 4 or more, a constrictor instead encircles its target, crushing man-types for 2-12 hit points of damage per turn. Constrictor-types can also be encountered at sea and are capable of encircling and destroying small boats within their coils in 1-6 turns."
   ],
@@ -1112,8 +1481,10 @@
  },
  {
   "heading": "Spectres",
+  "level": 5,
   "anchor": "spectres",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are malevolent, incorporeal spirits. They can move through walls, ceilings, and floors and are impervious to normal weaponry. Their attack is a withering grasp that drains two experience levels on a hit. A man-type slain by a spectre will arise the following night as a spectre under the control of the monster that destroyed him. Any additional spectres encountered will be thralls of this sort."
   ],
@@ -1121,8 +1492,10 @@
  },
  {
   "heading": "Spiders, Giant and Large",
+  "level": 5,
   "anchor": "spiders-giant-and-large",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "occur commonly in dungeons. Large spiders are the size of a man's hand and can scurry over floors, walls, and ceilings equally. Their bite is venomous but a saving throw versus poison is allowed at +2. Giant spiders are true horrors up to horse-sized. Their bite is deadly venomous and they are web builders-these being equal to a web spell in strength. They prefer to wait patiently in ambush and attack unwary victims. They will flee to a dark retreat if faced by superior opposition."
   ],
@@ -1130,8 +1503,10 @@
  },
  {
   "heading": "Squid, Giant",
+  "level": 5,
   "anchor": "squid-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are voracious deep sea predators who will occasionally come to the surface to grapple and capsize passing vessels. They make 1-6 attack rolls each turn against heroic/superheroic enemies with their numerous tentacles. If seriously challenged they can expel a cloud of black ink and flee backwards at triple pace for three turns."
   ],
@@ -1139,8 +1514,10 @@
  },
  {
   "heading": "Thulls",
+  "level": 5,
   "anchor": "thulls",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are frightful humanoids similar to feral hobgoblins in appearance but they are far more dangerous. A thull will regenerate 1 lost hit point at the beginning of each turn and a scratch from its black nails will cause paralysis for 1 turn in normal man-types (except elves who are immune)."
   ],
@@ -1148,8 +1525,10 @@
  },
  {
   "heading": "Tigers",
+  "level": 5,
   "anchor": "tigers",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are great cats that occur in frigid to tropical woodlands. They are canny, agile, and superb hunters who will stalk prey patiently in order to attack by surprise. They can climb and swim and can leap 10ft upward or 40ft forward. They cause 2-7 hit points of damage or, if an attack roll exceeds the number required to hit by 4 or more or is a 20 in any case, 2-12 hit points of damage."
   ],
@@ -1157,8 +1536,10 @@
  },
  {
   "heading": "Titanotheres",
+  "level": 5,
   "anchor": "titanotheres",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are enormous herbivores that roam temperate plains and wetlands in herds. Normally peaceful, they will charge and trample anything that provokes them causing 3-18 hit points of damage due to their great size."
   ],
@@ -1166,8 +1547,10 @@
  },
  {
   "heading": "A Titan",
+  "level": 5,
   "anchor": "a-titan",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a most handsome and civilized giant. They are at least as intelligent as men, thrice as tall, and incredibly strong. They deliver 6-21 hit points of damage with their enormous weapons and have the use of any two magic-user or cleric spells of each spell level per day. A titan lair will contain an additional 3,000-18,000 gp."
   ],
@@ -1175,8 +1558,10 @@
  },
  {
   "heading": "Toads, Giant",
+  "level": 5,
   "anchor": "toads-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "will swallow halflings and smaller folk whole on any attack roll that exceeds the number required to hit by 4 or more. They can hop 18\" every other turn, swim, breath underwater, and are 50% likely to be venomous."
   ],
@@ -1184,8 +1569,10 @@
  },
  {
   "heading": "Treants",
+  "level": 5,
   "anchor": "treants",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are 20-30ft tall tree-men. They are guardians of the ancient forests they inhabit and have little interest in the affairs of short-lived races such as men. If roused they are dangerous enemies and will deal 2-12 hit points of damage. They are invulnerable to normal weapons and suffer one-half damage from magical weaponry other than axes but are vulnerable to fire. Thrice per day a treant can awaken any other tree within 6\". An awakened tree fights exactly as another treant without the ability to awaken others."
   ],
@@ -1193,8 +1580,10 @@
  },
  {
   "heading": "Trolls",
+  "level": 5,
   "anchor": "trolls",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are thin, loathsome humanoids with rubbery green skin. They would be tall if they were not always hunched over. They have ogre-like strength but rarely employ anything more than tooth and claw so cause only 1-6 hit points of damage. They regenerate 3 lost hit points per turn, beginning three turns after injury, enabling even severed limbs to reattach or re-grow. The only way to permanently slay a troll is to burn its remains or immerse it in acid."
   ],
@@ -1202,8 +1591,10 @@
  },
  {
   "heading": "Unicorns",
+  "level": 5,
   "anchor": "unicorns",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are fierce, noble, magical steeds. They are reclusive creatures who will tolerate contact only with a maiden of pure heart. If she is a valorous warrior a unicorn may consent to serve as her steed, using its horn as a lance when it charges. A unicorn saves as a 12th level magic-user, is able to sense enemies within 24\", and can dimension door up to 36\" once each day."
   ],
@@ -1211,8 +1602,10 @@
  },
  {
   "heading": "Vampires",
+  "level": 5,
   "anchor": "vampires",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are dreadful and intelligent blood-sucking undead. Fortunately, they must sleep during the day in a coffin containing soil from their homeland. They are impervious to normal weaponry and regenerate 3 hit points per turn if injured. If reduced to 0 hit points they are not slain but forced to assume gaseous form and flee. They can polymorph into gaseous form or a giant bat at will and can call forth and command 10-80 bats, 2-12 giant rats, or 1-10 wolves.",
    "Any man-type enduring eye contact with a vampire is subject to a charm person spell with a -2 adjustment to the saving throw. Once a victim is charmed the vampire can bite at the neck with impunity, draining two experience levels per turn of gorging. Any heroic/superheroic man-type so slain by a vampire will arise the next night as a vampire enslaved to the monster who made him. Others so slain arise instead as ghouls. Vampires are destroyed only by direct sunlight, immersion in running water, or a wooden stake through the heart. They can be held at bay by a strongly presented Cross, the smell of fresh garlic, or the face of a mirror."
@@ -1221,8 +1614,10 @@
  },
  {
   "heading": "Weasels, Giant",
+  "level": 5,
   "anchor": "weasels-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are cunning hunters adept at moving through tunnels and crawl spaces in fierce packs. When an attack roll exceeds the number required to hit by 4 or more a giant weasel bites and holds on, gorging on the victim's blood and draining him of 1-4 hit points of strength the following turn and each turn thereafter, until it has sapped 1 point for each of its own hit points. Any victim reduced to nil strength is slain."
   ],
@@ -1230,8 +1625,10 @@
  },
  {
   "heading": "Wight Apes",
+  "level": 5,
   "anchor": "wight-apes",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are so called for their pale coloration and dread demeanor. They occur in small bands in dense jungles and around ruined catacombs. They are larger and more aggressive than regular apes and have a taste for man-flesh. Worse yet, they possess a malign cunning employing rocks and stones as tools and their strength is such that they cause 1-11 hit points of damage on a hit."
   ],
@@ -1239,8 +1636,10 @@
  },
  {
   "heading": "Wights",
+  "level": 5,
   "anchor": "wights",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are accursed undead that drain one experience level on a hit. They dislike light and their attack rolls and morale checks are penalized by -2 in daylight. They are impervious to normal weaponry unless it is silvered, but magic weapons will do them double damage. Any man-type slain by a wight will arise on the following night as a wight."
   ],
@@ -1248,8 +1647,10 @@
  },
  {
   "heading": "Wolves",
+  "level": 5,
   "anchor": "wolves",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "occur primarily in cold regions and hunt in packs."
   ],
@@ -1257,8 +1658,10 @@
  },
  {
   "heading": "Wolves, Giant",
+  "level": 5,
   "anchor": "wolves-giant",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "includes dire wolves and wargs, both being larger than their normal kin. Wargs are especially cunning and evil and are 20% likely to speak the common tongue and always speak the chaotic tongue. They can be ridden by goblins although this will reduce either to 12\" movement and a single attack roll each turn even versus normal-types."
   ],
@@ -1266,8 +1669,10 @@
  },
  {
   "heading": "Woolly Mammoths",
+  "level": 5,
   "anchor": "woolly-mammoths",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are enormous, hairy, elephant-like mammals that occur in herds in arctic regions. They are more aggressive than mastodons and are invulnerable to cold. They cause 3-18 hit points of damage by charging, trampling, crushing, or goring with their mighty tusks."
   ],
@@ -1275,8 +1680,10 @@
  },
  {
   "heading": "Woolly Rhinoceroses",
+  "level": 5,
   "anchor": "woolly-rhinoceroses",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are enormous, hairy, rhinoceros-like mammals that occur in arctic regions. They have poor eyesight but excellent hearing and are inclined to attack anything that approaches or spooks them. They are invulnerable to cold and cause 4-14 hit points of damage by charging, trampling, or crushing."
   ],
@@ -1284,8 +1691,10 @@
  },
  {
   "heading": "Wraiths",
+  "level": 5,
   "anchor": "wraiths",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are dreadful undead that exist more in the spirit world and less in the physical. They dislike light and their attack rolls and morale checks are penalized by -2 in daylight. Normal man-types must check morale immediately if attacked by a wraith, while evil sorts fighting alongside one receive +1 on their morale dice. They drain one experience level on a hit. They are impervious to normal weaponry unless it is silvered, although silver weapons will do them only half damage. Any man-type slain by a wraith will arise on the following night as a wraith."
   ],
@@ -1293,8 +1702,10 @@
  },
  {
   "heading": "Wyverns",
+  "level": 5,
   "anchor": "wyverns",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are dragon-like monsters with only one pair of legs, no breath weapon, and a deadly venomous stinger in the tail which is very agile and can strike all around. An attack roll that exceeds the number required to hit by 4 or more, or is a 20 in any case, indicates a stinger attack; otherwise, it is a bite and claw attack that causes 3-8 hit points of damage."
   ],
@@ -1302,8 +1713,10 @@
  },
  {
   "heading": "Yellow Mold",
+  "level": 5,
   "anchor": "yellow-mold",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "is a deadly fungus found clinging to walls, floors, and ceilings underground. It is impervious to most attacks and can only be exterminated with fire. It dissolves wood in one turn and causes 1-6 hit points of damage per turn to flesh but has no effect on metal or stone. If it is disturbed there is a 50% chance a toxic spore cloud will burst forth causing man-types within 1\" to save versus poison or die."
   ],
@@ -1311,8 +1724,10 @@
  },
  {
   "heading": "Zombies",
+  "level": 5,
   "anchor": "zombies",
   "is_monster": true,
+  "is_group": false,
   "paragraphs": [
    "are mindless undead brought forth by a magic-user or anti-cleric to serve some wicked purpose. These can carry shields or wear armor, or both, which would improve AC to 8 or 7, respectively. They are unaffected by normal missiles, require no sustenance, and need never check morale."
   ],

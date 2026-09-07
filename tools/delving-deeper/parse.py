@@ -232,15 +232,21 @@ NON_MONSTER_HEADINGS = {
 }
 
 H5_RE = re.compile(r"<h5([^>]*)>(.*?)</h5>", re.S)
+HEAD_RE = re.compile(r"<h([345])([^>]*)>(.*?)</h\1>", re.S)
 BLOCK_RE = re.compile(r"<(p|li)[^>]*>(.*?)</\1>", re.S)
 STOP_RE = re.compile(r"<h[2-5][^>]*>")
 
 
 def parse_descriptions():
+    """Every <h3>/<h4>/<h5> in the section. <h5> entries are monsters (or the
+    dragon sub-sections); <h3> entries are group introductions (Dragons,
+    Elementals, Giants, ...) whose prose carries rules for the whole group;
+    <h4> entries are table captions, some followed by rules text."""
     out = []
-    heads = list(H5_RE.finditer(desc_section))
+    heads = list(HEAD_RE.finditer(desc_section))
     for i, m in enumerate(heads):
-        heading = normalize(m.group(2))
+        level = int(m.group(1))
+        heading = normalize(m.group(3))
         start = m.end()
         # Body runs to the next heading of any level h2-h5.
         nxt = STOP_RE.search(desc_section, start)
@@ -250,10 +256,14 @@ def parse_descriptions():
         body_no_tables = re.sub(r"<table.*?</table>", "", body, flags=re.S)
         paras = [normalize(b.group(2)) for b in BLOCK_RE.finditer(body_no_tables)]
         paras = [p for p in paras if p]
+        if level != 5 and not paras:
+            continue  # bare table caption
         out.append({
             "heading": heading,
-            "anchor": id_of(m.group(1)),
-            "is_monster": heading not in NON_MONSTER_HEADINGS,
+            "level": level,
+            "anchor": id_of(m.group(2)),
+            "is_monster": level == 5 and heading not in NON_MONSTER_HEADINGS,
+            "is_group": level == 3,
             "paragraphs": paras,
             "text": " ".join(paras),
         })
@@ -272,11 +282,13 @@ with open("descriptions.json", "w", encoding="utf-8") as fh:
     json.dump(descriptions, fh, indent=1, ensure_ascii=True)
 
 n_monsters = sum(1 for d in descriptions if d["is_monster"])
+n_groups = sum(1 for d in descriptions if d["is_group"])
 print("summary rows:      %d" % len(summary))
 print("dragon tables:     %s" % ", ".join("%s=%d" % (k, len(v)) for k, v in dragons.items()))
 print("giants/horses/rocs: %d/%d/%d" % (len(giants), len(horses), len(rocs)))
-print("descriptions:      %d (%d monsters, %d sub-sections)"
-      % (len(descriptions), n_monsters, len(descriptions) - n_monsters))
+print("descriptions:      %d (%d monsters, %d group intros, %d other)"
+      % (len(descriptions), n_monsters, n_groups,
+         len(descriptions) - n_monsters - n_groups))
 empty = [d["heading"] for d in descriptions if not d["paragraphs"]]
 if empty:
     print("WARNING: empty descriptions: %s" % empty)
