@@ -153,6 +153,7 @@ def dd_names():
     cwd = os.getcwd()
     os.chdir(HERE.parent)
     sys.path.insert(0, str(HERE.parent))
+    sys.dont_write_bytecode = True  # keep __pycache__ out of the parent
     try:
         import generate
     finally:

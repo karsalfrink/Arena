@@ -101,8 +101,8 @@ which may be very dangerous.
   OD&D idiom, where a dragon's HD are fixed), so the EHDs in the database
   make hatchlings far too weak and old dragons far too strong. For the
   tables the dragons were therefore measured again with ordinary hit dice
-  (`dragon-ehd.sh`, output #raw(d.dragons.tsv); golden dragons lose their
-  spells in that run) and each age is placed by the median of its six
+  (#raw(d.dragons.tsv) from `dragon-ehd.sh`, in which golden dragons lose
+  their spells) and each age is placed by the median of its six
   colours. The values, with the resulting level, so that a colour can be
   moved up or down:
 
