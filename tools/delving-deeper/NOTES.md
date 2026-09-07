@@ -117,6 +117,7 @@ SpecialType (e.g. `CritDamage (n)` with n = extra dice) if Dan wants one:
 * **Caveman** (DD *Cavemen*):
   * -1 morale (master writes Cowardice, not an enum name).
 * **Giant Centipede** (DD *Centipedes, giant*):
+  * Split AC: body is AC 7 (Arena has one AC).
   * Moves on walls and ceilings at full speed.
 * **Crocodile** (DD *Crocodiles*):
   * Hard to spot half-submerged; often attacks by surprise.
@@ -127,8 +128,10 @@ SpecialType (e.g. `CritDamage (n)` with n = extra dice) if Dan wants one:
 * **Deinonychus** (DD *Dinosaurs, Deinonychus*):
   * Stalks prey and never gives up pursuit while prey in sight.
 * **Stegosaurus** (DD *Dinosaurs, Stegosaurs*):
+  * Split AC: AC 2 against attacks other than from the flank (Arena has one AC).
   * Tail spikes do 2-12 to flank or rear attackers.
 * **Triceratops** (DD *Dinosaurs, Triceratops*):
+  * Split AC: AC 5 from other facings (Arena has one AC).
   * Charge does 4-24 instead of 2-12.
 * **Djinni** (DD *Djinni*):
   * Gaseous form (master writes GasForm).
@@ -270,6 +273,8 @@ SpecialType (e.g. `CritDamage (n)` with n = extra dice) if Dan wants one:
   * Cannot be subdued.
 * **Young Roc** (DD *Rocs, Young*):
   * Always spots hidden (not invisible) man-types, so master's Detection (which is about invisibility) is not used.
+* **Salamander** (DD *Salamanders*):
+  * Split AC: serpent section is AC 3 (Arena has one AC).
 * **Leviathan** (DD *Sea monsters, Leviathan*):
   * Capsizes 1-3 ships per turn.
 * **Kraken** (DD *Sea monsters, Kraken*):
@@ -294,6 +299,7 @@ SpecialType (e.g. `CritDamage (n)` with n = extra dice) if Dan wants one:
 * **Large Spider** (DD *Spiders, large*):
   * Secondary move 15 is scurrying over walls and ceilings.
 * **Giant Squid** (DD *Squid, giant*):
+  * Split AC: second value 3 (Arena has one AC).
   * Ink cloud and triple-speed retreat (master writes InkCloud, Jet).
   * Grapple and capsize vessels.
 * **Thull** (DD *Thulls*):

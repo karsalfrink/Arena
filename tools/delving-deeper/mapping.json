@@ -65,8 +65,8 @@
 
   {"dd": "Centipedes, giant", "name": "Giant Centipede", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
    "specials": ["Paralysis"],
-   "notes": ["AC 3/7 (armored head / soft body) -> primary 3. Bite paralyses with a save -> Paralysis."],
-   "unmapped": ["Moves on walls and ceilings at full speed."]},
+   "notes": ["AC 3/7 (armored head / soft body) -> 3, the head a fighter faces. Bite paralyses with a save -> Paralysis."],
+   "unmapped": ["Split AC: body is AC 7 (Arena has one AC).", "Moves on walls and ceilings at full speed."]},
 
   {"dd": "Centipedes, large", "name": "Large Centipede", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
    "specials": ["Paralysis"],
@@ -120,15 +120,15 @@
    "specials": [],
    "notes": ["HD 2-7 is a range: one row per HD value. No damage stated -> default 1d6."]},
 
-  {"dd": "Dinosaurs, Stegosaurs", "name": "Stegosaurus", "type": "A", "env": "W", "atk": 1, "dam": "1d6+2",
+  {"dd": "Dinosaurs, Stegosaurs", "name": "Stegosaurus", "type": "A", "env": "W", "atk": 1, "dam": "1d6+2", "ac": 5,
    "specials": [],
-   "notes": ["AC 2/5 (2 except from the flank) -> primary 2. Damage 3-8 normally."],
-   "unmapped": ["Tail spikes do 2-12 to flank or rear attackers."]},
+   "notes": ["AC 2/5: the plates give AC 2 only against attacks not from the flank; a surrounding party mostly flanks it, so 5 is used. Damage 3-8 normally."],
+   "unmapped": ["Split AC: AC 2 against attacks other than from the flank (Arena has one AC).", "Tail spikes do 2-12 to flank or rear attackers."]},
 
   {"dd": "Dinosaurs, Triceratops", "name": "Triceratops", "type": "A", "env": "W", "atk": 1, "dam": "2d6",
    "specials": [],
-   "notes": ["AC 2/5 (2 from the front) -> primary 2."],
-   "unmapped": ["Charge does 4-24 instead of 2-12."]},
+   "notes": ["AC 2/5: frill and horns give AC 2 from the front; it charges head-on, so 2 is used."],
+   "unmapped": ["Split AC: AC 5 from other facings (Arena has one AC).", "Charge does 4-24 instead of 2-12."]},
 
   {"dd": "Dinosaurs, Tyrannosaurus Rexes", "name": "Tyrannosaurus Rex", "type": "A", "env": "W", "atk": 1, "dam": "4d6",
    "specials": ["Swallowing"],
@@ -480,10 +480,11 @@
    "crit": "2-9 normally, 4-14 on exceeds-by-4 / natural 20",
    "notes": ["2-9 -> 1d8+1."]},
 
-  {"dd": "Salamanders", "name": "Salamander", "type": "B", "env": "D", "atk": 1, "dam": "2d6",
+  {"dd": "Salamanders", "name": "Salamander", "type": "B", "env": "D", "atk": 1, "dam": "2d6", "ac": 5,
    "specials": ["Constriction", "FireImmunity", "MagicToHit (1)"],
-   "notes": ["AC 3/5 (serpent body / upper body) -> primary 3. Weapon 1-6 plus 1-6 burning to non-fire creatures -> Dam 2d6. Constricts with burning tail on exceeds-by-4 for 2-12 (+1-6) -> Constriction (Arena: attaches on any hit and does half the attack routine per round). Invulnerable to fire and normal weapons -> FireImmunity, MagicToHit (1). Number 2-5 -> 1d4+1."],
-   "trigger": "exceeds-by-4: constrict for 2-12 plus 1-6 (mapped to Constriction)"},
+   "notes": ["AC 3/5: upper body AC 5, serpent section AC 3; a melee opponent fights the upper body, so 5 (as master Salamander). Weapon 1-6 plus 1-6 burning to non-fire creatures -> Dam 2d6. Constricts with burning tail on exceeds-by-4 for 2-12 (+1-6) -> Constriction (Arena: attaches on any hit and does half the attack routine per round). Invulnerable to fire and normal weapons -> FireImmunity, MagicToHit (1). Number 2-5 -> 1d4+1."],
+   "trigger": "exceeds-by-4: constrict for 2-12 plus 1-6 (mapped to Constriction)",
+   "unmapped": ["Split AC: serpent section is AC 3 (Arena has one AC)."]},
 
   {"dd": "Scorpions, giant", "name": "Giant Scorpion", "type": "A", "env": "D", "atk": 1, "dam": "1d6+2",
    "specials": ["Poison"],
@@ -543,8 +544,8 @@
 
   {"dd": "Squid, giant", "name": "Giant Squid", "type": "A", "env": "U", "atk": 4, "dam": "1d6", "mv2": "Swimming",
    "specials": [],
-   "notes": ["AC 7/3 -> primary 7. 1-6 attack rolls -> Atk 4. Move '-/12' -> MV 0, Swimming (12). Treasure A3 -> A."],
-   "unmapped": ["Ink cloud and triple-speed retreat (master writes InkCloud, Jet).", "Grapple and capsize vessels."]},
+   "notes": ["AC 7/3 (not explained in DD; presumably body / tentacles) -> 7, as master Giant Squid. 1-6 attack rolls -> Atk 4. Move '-/12' -> MV 0, Swimming (12). Treasure A3 -> A."],
+   "unmapped": ["Split AC: second value 3 (Arena has one AC).", "Ink cloud and triple-speed retreat (master writes InkCloud, Jet).", "Grapple and capsize vessels."]},
 
   {"dd": "Thulls", "name": "Thull", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
    "specials": ["Regeneration (1)", "Paralysis"],

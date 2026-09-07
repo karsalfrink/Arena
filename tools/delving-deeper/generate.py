@@ -322,7 +322,10 @@ Columns: `Monster,Number,AC,MV,HD,Lair%,Treas,Atk,Dam,Align,Type,EHD,HDD,Env,Sou
   smallest modifier (3-8 -> 1d6+2, 4-14 -> 2d6+2, 6-21 -> 3d6+3, 1-11 -> 2d6-1),
   else the fewest dice (2-9 -> 1d8+1, 2-5 -> 1d4+1). "n/a" (horses) -> 1.
   Number appearing (wandering) is used, not number in lair.
-* **AC.** First value of a split AC ("3/7" -> 3, "2/5" -> 2, "7*" -> 7).
+* **AC.** Split ACs are hit-location or facing values; the one a melee
+  attacker faces is used, following the master file (Salamander 5 not 3,
+  Giant Squid 7 not 3, Giant Centipede 3, Triceratops 2, Stegosaurus 5).
+  "7*" (barded) -> 7. The unused value is recorded in NOTES.md.
 * **MV.** First value of a split move; the second value goes into Special as
   `Flight (n)` / `Swimming (n)` / `WebMove (n)` following MonsterDatabase.csv.
   "-/n" fliers keep n as MV (master Air Elemental idiom); "-/n" swimmers get
