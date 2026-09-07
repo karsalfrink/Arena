@@ -162,20 +162,24 @@ def hd_display(hd):
 
 # ------------------------------------------------------ stat blocks
 
+def plain_entry(r):
+    return {
+        "name": r["Monster"], "number": r["Number"], "ac": r["AC"], "mv": r["MV"],
+        "hd": hd_display(r["HD"]), "ehd": r["EHD"], "atk": r["Atk"],
+        "dam": r["Dam"], "align": r["Align"],
+        "special": "" if r["Special"] == "-" else r["Special"],
+        "note": "", "dragon": r["Monster"].endswith("Dragon"),
+    }
+
+
 def statblocks(rows, version):
-    """One entry per monster in CSV order; rows of an HD-range family whose
-    other columns agree are merged into one entry at the first member's
-    position."""
+    """One entry per monster, alphabetical within each type; rows of an
+    HD-range family whose other columns agree are merged into one entry."""
     sections = OrderedDict((t, []) for t in TYPES)
     groups = OrderedDict()
     for r in rows:
         key = family_key(r["Monster"])
-        entry = {
-            "name": r["Monster"], "ac": r["AC"], "mv": r["MV"],
-            "hd": hd_display(r["HD"]), "ehd": r["EHD"], "atk": r["Atk"],
-            "dam": r["Dam"], "special": "" if r["Special"] == "-" else r["Special"],
-            "note": "", "dragon": r["Monster"].endswith("Dragon"),
-        }
+        entry = plain_entry(r)
         if key is None:
             sections[r["Type"]].append(entry)
             continue
@@ -191,33 +195,31 @@ def statblocks(rows, version):
         first = members[0][1]
         same = lambda col: all(r[col] == first[col] for _, r in members)
         kind = g["kind"]
-        mergeable = same("AC") and same("MV") and same("Dam") and same("Special") \
+        mergeable = all(same(c) for c in ("Number", "AC", "MV", "Dam", "Align", "Special")) \
             and (same("Atk") or (kind == "heads" and all(r["Atk"] == str(n) for n, r in members)))
         idx = sections[t].index(g)
         if not mergeable:
-            sections[t][idx:idx + 1] = [
-                {"name": r["Monster"], "ac": r["AC"], "mv": r["MV"],
-                 "hd": hd_display(r["HD"]), "ehd": r["EHD"], "atk": r["Atk"],
-                 "dam": r["Dam"], "special": "" if r["Special"] == "-" else r["Special"],
-                 "note": "", "dragon": False}
-                for _, r in members]
+            sections[t][idx:idx + 1] = [plain_entry(r) for _, r in members]
             continue
         ns = [n for n, _ in members]
         ehds = [int(r["EHD"]) for _, r in members]
         unit = " heads" if kind == "heads" else ""
         entry = {
             "name": base if kind == "hd" else f"{base} ({fmt_range(ns, unit)})",
-            "ac": first["AC"], "mv": first["MV"],
+            "number": first["Number"], "ac": first["AC"], "mv": first["MV"],
             "hd": fmt_range(ns),
             "ehd": f"{min(ehds)}{EN_DASH}{max(ehds)}" if min(ehds) != max(ehds) else str(ehds[0]),
             "atk": fmt_range(ns) if kind == "heads" else first["Atk"],
-            "dam": first["Dam"],
+            "dam": first["Dam"], "align": first["Align"],
             "special": "" if first["Special"] == "-" else first["Special"],
             "note": ("EHD by heads: " if kind == "heads" else "EHD by HD: ")
                     + ", ".join(str(e) for e in ehds),
             "dragon": False,
         }
         sections[t][idx] = entry
+
+    for entries in sections.values():  # alphabetical within a type
+        entries.sort(key=lambda e: e["name"].lower())
 
     return {
         "version": version,
