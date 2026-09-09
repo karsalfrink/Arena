@@ -225,9 +225,12 @@ def statblocks(rows, version, names):
     entry, and dragons are grouped by colour with one sub-row per age."""
     sections = OrderedDict((t, []) for t in TYPES)
     groups = OrderedDict()
+    dragon_ehds = read_dragon_ehds() or {}
     for r in rows:
         key = family_key(r["Monster"])
         entry = plain_entry(r, names)
+        if entry["dragon"] and r["Monster"] in dragon_ehds:
+            entry["ehd"] = str(dragon_ehds[r["Monster"]])  # HD-only, see dragon-ehd.sh
         if key is None:
             sections[r["Type"]].append(entry)
             continue

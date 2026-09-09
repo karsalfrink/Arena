@@ -24,7 +24,7 @@ commit that last changed the CSV. Run it again whenever the CSV changes.
 
 If the dragon rows change, also run `./dragon-ehd.sh` (needs Java, a few
 minutes): it measures the dragons with ordinary hit dice instead of
-Arena's HD × age rule and writes `dragon-ehd.tsv`, which places dragons
+Arena's HD × age rule and writes `dragon-ehd.tsv`, which gives the dragon EHDs in the stat blocks and places dragons
 in the level tables. MonsterMetrics is a simulation, so the values move by
 a point or two between runs.
 
@@ -36,7 +36,7 @@ a point or two between runs.
 | `common.typ` | Page setup, the opening paragraph and the colophon |
 | `statblocks.typ`, `matrices.typ` | The two documents |
 | `families.json` | How rows collapse into one level-table entry |
-| `dragon-ehd.sh`, `dragon-ehd.tsv` | HD-only dragon EHDs for the level tables |
+| `dragon-ehd.sh`, `dragon-ehd.tsv` | HD-only dragon EHDs for both documents |
 | `build/` | Intermediate JSON, not committed |
 
 Like the database, these were produced with a large language model
