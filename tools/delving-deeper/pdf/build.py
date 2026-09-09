@@ -167,6 +167,7 @@ def dd_names():
                 "label": DD_LABEL_OVERRIDE.get(arena, label),
                 "member": DD_AGES[i] if entry.get("source") == "dragons" else None,
                 "order": order,
+                "handout": entry.get("handout", ""),
             }
     return names
 
@@ -215,7 +216,7 @@ def plain_entry(r, names):
         "hd": hd_display(r["HD"]), "ehd": r["EHD"], "atk": r["Atk"],
         "dam": r["Dam"], "align": r["Align"],
         "special": "" if r["Special"] == "-" else r["Special"],
-        "note": "", "dragon": r["Monster"].endswith("Dragon"),
+        "note": "", "also": n["handout"], "dragon": r["Monster"].endswith("Dragon"),
     }
 
 
@@ -267,7 +268,7 @@ def statblocks(rows, version, names):
             "special": "" if first["Special"] == "-" else first["Special"],
             "note": ("EHD by heads: " if kind == "heads" else "EHD by HD: ")
                     + ", ".join(str(e) for e in ehds),
-            "dragon": False,
+            "also": n["handout"], "dragon": False,
         }
         sections[t][idx] = entry
 
@@ -281,9 +282,11 @@ def statblocks(rows, version, names):
                 continue
             g = grouped.get(e["name"])
             if g is None:
-                g = grouped[e["name"]] = {"group": e["name"], "order": e["order"], "rows": []}
+                g = grouped[e["name"]] = {"group": e["name"], "order": e["order"],
+                                          "also": e["also"], "rows": []}
                 out.append(g)
             e["name"] = e["member"]
+            e["also"] = ""  # the colour heading carries the line
             g["rows"].append(e)
         out.sort(key=lambda e: dd_sort_key(e.get("group") or e["name"], e["order"]))
         sections[t] = out

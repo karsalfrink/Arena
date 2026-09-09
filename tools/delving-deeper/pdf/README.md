@@ -5,7 +5,8 @@ modelled on Dan Collins's OED Monster Stat Blocks and OED Monster Matrices:
 
 * `DD-MonsterStatBlocks.pdf`: every monster with NA, AC, MV, HD, EHD,
   Atk, Dam, alignment and Arena specials, in a table per Arena type and in
-  Delving Deeper Table 3.1 order.
+  Delving Deeper Table 3.1 order; abilities Arena does not model follow in
+  a small-type line (the `handout` field of `../mapping.json`).
 * `DD-MonsterMatrices.pdf`: the Monster Level Matrix, Monster Level Tables
   built from the Delving Deeper EHDs, and Number Appearing.
 
