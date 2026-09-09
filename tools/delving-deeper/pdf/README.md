@@ -3,7 +3,7 @@
 Two A4 handouts generated from `MonsterDatabase-DelvingDeeper.csv`,
 modelled on Dan Collins's OED Monster Stat Blocks and OED Monster Matrices:
 
-* `DD-MonsterStatBlocks.pdf`: every monster with No., AC, MV, HD, EHD,
+* `DD-MonsterStatBlocks.pdf`: every monster with NA, AC, MV, HD, EHD,
   Atk, Dam, alignment and Arena specials, in a table per Arena type and in
   Delving Deeper Table 3.1 order.
 * `DD-MonsterMatrices.pdf`: the Monster Level Matrix, Monster Level Tables
@@ -33,7 +33,7 @@ a point or two between runs.
 | File | Role |
 |---|---|
 | `build.py` | The generator: data preparation and the Typst calls |
-| `common.typ` | Page setup and the shared front note |
+| `common.typ` | Page setup, the opening paragraph and the colophon |
 | `statblocks.typ`, `matrices.typ` | The two documents |
 | `families.json` | How rows collapse into one level-table entry |
 | `dragon-ehd.sh`, `dragon-ehd.tsv` | HD-only dragon EHDs for the level tables |

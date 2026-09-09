@@ -1,24 +1,28 @@
-#import "common.typ": setup, front-note
+#import "common.typ": setup, intro, colophon
 #let d = json("build/statblocks.json")
 
 #show: setup.with("Delving Deeper Monster Stat Blocks")
 
 = Delving Deeper Monster Stat Blocks
 
-#front-note(d)[
-  Monsters carry the names of Delving Deeper's Table 3.1 (the database uses
-  Arena's names, so "Beetles, giant" is Arena's "Two Hit Dice Giant
-  Beetle" and so on); they are grouped by Arena type (animals, beasts,
-  faerie and sylvan creatures, humanoids, men, slimes, undead,
-  extraplanar) and listed in Table 3.1 order within each type. _No._ is
-  the number appearing, _Al._ the alignment. Where the rules give a monster a range of hit
-  dice (giant beetles, giant fish, pterodactyls, hydras, elementals) and
-  the other columns agree, the family is one line with the EHD of each
-  size in small type. Special abilities use Arena's `SpecialType` names.
-  _Dragon EHDs_ (marked \*) are unreliable at the extremes: Arena gives a
-  dragon hit points of HD × age category, so hatchlings come out far too
-  weak and old and ancient dragons far too strong; only the middle ages
-  are comparable. See `tools/delving-deeper/NOTES.md`.
+#intro[
+  Every monster of the _Delving Deeper_ rules on one line each, in the
+  compact form of the OED Monster Stat Blocks, with an Equivalent Hit Dice
+  (EHD) rating for each. EHD measures a monster's real fighting strength,
+  which its hit dice alone often misjudge, so referees can pit encounters
+  against a party with more confidence; the companion _Monster Matrices_
+  handout uses the same ratings to build wandering-monster tables.
+
+  Monsters carry the names of Delving Deeper's Table 3.1 and are grouped
+  by kind (animals, beasts, faerie and sylvan creatures, humanoids, men,
+  slimes, undead, extraplanar) in Table 3.1 order within each group.
+  _NA_ is the number appearing, _Al._ the alignment. Where the rules give a
+  monster a range of hit dice (giant beetles, giant fish, pterodactyls,
+  hydras, elementals) and the other columns agree, the family is one line
+  with the EHD of each size in small type. _Special_ lists the abilities
+  that the Arena simulator models, under its own names; abilities it
+  cannot model are left out (see the colophon). Dragon EHDs marked \* are
+  only reliable for the middle ages.
 ]
 
 #set text(size: 8.5pt)
@@ -39,7 +43,7 @@
     inset: (x: 4pt, y: 2.2pt),
     table.hline(stroke: 0.6pt),
     table.header(
-      [*Monster*], [*No.*], [*AC*], [*MV*], [*HD*], [*EHD*], [*Atk*], [*Dam*], [*Al.*], [*Special*],
+      [*Monster*], [*NA*], [*AC*], [*MV*], [*HD*], [*EHD*], [*Atk*], [*Dam*], [*Al.*], [*Special*],
       table.hline(stroke: 0.4pt),
     ),
     ..for e in s.entries {
@@ -51,4 +55,24 @@
     },
     table.hline(stroke: 0.6pt),
   )
+]
+
+#colophon(d)[
+  *Names.* The database uses Arena's names, so "Beetles, giant" is Arena's
+  "Two Hit Dice Giant Beetle" and so on; the groups are Arena's monster
+  types.
+
+  *Specials.* The _Special_ column holds Arena `SpecialType` codes: only
+  the Delving Deeper abilities that could be mapped onto something the
+  simulator models, and so only those that count towards the EHD. A few
+  codes are documentation only (Arena knows the name but does not act on
+  it as a monster attack). Abilities with no Arena counterpart, such as
+  burrowing, split armour classes or the larger damage on a high attack
+  roll, are recorded per monster in `tools/delving-deeper/NOTES.md` and
+  are not shown here.
+
+  *Dragons.* Arena gives a dragon hit points of HD × age category, so
+  hatchlings come out far too weak and old and ancient dragons far too
+  strong; only the middle ages are comparable. See
+  `tools/delving-deeper/NOTES.md`.
 ]

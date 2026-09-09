@@ -1,4 +1,5 @@
-// Shared page setup and front matter for the Delving Deeper reference PDFs.
+// Shared page setup, opening paragraph and colophon for the Delving Deeper
+// reference PDFs.
 
 #let setup(title, doc) = {
   set page(
@@ -28,15 +29,26 @@
   doc
 }
 
-// The front note: what Delving Deeper is, where the numbers come from,
-// where the source lives and how the work was done.
-#let front-note(d, extra) = [
+// Opening paragraph: what the document is, why it exists and how to read
+// it. `body` is the document-specific part.
+#let intro(body) = [
   #set text(size: 9pt)
   #set par(leading: 0.5em)
+  #body
+]
+
+// Colophon: where the numbers come from, where the source lives and how
+// the work was done. `extra` holds document-specific notes.
+#let colophon(d, extra) = [
+  == Colophon
+  #set text(size: 9pt)
+  #set par(leading: 0.5em)
+  #extra
+
   *Delving Deeper* is a retroclone of the original 1974 edition of the
   fantasy role-playing game, written by Simon J. Bull and published by
   Immersive Ink (#link("https://ddo.immersiveink.com/")[ddo.immersiveink.com]).
-  This document is modelled on Dan Collins's OED handouts of the same name
+  This document is modelled on Dan Collins's OED handout of the same name
   (#link("https://oedgames.com/")[oedgames.com]). Every value comes from
   #raw(d.csv), an Arena monster database of the Delving Deeper reference
   rules; the Equivalent Hit Dice (EHD) were computed by running Dan's Arena
@@ -47,6 +59,5 @@
   #link(d.pr)[danielrcollins1/Arena pull request 6]. The database and this
   document were produced with a large language model (Anthropic's Claude)
   under the review of Kars Alfrink; the README in that directory says how.
-  #extra
   Generated from #raw(d.csv) at commit #raw(d.version.commit) (#d.version.date).
 ]

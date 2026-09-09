@@ -1,16 +1,20 @@
-#import "common.typ": setup, front-note
+#import "common.typ": setup, intro, colophon
 #let d = json("build/matrices.json")
 
 #show: setup.with("Delving Deeper Monster Matrices")
 
 = Delving Deeper Monster Matrices
 
-#front-note(d)[
-  The Monster Level Matrix is Dan's (Arena's `MonsterLevelMatrix.csv`). The
-  Monster Level Tables are rebuilt from the Delving Deeper EHDs with Arena's
-  banding (`EHDToTable.csv`), with families collapsed and dragons placed by
-  age as described under _Notes_. Monsters carry the names of Delving
-  Deeper's Table 3.1.
+#intro[
+  Wandering-monster tables for _Delving Deeper_, in the form of the OED
+  Monster Matrices: roll on the Monster Level Matrix for the dungeon
+  level, then on the Monster Level Table it points to, and size the
+  encounter with Number Appearing. The tables rank monsters by Equivalent
+  Hit Dice (EHD), a measure of real fighting strength computed with Dan
+  Collins's Arena combat simulator, rather than by hit dice alone; the
+  companion _Monster Stat Blocks_ handout gives every monster's EHD.
+  Monsters carry the names of Delving Deeper's Table 3.1; how the tables
+  were built is set out in the colophon.
 ]
 
 == Monster Level Matrix
@@ -81,9 +85,13 @@ gives the exact EHDs). If the party is larger or smaller than four, scale
 the numbers in proportion. At least one monster appears in any encounter,
 which may be very dangerous.
 
-== Notes
-
+#colophon(d)[
 #let ex = d.excluded
+*How the tables were built.* The Monster Level Matrix is Dan's (Arena's
+`MonsterLevelMatrix.csv`). The Monster Level Tables are rebuilt from the
+Delving Deeper EHDs with Arena's banding (`EHDToTable.csv`), with families
+collapsed and dragons placed by age as follows.
+
 - *Which monsters are listed.* As in Arena, only monsters of the dungeon
   environment with an EHD of 1 or more: not #ex.ehd0.join("; ") (EHD 0,
   they do not attack) and not the #ex.env monsters of the wilderness, the
@@ -103,7 +111,8 @@ which may be very dangerous.
   tables the dragons were therefore measured again with ordinary hit dice
   (#raw(d.dragons.tsv) from `dragon-ehd.sh`, in which golden dragons lose
   their spells) and each age is placed by the median of its six
-  colours. The values, with the resulting level, so that a colour can be
+  colours. The grid gives that HD-only EHD for each age and colour, and
+  the level table the median places the age in, so that a colour can be
   moved up or down:
 
 #let g = d.dragons
@@ -111,9 +120,14 @@ which may be very dangerous.
   #table(
     columns: 8, align: (left,) + (center,) * 7, stroke: none,
     inset: (x: 6pt, y: 2pt),
-    table.header([*Age*], ..g.colours.map(c => [*#c*]), [*Level*],
+    table.header(
+      table.cell(rowspan: 2, align: horizon)[*Age*],
+      table.cell(colspan: 6)[*EHD with ordinary hit dice*],
+      table.cell(rowspan: 2, align: horizon)[*Level*],
+      ..g.colours.map(c => [*#c*]),
       table.hline(stroke: 0.4pt)),
     ..for r in g.grid { (r.age, ..r.ehds, str(r.level)) },
     table.hline(stroke: 0.6pt),
   )
+]
 ]
