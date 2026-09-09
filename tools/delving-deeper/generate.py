@@ -608,15 +608,20 @@ def write_notes(groups):
     lines.append("")
     lines.append("## DD abilities with no Arena mapping, per monster")
     lines.append("")
+    lines.append("The *Handout* line is the wording the stat-block PDF prints under the")
+    lines.append("monster (`handout` in mapping.json).")
+    lines.append("")
     for entry, rows in groups:
-        if entry.get("unmapped"):
+        if entry.get("unmapped") or entry.get("handout"):
             name = rows[0]["Monster"] if len(rows) == 1 else "%s (all %d rows)" % (
                 re.sub(r"^\S+ (Hit Dice |Headed )?", "", rows[0]["Monster"]) if entry.get("expand") else rows[0]["Monster"].split(" ", 2)[-1] if entry.get("source") == "dragons" else rows[0]["Monster"], len(rows))
             if entry.get("source") == "dragons":
                 name = "%s Dragon (all 6 ages)" % DRAGON_NAME[entry["color"]]
             lines.append("* **%s** (DD *%s*):" % (name, entry_label(entry)))
-            for u in entry["unmapped"]:
+            for u in entry.get("unmapped", []):
                 lines.append("  * %s" % u)
+            if entry.get("handout"):
+                lines.append("  * Handout: %s" % entry["handout"])
     with open("NOTES.md", "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
     print("wrote NOTES.md")

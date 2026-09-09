@@ -122,239 +122,341 @@ SpecialType (e.g. `CritDamage (n)` with n = extra dice) if Dan wants one:
 
 ## DD abilities with no Arena mapping, per monster
 
+The *Handout* line is the wording the stat-block PDF prints under the
+monster (`handout` in mapping.json).
+
 * **Giant Ant** (DD *Ants, giant*):
   * Secondary move 3 is burrowing (no Arena code).
   * Never flee the nest while the queen lives (lair-only).
+  * Handout: burrows at MV 3; never flees the nest while the queen lives
 * **Ape** (DD *Apes*):
   * Secondary move 12 is climbing (no Arena code).
+  * Handout: climbs at MV 12
 * **Bat** (DD *Bats*):
   * Startled colony obscures sight, drops torches, interrupts spellcasting.
+  * Handout: a startled colony obscures sight, drops torches and interrupts spellcasting
 * **Giant Bat** (DD *Bats, giant*):
   * Surprise on 3+ on d6 (master would write Stealth (n), not an enum name).
   * Shriek makes normal-types cover ears for one turn.
+  * Handout: surprises on 3+ on 1d6; shriek makes normal-types cover their ears for a turn
 * **Giant Beetle (all 6 rows)** (DD *Beetles, giant*):
   * Secondary move 6 is tunnelling through soft earth.
+  * Handout: tunnels through soft earth at MV 6
 * **Black Pudding** (DD *Black pudding*):
   * Splitting into smaller puddings (master writes Splitting, not an enum name).
   * Susceptible to fire (no vulnerability stated beyond being harmable).
+  * Handout: splits into smaller puddings; susceptible to fire
 * **Boar** (DD *Boars*):
   * One more attack roll after being reduced to 0 hp.
+  * Handout: one more attack after being reduced to 0 hp
 * **Giant Boar** (DD *Boars, giant*):
   * One more attack roll after being reduced to 0 hp.
+  * Handout: one more attack after being reduced to 0 hp
 * **Cave Bear** (DD *Cave bears*):
   * One more attack roll after being reduced to 0 hp.
+  * Handout: one more attack after being reduced to 0 hp
 * **Caveman** (DD *Cavemen*):
   * -1 morale (master writes Cowardice, not an enum name).
+  * Handout: −1 morale
 * **Giant Centipede** (DD *Centipedes, giant*):
   * Split AC: body is AC 7 (Arena has one AC).
   * Moves on walls and ceilings at full speed.
+  * Handout: body is AC 7; moves on walls and ceilings at full speed
 * **Crocodile** (DD *Crocodiles*):
   * Hard to spot half-submerged; often attacks by surprise.
+  * Handout: hard to spot half-submerged, often attacks by surprise
 * **Giant Crocodile** (DD *Crocodiles, giant*):
   * Overturns boats and rafts; can be rammed by ships.
+  * Handout: overturns boats and rafts
 * **Cyborg** (DD *Cyborgs*):
   * Never give up a pursuit while quarry in sight.
+  * Handout: never gives up a pursuit while the quarry is in sight
 * **Deinonychus** (DD *Dinosaurs, Deinonychus*):
   * Stalks prey and never gives up pursuit while prey in sight.
+  * Handout: stalks prey; never gives up a pursuit while the prey is in sight
 * **Stegosaurus** (DD *Dinosaurs, Stegosaurs*):
   * Split AC: AC 2 against attacks other than from the flank (Arena has one AC).
   * Tail spikes do 2-12 to flank or rear attackers.
+  * Handout: AC 2 except from the flank; tail spikes do 2d6 to flank or rear attackers
 * **Triceratops** (DD *Dinosaurs, Triceratops*):
   * Split AC: AC 5 from other facings (Arena has one AC).
   * Charge does 4-24 instead of 2-12.
+  * Handout: AC 5 from other facings; charge does 4d6
 * **Djinni** (DD *Djinni*):
   * Gaseous form (master writes GasForm).
   * Object creation (master writes Creation).
+  * Handout: gaseous form; creates objects
 * **Doppelganger** (DD *Doppelgangers*):
   * Immune to sleep and charm.
+  * Handout: immune to sleep and charm
 * **Dragon Turtle** (DD *Dragon turtles*):
   * 50% chance to capsize a ship it surfaces under.
+  * Handout: 50% to capsize a ship it surfaces under
 * **Black Dragon (all 6 ages)** (DD *Dragons, Black*):
   * Swims and breathes underwater indefinitely (no rate given).
+  * Handout: swims and breathes underwater indefinitely; adults and older unaffected by normal missiles
 * **Blue Dragon (all 6 ages)** (DD *Dragons, Blue*):
   * Buries itself in sand for ambush.
+  * Handout: buries itself in sand for ambush; adults and older unaffected by normal missiles
 * **Gold Dragon (all 6 ages)** (DD *Dragons, Golden*):
   * Breath is sound, not fire (also damages structures).
   * Cannot be subdued; polymorphs into human form.
+  * Handout: breath is sound, not fire, and damages structures; cannot be subdued; polymorphs into human form; adults and older unaffected by normal missiles
 * **Green Dragon (all 6 ages)** (DD *Dragons, Green*):
   * Immune to poison (no PoisonImmunity in SpecialType).
+  * Handout: immune to poison; adults and older unaffected by normal missiles
+* **Red Dragon (all 6 ages)** (DD *Dragons, Red*):
+  * Handout: adults and older unaffected by normal missiles
 * **White Dragon (all 6 ages)** (DD *Dragons, White*):
   * Swims and tunnels through snow and ice (no rates given).
+  * Handout: swims; tunnels through snow and ice; adults and older unaffected by normal missiles
 * **Dryad** (DD *Dryads*):
   * Non-violent; bound within 24" of its tree.
+  * Handout: non-violent; bound within 24" of its tree
 * **Dwarf** (DD *Dwarfs*):
   * Half damage from ogres/trolls/giants is modelled as a to-hit penalty, not a damage halving.
 * **Efreeti** (DD *Efreeti*):
   * 'Become incendiaries' (immolation of self; no fire immunity stated).
   * Object creation (master writes Creation).
+  * Handout: may immolate itself; creates objects
 * **Air Elemental (all 3 rows)** (DD *Elemental, Air*):
   * +2 to hit vs aerial opponents.
   * Whirlwind height grows with HD.
+  * Handout: +2 to hit vs aerial opponents; whirlwind height grows with HD
 * **Earth Elemental (all 3 rows)** (DD *Elemental, Earth*):
   * Secondary move 6 is through earth; cannot cross water; move earth drives it back for 6-36.
+  * Handout: moves through earth at MV 6; cannot cross water; a move earth spell drives it back 12" for 6d6 damage
 * **Fire Elemental (all 3 rows)** (DD *Elemental, Fire*):
   * Ignites inflammables; cannot cross water.
+  * Handout: ignites inflammables; cannot cross water
 * **Water Elemental (all 3 rows)** (DD *Elemental, Water*):
   * Overturns boats; must stay within 6" of water.
+  * Handout: overturns boats; must stay within 6" of water
 * **Elf** (DD *Elves*):
   * +1 damage with magic weapons.
   * Move silently / near-invisibly in woods (master writes Camouflage).
   * Leader-types with fighter/magic-user levels.
+  * Handout: +1 damage with magic weapons; moves silently and near-invisibly in woods; leaders have fighter and magic-user levels
 * **Gargoyle** (DD *Gargoyles*):
   * Indistinguishable from statues; 75% hostile.
+  * Handout: indistinguishable from statues; 75% hostile
 * **Gelatinous Cube** (DD *Gelatinous cube*):
   * Immune to fear, paralysis and polymorph (fear/paralysis partly covered by Slime being non-sentient).
+  * Handout: immune to fear, paralysis and polymorph
 * **Ghoul** (DD *Ghouls*):
   * -2 attack and morale in daylight.
   * Elves immune to the paralysis.
   * Slain man-types rise as ghouls (master writes Spawn).
+  * Handout: −2 to hit and morale in daylight; elves immune to the paralysis; slain man-types rise as ghouls
 * **Storm Giant** (DD *Giants, Storm*):
   * Weather control (master writes WeatherControl).
   * Lightning strike for 8-48 in thunderstorm conditions.
+  * Handout: controls weather; lightning strike for 8d6 in a thunderstorm
 * **Gnoll** (DD *Gnolls*):
   * +2 morale (master writes Bravery (2)).
+  * Handout: +2 morale
 * **Goblin** (DD *Goblins*):
   * -1 attack and morale in full daylight (master writes LightSensitivity).
+  * Handout: −1 to hit and morale in full daylight
 * **Clay Golem** (DD *Golems, Clay*):
   * Hasted for three turns after one turn of combat.
   * Disintegrate slows it; move earth drives it back for 6-36.
   * Its wounds need a 9th-level cleric to cure.
+  * Handout: hasted for three turns after one turn of combat; a disintegrate spell slows it, a move earth spell drives it back 12" for 6d6 damage; wounds need a 9th-level cleric to cure
 * **Flesh Golem** (DD *Golems, Flesh*):
   * Slowed by cold and fire spells; healed by lightning.
+  * Handout: slowed by cold and fire spells; healed by lightning
 * **Gothrog** (DD *Gothrogs*):
   * +2 to hit when using a single weapon; sword alone does 3-18.
   * Cannot be subdued.
+  * Handout: +2 to hit with a single weapon, sword alone does 3d6; cannot be subdued
 * **Halfling** (DD *Halflings*):
   * +3 to hit with hurled missiles.
   * Move silently and hide superbly.
+  * Handout: +3 to hit with hurled missiles; moves silently and hides superbly
 * **Hippogriff** (DD *Hippogriffs*):
   * Never checks morale when defending its nest.
+  * Handout: never checks morale defending its nest
 * **Hobgoblin** (DD *Hobgoblins*):
   * +1 morale except in daylight, where -1 to hit (master writes Bravery (1)).
+  * Handout: +1 morale; −1 to hit in daylight
 * **Hydra (all 8 rows)** (DD *Hydras*):
   * Heads attack as a fighter rather than as a monster.
+  * Handout: heads attack as fighters
 * **Invisible Stalker** (DD *Invisible stalker*):
   * Faultless tracker (master writes Tracking).
+  * Handout: faultless tracker
 * **Juggernaut** (DD *Juggernaut*):
   * Slaying spell each turn (Death listed but inert).
   * Improved hold person on 2-12 man-types at -2, or one at -6 (Hold listed but inert).
   * Crushes anything in its path; cannot be subdued.
+  * Handout: slaying spell each turn; hold person on 2d6 man-types at −2 or one at −6 (Death and Hold are not simulated); crushes anything in its path; cannot be subdued
 * **Kobold** (DD *Kobolds*):
   * -1 morale unless defending lair at 3:1 odds.
+  * Handout: −1 morale unless defending the lair at 3:1 odds
 * **Giant Leech** (DD *Leeches, giant*):
   * Attachment cadence (drain every other turn, not every hit).
+  * Handout: drains every other turn once attached
 * **Lion** (DD *Lions*):
   * Stalks to attack by surprise (master writes Stealth (2)).
+  * Handout: stalks to attack by surprise
 * **Iron Living Statue** (DD *Living statues, Iron*):
   * Slowed by lightning; healed by fire.
+  * Handout: slowed by lightning; healed by fire
 * **Stone Living Statue** (DD *Living statues, Stone*):
   * Slowed by cold and fire; healed by stone to flesh.
+  * Handout: slowed by cold and fire; healed by stone to flesh
 * **Giant Lizard** (DD *Lizards, giant*):
   * Superb camouflage (master writes Camouflage).
+  * Handout: superb camouflage
 * **Large Lizard** (DD *Lizards, large*):
   * Superb camouflage.
+  * Handout: superb camouflage
 * **Werebear** (DD *Lycanthropes, Werebears*):
   * Lycanthropy infection (master writes Lycanthropy).
   * Retaliate at +4 if young or females attacked.
+  * Handout: lycanthropy; +4 to hit if its young or females are attacked
 * **Wereboar** (DD *Lycanthropes, Wereboars*):
   * Lycanthropy infection.
+  * Handout: lycanthropy
 * **Weretiger** (DD *Lycanthropes, Weretigers*):
   * Lycanthropy infection.
+  * Handout: lycanthropy
 * **Werewolf** (DD *Lycanthropes, Werewolves*):
   * Lycanthropy infection.
+  * Handout: lycanthropy
 * **Berserker** (DD *Men, Berserkers*):
   * The +2 applies only against man-types.
+  * Handout: the +2 to hit is only vs man-types
 * **Brigand** (DD *Men, Brigands*):
   * +1 morale (master writes Bravery (1)).
+  * Handout: +1 morale
 * **Dervish** (DD *Men, Dervishes*):
   * The +2 applies only against man-types.
+  * Handout: the +2 to hit is only vs man-types
 * **Nomad** (DD *Men, Nomads*):
   * Always mounted.
+  * Handout: always mounted
 * **Pirate** (DD *Men, Pirates*):
   * +1 morale.
+  * Handout: +1 morale
 * **Zealot** (DD *Men, Zealots*):
   * The +2 applies only against man-types.
+  * Handout: the +2 to hit is only vs man-types
 * **Merman** (DD *Mermen*):
   * +2 to hit and no morale checks vs man-types in the sea; -2 to hit and morale on land (master writes LandWeakness).
   * Grapple ships (master writes Grappling).
+  * Handout: +2 to hit and no morale checks vs man-types at sea; −2 to hit and morale on land; grapples ships
 * **Minotaur** (DD *Minotaurs*):
   * Never gives up a chase.
+  * Handout: never gives up a chase
 * **Nixie** (DD *Nixies*):
   * Water breathing on the charmed victim; grappling ships with 40+.
+  * Handout: the charmed victim breathes water; 40 or more can grapple a ship
 * **Ochre Jelly** (DD *Ochre jelly*):
   * Splitting into two jellies (master writes Splitting).
+  * Handout: splits into two jellies
 * **Giant Octopus** (DD *Octopi, giant*):
   * Grapple and capsize small vessels.
+  * Handout: grapples and capsizes small vessels
 * **Orc** (DD *Orcs*):
   * -1 attack and morale in full daylight (master writes LightSensitivity).
   * No morale checks defending lair at 3:1 odds.
+  * Handout: −1 to hit and morale in full daylight; no morale checks defending the lair at 3:1 odds
 * **Pixie** (DD *Pixies*):
   * Joint sleep spell once per day (Sleep listed but inert).
   * Always attack by surprise unless magically detected.
+  * Handout: joint sleep spell once a day (Sleep is not simulated); always surprises unless magically detected
 * **Purple Worm** (DD *Purple worms*):
   * Secondary move 9 is burrowing.
+  * Handout: burrows at MV 9
 * **Giant Rat** (DD *Rats, giant*):
   * Disease on a hit, save vs poison at +4 (master writes Disease, not an enum name).
   * -2 morale; flee from fire.
+  * Handout: bite carries disease, save vs poison at +4; −2 morale; flees fire
 * **Robot** (DD *Robots*):
   * Disintegration ray, 6" range, 3/day (listed but inert).
   * Many robots fly instead of having the ray.
   * Cannot be subdued.
+  * Handout: disintegration ray, 6" range, 3/day (not simulated); many fly instead; cannot be subdued
 * **Young Roc** (DD *Rocs, Young*):
   * Always spots hidden (not invisible) man-types, so master's Detection (which is about invisibility) is not used.
+  * Handout: always spots hidden man-types
 * **Salamander** (DD *Salamanders*):
   * Split AC: serpent section is AC 3 (Arena has one AC).
+  * Handout: serpent half is AC 3
 * **Leviathan** (DD *Sea monsters, Leviathan*):
   * Capsizes 1-3 ships per turn.
+  * Handout: capsizes 1d3 ships a turn
 * **Kraken** (DD *Sea monsters, Kraken*):
   * Capsizes any ship in 1-2 turns.
   * Confined to a null dimension unless summoned.
+  * Handout: capsizes any ship in 1d2 turns; confined to a null dimension unless summoned
 * **Sea Serpent** (DD *Sea monsters, Sea serpents*):
   * Encircles and destroys longboats in 1-6 turns.
+  * Handout: encircles and destroys a longboat in 1d6 turns
 * **Shadow** (DD *Shadows*):
   * Magic weapons do double damage.
   * Victims reduced to nil strength rise as shadows (master writes Spawn).
+  * Handout: magic weapons do double damage; victims drained to nil strength rise as shadows
 * **Skeleton** (DD *Skeletons*):
   * Unaffected by normal missiles.
+  * Handout: unaffected by normal missiles
+* **Giant Viper** (DD *Snakes, giant*):
+  * Handout: bite does 1d2 when not constricting; encircles and destroys small boats
 * **Giant Constrictor Snake** (DD *Snakes, giant*):
   * Bite damage 1-2 when not constricting.
   * Encircles and destroys small boats.
 * **Spectre** (DD *Spectres*):
   * Passes through walls.
   * Slain victims rise as spectre thralls (master writes Spawn).
+  * Handout: passes through walls; slain victims rise as thralls
 * **Giant Spider** (DD *Spiders, giant*):
   * Web-spell webs around the lair (Webs listed but inert).
   * Ambush from hiding.
+  * Handout: webs around the lair (Webs is not simulated); ambushes from hiding
 * **Large Spider** (DD *Spiders, large*):
   * Secondary move 15 is scurrying over walls and ceilings.
+  * Handout: scurries over walls and ceilings at MV 15
 * **Giant Squid** (DD *Squid, giant*):
   * Split AC: second value 3 (Arena has one AC).
   * Ink cloud and triple-speed retreat (master writes InkCloud, Jet).
   * Grapple and capsize vessels.
+  * Handout: AC 7/3 in the rules, the 3 unexplained; ink cloud and triple-speed retreat; grapples and capsizes vessels
 * **Thull** (DD *Thulls*):
   * Elves immune to the paralysis.
+  * Handout: elves immune to the paralysis
 * **Tiger** (DD *Tigers*):
   * Stalks to attack by surprise.
+  * Handout: stalks to attack by surprise
 * **Giant Toad** (DD *Toads, giant*):
   * Hop 18" every other turn (master writes Leaping).
+  * Handout: hops 18" every other turn
 * **Treant** (DD *Treants*):
   * Axes do full damage.
+  * Handout: axes do full damage
 * **Unicorn** (DD *Unicorns*):
   * Dimension door 36" once per day (master writes DimensionDoor (36)).
   * Horn as a lance when charging.
+  * Handout: dimension door 36" once a day; horn as a lance when charging
 * **Vampire** (DD *Vampires*):
   * Forced into gaseous form at 0 hp rather than slain (master writes Undying).
   * Slain victims rise as vampires or ghouls (master writes Spawn).
   * Level drain only after the victim is charmed.
+  * Handout: at 0 hp turns gaseous rather than dying; slain victims rise as vampires or ghouls; level drain only after the victim is charmed
 * **Wight** (DD *Wights*):
   * Magic weapons do double damage.
   * -2 attack and morale in daylight.
   * Slain man-types rise as wights (master writes Spawn).
+  * Handout: magic weapons do double damage; −2 to hit and morale in daylight; slain man-types rise as wights
 * **Giant Wolf** (DD *Wolves, giant*):
   * Wargs can be ridden by goblins.
+  * Handout: wargs may be ridden by goblins
 * **Wraith** (DD *Wraiths*):
   * -2 attack and morale in daylight.
   * Evil allies get +1 morale.
   * Slain man-types rise as wraiths (master writes Spawn).
+  * Handout: −2 to hit and morale in daylight; evil allies +1 morale; slain man-types rise as wraiths
 * **Zombie** (DD *Zombies*):
   * Unaffected by normal missiles.
+  * Handout: unaffected by normal missiles

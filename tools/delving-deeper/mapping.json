@@ -8,12 +8,12 @@
   {"dd": "Ants, giant", "name": "Giant Ant", "type": "A", "env": "D", "atk": 1, "dam": "1d6",
    "specials": [],
    "unmapped": ["Secondary move 3 is burrowing (no Arena code).", "Never flee the nest while the queen lives (lair-only)."],
-   "handout": "burrows at 3; never flees the nest while the queen lives"},
+   "handout": "burrows at MV 3; never flees the nest while the queen lives"},
 
   {"dd": "Apes", "name": "Ape", "type": "A", "env": "W", "atk": 1, "dam": "1d6+1",
    "specials": [],
    "unmapped": ["Secondary move 12 is climbing (no Arena code)."],
-   "handout": "climbs at 12"},
+   "handout": "climbs at MV 12"},
 
   {"dd": "Basilisks", "name": "Basilisk", "type": "B", "env": "D", "atk": 1, "dam": "1d6",
    "specials": ["PetrifyingGaze", "Petrification"],
@@ -28,7 +28,7 @@
   {"dd": "Bats, giant", "name": "Giant Bat", "type": "A", "env": "D", "atk": 1, "dam": "1d6", "mv2": "Flight",
    "specials": [],
    "unmapped": ["Surprise on 3+ on d6 (master would write Stealth (n), not an enum name).", "Shriek makes normal-types cover ears for one turn."],
-   "handout": "surprises on 3+; shriek makes normal-types cover their ears for a turn"},
+   "handout": "surprises on 3+ on 1d6; shriek makes normal-types cover their ears for a turn"},
 
   {"dd": "Bears", "name": "Bear", "type": "A", "env": "W", "atk": 1, "dam": "1d6+2",
    "specials": [],
@@ -39,7 +39,7 @@
    "specials": [],
    "notes": ["HD 2-7 is a range: one row per HD value.", "No damage stated -> default 1d6 for every size."],
    "unmapped": ["Secondary move 6 is tunnelling through soft earth."],
-   "handout": "tunnels through soft earth at 6"},
+   "handout": "tunnels through soft earth at MV 6"},
 
   {"dd": "Black pudding", "name": "Black Pudding", "type": "S", "env": "D", "atk": 1, "dam": "3d6",
    "specials": ["WoodEating", "MetalEating", "VoltImmunity", "ColdImmunity", "ChopImmunity"],
@@ -207,7 +207,7 @@
    "specials": ["MagicToHit (1)"],
    "notes": ["3-18 vs opponents on solid ground -> 3d6 (2-12 vs airborne not modelled). Magic weapons only (Elementals introduction) -> MagicToHit (1)."],
    "unmapped": ["Secondary move 6 is through earth; cannot cross water; move earth drives it back for 6-36."],
-   "handout": "moves through earth at 6; cannot cross water; move earth drives it back 6d6"},
+   "handout": "moves through earth at MV 6; cannot cross water; a move earth spell drives it back 12\" for 6d6 damage"},
 
   {"dd": "Elemental, Fire", "type": "X", "env": "X", "atk": 1, "dam": "2d6",
    "expand": {"kind": "hd_list", "values": [8, 12, 16], "name": "{HD} Hit Dice Fire Elemental"},
@@ -286,7 +286,7 @@
    "specials": ["MagicToHit (1)", "MagicImmunity"],
    "notes": ["Only harmed by magic weapons -> MagicToHit (1). Name ends in Golem so Arena adds Golem. 'Largely invulnerable to harmful magic' (Golems introduction) -> MagicImmunity, as master; the few spells DD says do affect it are listed below."],
    "unmapped": ["Hasted for three turns after one turn of combat.", "Disintegrate slows it; move earth drives it back for 6-36.", "Its wounds need a 9th-level cleric to cure."],
-   "handout": "hasted for three turns after one turn of combat; disintegrate slows it, move earth drives it back 6d6; wounds need a 9th-level cleric to cure"},
+   "handout": "hasted for three turns after one turn of combat; a disintegrate spell slows it, a move earth spell drives it back 12\" for 6d6 damage; wounds need a 9th-level cleric to cure"},
 
   {"dd": "Golems, Flesh", "name": "Flesh Golem", "type": "B", "env": "D", "atk": 1, "dam": "2d6",
    "specials": ["MagicToHit (1)", "MagicImmunity"],
@@ -488,7 +488,7 @@
    "specials": ["CharmPerTen"],
    "notes": ["Any 10 nixies jointly cast charm person -> CharmPerTen (as master)."],
    "unmapped": ["Water breathing on the charmed victim; grappling ships with 40+."],
-   "handout": "the charmed victim breathes water; 40+ can grapple a ship"},
+   "handout": "the charmed victim breathes water; 40 or more can grapple a ship"},
 
   {"dd": "Ochre jelly", "name": "Ochre Jelly", "type": "S", "env": "D", "atk": 1, "dam": "1d6",
    "specials": ["WoodEating", "VoltImmunity", "ChopImmunity"],
@@ -523,7 +523,7 @@
    "notes": ["Swallows whole on exceeds-by-4 / 20 -> Swallowing; venomous tail stinger -> Poison; never checks morale -> Fearlessness (identical to master)."],
    "trigger": "exceeds-by-4 / natural 20: swallow whole (mapped to Swallowing)",
    "unmapped": ["Secondary move 9 is burrowing."],
-   "handout": "burrows at 9"},
+   "handout": "burrows at MV 9"},
 
   {"dd": "Rats, giant", "name": "Giant Rat", "type": "A", "env": "D", "atk": 1, "dam": "1d3", "mv2": "Swimming",
    "specials": [],
@@ -621,13 +621,13 @@
    "specials": ["Poison (2)"],
    "notes": ["Venomous with save at +2 -> Poison (2) (parameter is the target's save bonus, as master Large Spider)."],
    "unmapped": ["Secondary move 15 is scurrying over walls and ceilings."],
-   "handout": "scurries over walls and ceilings at 15"},
+   "handout": "scurries over walls and ceilings at MV 15"},
 
   {"dd": "Squid, giant", "name": "Giant Squid", "type": "A", "env": "U", "atk": 4, "dam": "1d6", "mv2": "Swimming",
    "specials": [],
    "notes": ["AC 7/3 (not explained in DD; presumably body / tentacles) -> 7, as master Giant Squid. 1-6 attack rolls -> Atk 4. Move '-/12' -> MV 0, Swimming (12). Treasure A3 -> A."],
    "unmapped": ["Split AC: second value 3 (Arena has one AC).", "Ink cloud and triple-speed retreat (master writes InkCloud, Jet).", "Grapple and capsize vessels."],
-   "handout": "second AC 3; ink cloud and triple-speed retreat; grapples and capsizes vessels"},
+   "handout": "AC 7/3 in the rules, the 3 unexplained; ink cloud and triple-speed retreat; grapples and capsizes vessels"},
 
   {"dd": "Thulls", "name": "Thull", "type": "H", "env": "D", "atk": 1, "dam": "1d6",
    "specials": ["Regeneration (1)", "Paralysis"],
