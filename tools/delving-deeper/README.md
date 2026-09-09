@@ -28,7 +28,7 @@ of eyes.
 |---|---|
 | `delving-deeper-rules.html` | SingleFile capture of the Delving Deeper reference rules (source) |
 | `parse.py` | Reads the HTML into `tables.json` (Table 3.1 and the dragon, giant, horse and roc tables) and `descriptions.json` (the Explanation of Monsters prose, including the group introductions) |
-| `mapping.json` | One entry per Arena row or expansion group: attack routine, Type/Env, SpecialType codes, notes, and every DD ability that could not be mapped |
+| `mapping.json` | One entry per Arena row or expansion group: attack routine, Type/Env, SpecialType codes, notes, every DD ability that could not be mapped, and its `handout` wording for the stat-block PDF |
 | `generate.py` | Derives the remaining columns from `tables.json`, renders `mapping.md` and `NOTES.md`, and writes the CSV |
 | `mapping.md` | The human-readable mapping: derivation rules plus one line per DD entry with rationale |
 | `NOTES.md` | Source inconsistencies, Arena engine caveats, the crit-damage pattern list, EHD findings, and unmapped abilities per monster |
